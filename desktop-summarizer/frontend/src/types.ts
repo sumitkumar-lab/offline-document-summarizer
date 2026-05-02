@@ -23,3 +23,18 @@ export interface SummaryStreamHandlers {
   onError: (message: string) => void;
 }
 
+export type SystemCheckStatus = "ready" | "warning" | "missing";
+
+export interface SystemCheckItem {
+  id: string;
+  label: string;
+  status: SystemCheckStatus;
+  message: string;
+  detail: string;
+}
+
+export interface SystemCheckResponse {
+  allReady: boolean;
+  checkedAt: string;
+  items: SystemCheckItem[];
+}

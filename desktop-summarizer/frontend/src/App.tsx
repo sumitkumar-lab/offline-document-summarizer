@@ -1,14 +1,20 @@
 import { AlertCircle, FileText, Settings } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { extractFile, saveSummary, summarizeStream } from "./api/backend";
+import { checkSystem, extractFile, saveSummary, summarizeStream } from "./api/backend";
 import { DropZone } from "./components/DropZone";
 import { ExtractedTextPanel } from "./components/ExtractedTextPanel";
 import { FilePreview } from "./components/FilePreview";
 import { PrivacyNote } from "./components/PrivacyNote";
 import { SettingsPage } from "./components/SettingsPage";
+import { SetupCheck } from "./components/SetupCheck";
 import { SummaryControls } from "./components/SummaryControls";
 import { SummaryOutput } from "./components/SummaryOutput";
-import type { AppSettings, SummaryLength, SummaryMode } from "./types";
+import type {
+  AppSettings,
+  SummaryLength,
+  SummaryMode,
+  SystemCheckResponse,
+} from "./types";
 
 const SETTINGS_KEY = "offline-document-summarizer-settings";
 
@@ -34,15 +40,44 @@ function App() {
   const [error, setError] = useState("");
   const [isExtracting, setIsExtracting] = useState(false);
   const [isSummarizing, setIsSummarizing] = useState(false);
+  const [systemCheck, setSystemCheck] = useState<SystemCheckResponse | null>(null);
+  const [isCheckingSystem, setIsCheckingSystem] = useState(true);
 
   useEffect(() => {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
   }, [settings]);
 
+  useEffect(() => {
+    void refreshSystemCheck();
+  }, [settings.runtime, settings.modelName, settings.ggufModelPath]);
+
   const canSummarize = useMemo(
     () => extractedText.trim().length > 0 && !isExtracting,
     [extractedText, isExtracting],
   );
+
+  async function refreshSystemCheck() {
+    setIsCheckingSystem(true);
+    try {
+      setSystemCheck(await checkSystem(settings));
+    } catch (caught) {
+      setSystemCheck({
+        allReady: false,
+        checkedAt: new Date().toISOString(),
+        items: [
+          {
+            id: "system-check",
+            label: "Local setup",
+            status: "warning",
+            message: getErrorMessage(caught),
+            detail: "",
+          },
+        ],
+      });
+    } finally {
+      setIsCheckingSystem(false);
+    }
+  }
 
   async function handleFileSelected(file: File) {
     setError("");
@@ -146,6 +181,12 @@ function App() {
 
       <PrivacyNote />
 
+      <SetupCheck
+        check={systemCheck}
+        isChecking={isCheckingSystem}
+        onRefresh={refreshSystemCheck}
+      />
+
       {error && (
         <div className="error-banner" role="alert">
           <AlertCircle size={18} aria-hidden="true" />
@@ -228,4 +269,3 @@ function formatFileType(type: string): string {
 }
 
 export default App;
-

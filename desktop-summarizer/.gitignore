@@ -2,6 +2,9 @@ node_modules/
 dist/
 target/
 backend-dist/
+backend/build/
+backend/dist/
+backend/*.spec
 __pycache__/
 *.py[cod]
 .venv/
@@ -12,4 +15,3 @@ outputs/*.txt
 .env
 .DS_Store
 Thumbs.db
-

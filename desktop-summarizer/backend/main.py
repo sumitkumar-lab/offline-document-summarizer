@@ -21,6 +21,7 @@ from utils.file_utils import (
     is_supported_file,
     save_summary,
 )
+from utils.system_check import run_system_check
 
 
 APP_ROOT = Path(__file__).resolve().parent
@@ -47,7 +48,7 @@ class SaveSummaryRequest(BaseModel):
     outputPath: str | None = None
 
 
-app = FastAPI(title="Offline Document Summarizer", version="0.1.0")
+app = FastAPI(title="Offline Document Summarizer", version="0.2.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -71,6 +72,11 @@ def health() -> dict[str, Any]:
         "privacy": "local-only",
         "ollamaApi": "http://127.0.0.1:11434",
     }
+
+
+@app.post("/system-check")
+def system_check(settings: Settings = Settings()) -> dict[str, Any]:
+    return run_system_check(settings.model_dump())
 
 
 @app.post("/extract")

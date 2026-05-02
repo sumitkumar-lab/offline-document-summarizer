@@ -1,12 +1,44 @@
 import type {
   AppSettings,
   ExtractResponse,
+  SystemCheckResponse,
   SummaryLength,
   SummaryMode,
   SummaryStreamHandlers,
 } from "../types";
 
 const API_BASE = import.meta.env.VITE_BACKEND_URL ?? "http://127.0.0.1:8765";
+
+export async function checkSystem(settings: AppSettings): Promise<SystemCheckResponse> {
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE}/system-check`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(settings),
+    });
+  } catch (error) {
+    return {
+      allReady: false,
+      checkedAt: new Date().toISOString(),
+      items: [
+        {
+          id: "backend",
+          label: "Local backend",
+          status: "missing",
+          message: "The local backend is not running.",
+          detail: "Start the app again or run the backend locally.",
+        },
+      ],
+    };
+  }
+
+  if (!response.ok) {
+    throw new Error(await readApiError(response));
+  }
+
+  return response.json();
+}
 
 export async function extractFile(file: File): Promise<ExtractResponse> {
   const formData = new FormData();

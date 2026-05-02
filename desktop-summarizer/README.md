@@ -16,6 +16,37 @@ The app never sends uploaded files, extracted text, summaries, or metadata to an
 - llama.cpp runtime scaffold using `llama-cpp-python` and a local `.gguf` model path
 - Large document fallback: chunk, summarize chunks, then summarize combined chunk summaries
 - Settings screen for runtime, model name, GGUF path, context window, and chunk size
+- First-run local readiness check for backend, OCR, Ollama, and model availability
+
+## Download for Windows Users
+
+Download the latest Windows installer from the project's GitHub Releases page.
+
+Recommended file:
+
+```text
+Offline Document Summarizer_0.2.0_x64-setup.exe
+```
+
+Alternative MSI package:
+
+```text
+Offline Document Summarizer_0.2.0_x64_en-US.msi
+```
+
+After installing, launch **Offline Document Summarizer** from the Start Menu. The app opens with a local setup check so users can see whether OCR, Ollama, and the selected model are ready.
+
+### Runtime Requirements for Downloaded Builds
+
+The installer includes the desktop app and local backend. Users still need these local tools for the first runtime:
+
+```powershell
+winget install --id Ollama.Ollama -e
+winget install --id tesseract-ocr.tesseract -e
+ollama pull gemma:2b
+```
+
+Everything runs locally after setup.
 
 ## Project Structure
 
@@ -200,13 +231,7 @@ After setup, the app can run without an Internet connection as long as:
 
 - Ollama is installed
 - the model has already been pulled locally with `ollama pull gemma:2b`
-- Python dependencies and Tesseract OCR are installed
+- Tesseract OCR is installed for image OCR
 - the desktop package includes the backend sidecar, or the backend is started locally during development
 
 No remote model APIs are used.
-
-## Desktop installer
-```bash
-D:\offline_llm\desktop-summarizer\frontend\src-tauri\target\release\bundle\nsis\Offline Document Summarizer_0.1.0_x64-setup.exe
-```
-After installing, launch Offline Document Summarizer from the Start Menu. Ollama should be installed and gemma:2b is already pulled locally on this machine.
