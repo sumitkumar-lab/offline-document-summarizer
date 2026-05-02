@@ -1,0 +1,15 @@
+node_modules/
+dist/
+target/
+backend-dist/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+uploads_tmp/
+outputs/*.txt
+!.gitkeep
+.env
+.DS_Store
+Thumbs.db
+

@@ -1,0 +1,4 @@
+# Optional runtime for local GGUF files.
+# Install this only when you want llama.cpp / llama-cpp-python support.
+llama-cpp-python==0.3.5
+
