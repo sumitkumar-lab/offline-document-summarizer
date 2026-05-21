@@ -1,6 +1,6 @@
 # Offline Document Summarizer Project Guide
 
-Version covered: 0.2.0
+Version covered: 0.3.0
 
 This document explains how the Offline Document Summarizer works, how the parts connect, and where to make future feature changes. It is written for maintainers who need to understand the project quickly before modifying it.
 
@@ -868,13 +868,13 @@ frontend/src-tauri/target/release/bundle/
 Recommended public download:
 
 ```text
-frontend/src-tauri/target/release/bundle/nsis/Offline Document Summarizer_0.2.0_x64-setup.exe
+frontend/src-tauri/target/release/bundle/nsis/Offline Document Summarizer_0.3.0_x64-setup.exe
 ```
 
 MSI alternative:
 
 ```text
-frontend/src-tauri/target/release/bundle/msi/Offline Document Summarizer_0.2.0_x64_en-US.msi
+frontend/src-tauri/target/release/bundle/msi/Offline Document Summarizer_0.3.0_x64_en-US.msi
 ```
 
 ## 12. Where To Make Common Feature Changes

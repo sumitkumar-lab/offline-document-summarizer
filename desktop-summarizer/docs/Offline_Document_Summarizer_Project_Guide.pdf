@@ -19,7 +19,7 @@ endobj
 << /Length 3883 >>
 stream
 BT /F2 18.00 Tf 52.00 730.00 Td (Offline Document Summarizer Project Guide) Tj ET
-BT /F1 9.50 Tf 52.00 703.00 Td (Version covered: 0.2.0) Tj ET
+BT /F1 9.50 Tf 52.00 703.00 Td (Version covered: 0.3.0) Tj ET
 BT /F1 9.50 Tf 52.00 677.00 Td (This document explains how the Offline Document Summarizer works, how the parts connect, and where to) Tj ET
 BT /F1 9.50 Tf 52.00 664.00 Td (make future feature changes. It is written for maintainers who need to understand the project quickly) Tj ET
 BT /F1 9.50 Tf 52.00 651.00 Td (before modifying it.) Tj ET
@@ -61,7 +61,7 @@ BT /F3 8.00 Tf 60.00 111.00 Td (    main.py) Tj ET
 BT /F3 8.00 Tf 60.00 101.00 Td (    requirements.txt) Tj ET
 BT /F3 8.00 Tf 60.00 91.00 Td (    requirements-build.txt) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 1 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 7 0 obj
@@ -122,7 +122,7 @@ BT /F1 9.50 Tf 52.00 147.00 Td (Do not add remote API calls for document content
 BT /F1 9.50 Tf 52.00 134.00 Td (and the privacy UI is updated.) Tj ET
 BT /F2 14.00 Tf 52.00 108.00 Td (5. High-Level Runtime Flow) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 2 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 9 0 obj
@@ -178,7 +178,7 @@ BT /F1 9.50 Tf 62.00 128.00 Td (- handleSummarize\(\) starts streaming summariza
 BT /F1 9.50 Tf 62.00 115.00 Td (- handleAskDocument\(\) starts streaming document Q&A.) Tj ET
 BT /F1 9.50 Tf 62.00 102.00 Td (- handleSaveDocument\(\) saves or updates the current document in My Documents.) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 3 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 11 0 obj
@@ -225,7 +225,7 @@ BT /F1 9.50 Tf 62.00 134.00 Td (- SystemCheckResponse) Tj ET
 BT /F1 9.50 Tf 62.00 121.00 Td (- SystemCheckItem) Tj ET
 BT /F1 9.50 Tf 52.00 95.00 Td (Change this file when:) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 4 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 13 0 obj
@@ -276,7 +276,7 @@ BT /F1 9.50 Tf 62.00 156.00 Td (- You add a component and need styling.) Tj ET
 BT /F1 9.50 Tf 62.00 143.00 Td (- You improve mobile responsiveness.) Tj ET
 BT /F2 14.00 Tf 52.00 117.00 Td (7. Backend Architecture) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 5 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 15 0 obj
@@ -326,7 +326,7 @@ BT /F2 11.50 Tf 52.00 152.00 Td (File Utilities) Tj ET
 BT /F1 9.50 Tf 52.00 124.00 Td (File: backend/utils/file_utils.py) Tj ET
 BT /F1 9.50 Tf 52.00 98.00 Td (Responsibilities:) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 6 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 17 0 obj
@@ -371,7 +371,7 @@ BT /F1 9.50 Tf 62.00 133.00 Td (- whether selected Ollama model is installed) Tj
 BT /F1 9.50 Tf 62.00 120.00 Td (- optional llama.cpp dependency and GGUF path) Tj ET
 BT /F1 9.50 Tf 52.00 94.00 Td (Change this file when:) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 7 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 19 0 obj
@@ -414,7 +414,7 @@ BT /F1 9.50 Tf 62.00 147.00 Td (- You support a different Ollama endpoint.) Tj E
 BT /F1 9.50 Tf 62.00 134.00 Td (- You improve model-not-found handling.) Tj ET
 BT /F2 11.50 Tf 52.00 108.00 Td (llama.cpp Runtime) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 8 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 21 0 obj
@@ -459,7 +459,7 @@ BT /F1 9.50 Tf 52.00 131.00 Td (The build_prompt\(\) function adds:) Tj ET
 BT /F1 9.50 Tf 62.00 105.00 Td (- a length hint) Tj ET
 BT /F1 9.50 Tf 62.00 92.00 Td (- an instruction to return only the summary) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 9 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 23 0 obj
@@ -504,7 +504,7 @@ BT /F3 8.00 Tf 60.00 122.00 Td (  combine chunk summaries) Tj ET
 BT /F3 8.00 Tf 60.00 112.00 Td (  run final summary over combined summaries) Tj ET
 BT /F3 8.00 Tf 60.00 102.00 Td (  stream final output) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 10 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 25 0 obj
@@ -550,7 +550,7 @@ BT /F2 11.50 Tf 52.00 148.00 Td (GET `/health`) Tj ET
 BT /F1 9.50 Tf 52.00 120.00 Td (Returns:) Tj ET
 BT /F3 8.00 Tf 60.00 94.00 Td ({) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 11 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 27 0 obj
@@ -605,7 +605,7 @@ BT /F3 8.00 Tf 60.00 111.00 Td (  "mode": "concise",) Tj ET
 BT /F3 8.00 Tf 60.00 101.00 Td (  "length": "medium",) Tj ET
 BT /F3 8.00 Tf 60.00 91.00 Td (  "settings": {) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 12 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 29 0 obj
@@ -661,7 +661,7 @@ BT /F3 8.00 Tf 60.00 121.00 Td (data: {"type":"status","message":"Finding releva
 BT /F3 8.00 Tf 60.00 101.00 Td (event: token) Tj ET
 BT /F3 8.00 Tf 60.00 91.00 Td (data: {"type":"token","text":"The document lists three action items..."}) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 13 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 31 0 obj
@@ -713,7 +713,7 @@ BT /F2 11.50 Tf 52.00 160.00 Td (DELETE `/documents/{document_id}`) Tj ET
 BT /F1 9.50 Tf 52.00 132.00 Td (Deletes the saved document folder from outputs/documents/.) Tj ET
 BT /F1 9.50 Tf 52.00 106.00 Td (Returns:) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 14 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 33 0 obj
@@ -758,7 +758,7 @@ BT /F3 8.00 Tf 60.00 155.00 Td (npm run tauri:dev) Tj ET
 BT /F2 11.50 Tf 52.00 132.00 Td (Build Backend Sidecar) Tj ET
 BT /F1 9.50 Tf 52.00 104.00 Td (From backend/:) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 15 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 35 0 obj
@@ -780,9 +780,9 @@ BT /F2 11.50 Tf 52.00 538.00 Td (Release Artifacts) Tj ET
 BT /F1 9.50 Tf 52.00 510.00 Td (Current release artifacts are created under:) Tj ET
 BT /F3 8.00 Tf 60.00 484.00 Td (frontend/src-tauri/target/release/bundle/) Tj ET
 BT /F1 9.50 Tf 52.00 461.00 Td (Recommended public download:) Tj ET
-BT /F3 8.00 Tf 60.00 435.00 Td (frontend/src-tauri/target/release/bundle/nsis/Offline Document Summarizer_0.2.0_x64-setup.exe) Tj ET
+BT /F3 8.00 Tf 60.00 435.00 Td (frontend/src-tauri/target/release/bundle/nsis/Offline Document Summarizer_0.3.0_x64-setup.exe) Tj ET
 BT /F1 9.50 Tf 52.00 412.00 Td (MSI alternative:) Tj ET
-BT /F3 8.00 Tf 60.00 386.00 Td (frontend/src-tauri/target/release/bundle/msi/Offline Document Summarizer_0.2.0_x64_en-US.msi) Tj ET
+BT /F3 8.00 Tf 60.00 386.00 Td (frontend/src-tauri/target/release/bundle/msi/Offline Document Summarizer_0.3.0_x64_en-US.msi) Tj ET
 BT /F2 14.00 Tf 52.00 363.00 Td (12. Where To Make Common Feature Changes) Tj ET
 BT /F2 11.50 Tf 52.00 332.00 Td (Add a New File Type) Tj ET
 BT /F1 9.50 Tf 52.00 304.00 Td (Files to change:) Tj ET
@@ -798,7 +798,7 @@ BT /F1 9.50 Tf 52.00 135.00 Td (2. Create backend/extraction/docx_reader.py.) Tj
 BT /F1 9.50 Tf 52.00 122.00 Td (3. Route file_type == "docx" in backend/main.py.) Tj ET
 BT /F1 9.50 Tf 52.00 109.00 Td (4. Add .docx to the file input accept list in DropZone.tsx.) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 16 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 37 0 obj
@@ -841,7 +841,7 @@ BT /F2 11.50 Tf 52.00 145.00 Td (Add a New Length Option) Tj ET
 BT /F1 9.50 Tf 52.00 117.00 Td (Files to change:) Tj ET
 BT /F1 9.50 Tf 62.00 91.00 Td (- backend/summarizer/prompts.py) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 17 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 39 0 obj
@@ -883,7 +883,7 @@ BT /F1 9.50 Tf 62.00 154.00 Td (- frontend/src/components/SummaryOutput.tsx) Tj 
 BT /F2 11.50 Tf 52.00 128.00 Td (Add Cancel Summarization) Tj ET
 BT /F1 9.50 Tf 52.00 100.00 Td (Files to change:) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 18 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 41 0 obj
@@ -926,7 +926,7 @@ BT /F1 9.50 Tf 62.00 145.00 Td (- Opening a saved document restores extracted te
 BT /F2 11.50 Tf 52.00 119.00 Td (Change UI Layout) Tj ET
 BT /F1 9.50 Tf 52.00 91.00 Td (Files to change:) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 19 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 43 0 obj
@@ -980,7 +980,7 @@ BT /F3 8.00 Tf 60.00 114.00 Td (.\\.venv\\Scripts\\python.exe -m compileall back
 BT /F3 8.00 Tf 60.00 104.00 Td (cd frontend) Tj ET
 BT /F3 8.00 Tf 60.00 94.00 Td (npm run build) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 20 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 45 0 obj
@@ -1029,7 +1029,7 @@ BT /F1 9.50 Tf 52.00 144.00 Td (7. Export as Markdown and PDF.) Tj ET
 BT /F1 9.50 Tf 52.00 131.00 Td (8. App auto-update after code signing is planned.) Tj ET
 BT /F2 14.00 Tf 52.00 105.00 Td (18. Maintenance Notes) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 21 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 47 0 obj
@@ -1047,7 +1047,7 @@ BT /F1 9.50 Tf 62.00 645.00 Td (- Keep frontend API calls centralized in fronten
 BT /F1 9.50 Tf 62.00 632.00 Td (- Keep shared frontend types in frontend/src/types.ts.) Tj ET
 BT /F1 9.50 Tf 62.00 619.00 Td (- Update this document when you add a new runtime, file type, API endpoint, or release workflow.) Tj ET
 BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 22 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 19:48) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
 endstream
 endobj
 49 0 obj

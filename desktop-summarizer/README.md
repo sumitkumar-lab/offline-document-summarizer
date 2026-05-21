@@ -28,13 +28,13 @@ Download the latest Windows installer from the project's GitHub Releases page.
 Recommended file:
 
 ```text
-Offline Document Summarizer_0.2.0_x64-setup.exe
+Offline Document Summarizer_0.3.0_x64-setup.exe
 ```
 
 Alternative MSI package:
 
 ```text
-Offline Document Summarizer_0.2.0_x64_en-US.msi
+Offline Document Summarizer_0.3.0_x64_en-US.msi
 ```
 
 After installing, launch **Offline Document Summarizer** from the Start Menu. The app opens with a local setup check so users can see whether OCR, Ollama, and the selected model are ready.
