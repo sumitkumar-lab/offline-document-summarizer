@@ -14,18 +14,26 @@ from pydantic import BaseModel, Field
 from extraction.image_ocr import extract_text_from_image
 from extraction.pdf_reader import extract_text_from_pdf
 from extraction.txt_reader import extract_text_from_txt
+from summarizer.chat import iter_chat_events
 from summarizer.summarize import iter_summary_events
+from utils.document_store import (
+    delete_document,
+    get_document,
+    list_documents,
+    save_document,
+)
 from utils.file_utils import (
     AppError,
     get_file_type,
     is_supported_file,
-    save_summary,
+    save_summary as write_summary_file,
 )
 from utils.system_check import run_system_check
 
 
 APP_ROOT = Path(__file__).resolve().parent
 OUTPUT_DIR = APP_ROOT.parent / "outputs"
+DOCUMENTS_DIR = OUTPUT_DIR / "documents"
 
 
 class Settings(BaseModel):
@@ -41,6 +49,26 @@ class SummarizeRequest(BaseModel):
     mode: str = Field(default="concise")
     length: str = Field(default="medium")
     settings: Settings = Field(default_factory=Settings)
+
+
+class ChatMessage(BaseModel):
+    role: str
+    content: str
+
+
+class ChatRequest(BaseModel):
+    text: str
+    question: str
+    history: list[ChatMessage] = Field(default_factory=list)
+    settings: Settings = Field(default_factory=Settings)
+
+
+class SaveDocumentRequest(BaseModel):
+    id: str | None = None
+    filename: str = Field(default="Untitled document")
+    fileType: str = Field(default="Unknown")
+    text: str
+    summary: str = Field(default="")
 
 
 class SaveSummaryRequest(BaseModel):
@@ -153,10 +181,73 @@ async def summarize(request: SummarizeRequest) -> StreamingResponse:
     return StreamingResponse(stream(), media_type="text/event-stream")
 
 
+@app.post("/chat")
+async def chat(request: ChatRequest) -> StreamingResponse:
+    def stream():
+        try:
+            for event in iter_chat_events(
+                text=request.text,
+                question=request.question,
+                history=[message.model_dump() for message in request.history],
+                settings=request.settings.model_dump(),
+            ):
+                yield sse(event["type"], event)
+            yield sse("done", {"type": "done"})
+        except AppError as exc:
+            yield sse("error", {"type": "error", "message": str(exc)})
+        except Exception as exc:  # Keep UI friendly while preserving local-only processing.
+            yield sse(
+                "error",
+                {
+                    "type": "error",
+                    "message": f"Document chat failed locally: {exc}",
+                },
+            )
+
+    return StreamingResponse(stream(), media_type="text/event-stream")
+
+
+@app.get("/documents")
+def documents() -> dict[str, Any]:
+    return {"documents": list_documents(DOCUMENTS_DIR)}
+
+
+@app.get("/documents/{document_id}")
+def document(document_id: str) -> dict[str, object]:
+    try:
+        return get_document(DOCUMENTS_DIR, document_id)
+    except AppError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+
+
+@app.post("/documents")
+def save_document_route(request: SaveDocumentRequest) -> dict[str, object]:
+    try:
+        return save_document(
+            documents_dir=DOCUMENTS_DIR,
+            document_id=request.id,
+            filename=request.filename,
+            file_type=request.fileType,
+            text=request.text,
+            summary=request.summary,
+        )
+    except AppError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.delete("/documents/{document_id}")
+def delete_document_route(document_id: str) -> dict[str, str]:
+    try:
+        delete_document(DOCUMENTS_DIR, document_id)
+        return {"status": "Saved document deleted locally"}
+    except AppError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+
+
 @app.post("/save-summary")
 def save(request: SaveSummaryRequest) -> dict[str, str]:
     try:
-        saved_path = save_summary(
+        saved_path = write_summary_file(
             summary=request.summary,
             output_path=request.outputPath,
             output_dir=OUTPUT_DIR,

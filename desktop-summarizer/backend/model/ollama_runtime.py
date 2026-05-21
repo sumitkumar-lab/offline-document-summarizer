@@ -26,8 +26,8 @@ class OllamaRuntime:
         payload = {
             "model": self.model_name,
             "system": (
-                "You are a local document summarization engine. Return only the requested "
-                "summary content. Never include confirmations, greetings, or phrases like "
+                "You are a local document assistant. Return only the requested "
+                "document output. Never include confirmations, greetings, or phrases like "
                 "'Sure', 'Here is', or 'Here are'."
             ),
             "prompt": prompt,

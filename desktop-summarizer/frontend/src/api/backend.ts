@@ -1,6 +1,10 @@
 import type {
   AppSettings,
+  ChatMessage,
+  ChatStreamHandlers,
   ExtractResponse,
+  SavedDocumentDetail,
+  SavedDocumentSummary,
   SystemCheckResponse,
   SummaryLength,
   SummaryMode,
@@ -92,33 +96,39 @@ export async function summarizeStream(args: {
     throw new Error(await readApiError(response));
   }
 
-  const reader = response.body.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
+  await readTokenStream(response, args.handlers, "Summarization failed.");
+}
 
-  while (true) {
-    const { value, done } = await reader.read();
-    if (done) break;
-
-    buffer += decoder.decode(value, { stream: true });
-    const parts = buffer.split("\n\n");
-    buffer = parts.pop() ?? "";
-
-    for (const part of parts) {
-      const event = parseSse(part);
-      if (!event) continue;
-
-      if (event.name === "token") {
-        args.handlers.onToken(String(event.data.text ?? ""));
-      } else if (event.name === "status") {
-        args.handlers.onStatus(String(event.data.message ?? ""));
-      } else if (event.name === "error") {
-        const message = String(event.data.message ?? "Summarization failed.");
-        args.handlers.onError(message);
-        throw new Error(message);
-      }
-    }
+export async function chatStream(args: {
+  text: string;
+  question: string;
+  history: ChatMessage[];
+  settings: AppSettings;
+  handlers: ChatStreamHandlers;
+}): Promise<void> {
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE}/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        text: args.text,
+        question: args.question,
+        history: args.history.map(({ role, content }) => ({ role, content })),
+        settings: args.settings,
+      }),
+    });
+  } catch (error) {
+    throw new Error(
+      "Local backend is not running. Start the app backend, then try again.",
+    );
   }
+
+  if (!response.ok || !response.body) {
+    throw new Error(await readApiError(response));
+  }
+
+  await readTokenStream(response, args.handlers, "Document chat failed.");
 }
 
 export async function saveSummary(summary: string): Promise<string> {
@@ -154,6 +164,50 @@ export async function saveSummary(summary: string): Promise<string> {
   return fallbackSave();
 }
 
+export async function listDocuments(): Promise<SavedDocumentSummary[]> {
+  const response = await fetch(`${API_BASE}/documents`);
+  if (!response.ok) {
+    throw new Error(await readApiError(response));
+  }
+  const payload = (await response.json()) as { documents: SavedDocumentSummary[] };
+  return payload.documents;
+}
+
+export async function getDocument(documentId: string): Promise<SavedDocumentDetail> {
+  const response = await fetch(`${API_BASE}/documents/${encodeURIComponent(documentId)}`);
+  if (!response.ok) {
+    throw new Error(await readApiError(response));
+  }
+  return response.json();
+}
+
+export async function saveDocument(args: {
+  id?: string | null;
+  filename: string;
+  fileType: string;
+  text: string;
+  summary: string;
+}): Promise<SavedDocumentDetail> {
+  const response = await fetch(`${API_BASE}/documents`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(args),
+  });
+  if (!response.ok) {
+    throw new Error(await readApiError(response));
+  }
+  return response.json();
+}
+
+export async function deleteDocument(documentId: string): Promise<void> {
+  const response = await fetch(`${API_BASE}/documents/${encodeURIComponent(documentId)}`, {
+    method: "DELETE",
+  });
+  if (!response.ok) {
+    throw new Error(await readApiError(response));
+  }
+}
+
 async function readApiError(response: Response): Promise<string> {
   try {
     const payload = await response.json();
@@ -184,5 +238,43 @@ function parseSse(block: string): { name: string; data: Record<string, unknown> 
     return { name, data: JSON.parse(dataLines.join("\n")) };
   } catch {
     return null;
+  }
+}
+
+async function readTokenStream(
+  response: Response,
+  handlers: SummaryStreamHandlers,
+  fallbackError: string,
+): Promise<void> {
+  if (!response.body) {
+    throw new Error(fallbackError);
+  }
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  while (true) {
+    const { value, done } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+    const parts = buffer.split("\n\n");
+    buffer = parts.pop() ?? "";
+
+    for (const part of parts) {
+      const event = parseSse(part);
+      if (!event) continue;
+
+      if (event.name === "token") {
+        handlers.onToken(String(event.data.text ?? ""));
+      } else if (event.name === "status") {
+        handlers.onStatus(String(event.data.message ?? ""));
+      } else if (event.name === "error") {
+        const message = String(event.data.message ?? fallbackError);
+        handlers.onError(message);
+        throw new Error(message);
+      }
+    }
   }
 }

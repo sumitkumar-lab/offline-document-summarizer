@@ -18,6 +18,47 @@ MODE_PROMPTS = {
         "Convert the following content into simple study notes with headings, key ideas, and important points:\n\n"
         "{text}\n\nStudy notes:"
     ),
+    "action_items": (
+        "Extract practical action items from the following content. Use a task-focused format. "
+        "For each item, include the task, owner if mentioned, deadline if mentioned, and priority if clear. "
+        "If the owner or deadline is not stated, write 'Not specified'.\n\n"
+        "{text}\n\nAction items:"
+    ),
+    "eli10": (
+        "Explain the following content like the reader is 10 years old. Use simple words, short sentences, "
+        "and friendly examples while keeping the meaning accurate:\n\n"
+        "{text}\n\nSimple explanation:"
+    ),
+    "meeting_notes": (
+        "Convert the following content into clear meeting notes. Include sections for topics discussed, "
+        "decisions, action items, blockers, and next steps. Only include sections that are supported by the content:\n\n"
+        "{text}\n\nMeeting notes:"
+    ),
+    "research_paper": (
+        "Summarize the following content as a research paper summary. Cover the research question or purpose, "
+        "method or approach, key findings, evidence, limitations, and practical implications:\n\n"
+        "{text}\n\nResearch paper summary:"
+    ),
+    "legal_policy": (
+        "Summarize the following legal or policy content in plain language. Identify the purpose, who or what is affected, "
+        "key rules or obligations, deadlines, exceptions, risks, and open questions. Do not provide legal advice or invent details:\n\n"
+        "{text}\n\nLegal/policy summary:"
+    ),
+    "email": (
+        "Rewrite the following content as a clear email-style summary. Include a short subject line, a brief opening, "
+        "the main points, requested actions if any, and a concise closing:\n\n"
+        "{text}\n\nEmail-style summary:"
+    ),
+    "x_thread": (
+        "Turn the following content into an original X-style post thread. Use numbered posts, keep each post under 280 characters, "
+        "make the thread easy to scan, and avoid copying sentences from the source text:\n\n"
+        "{text}\n\nX-style thread:"
+    ),
+    "reddit_linkedin": (
+        "Create original, plagiarism-free social post drafts from the following content. Provide one Reddit-style post and one "
+        "LinkedIn-style post. Rewrite ideas in fresh wording, keep the claims faithful to the source, and avoid copying sentences:\n\n"
+        "{text}\n\nReddit and LinkedIn posts:"
+    ),
 }
 
 LENGTH_HINTS = {

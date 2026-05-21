@@ -12,6 +12,9 @@ The app never sends uploaded files, extracted text, summaries, or metadata to an
 - Local PDF text extraction through `pdfplumber`, with `pypdf` fallback
 - TXT reading with UTF-8 and fallback encodings
 - Streaming summary output through Server-Sent Events
+- Local document chat for asking questions against the extracted text
+- Local My Documents library for saving and reopening extracted text with saved summaries
+- Summary modes for concise summaries, bullets, key ideas, study notes, action items, simple explanations, meeting notes, research papers, legal/policy text, email summaries, X-style threads, and Reddit/LinkedIn posts
 - Ollama runtime using `gemma:2b`
 - llama.cpp runtime scaffold using `llama-cpp-python` and a local `.gguf` model path
 - Large document fallback: chunk, summarize chunks, then summarize combined chunk summaries
@@ -76,8 +79,10 @@ desktop-summarizer/
       summarize.py
     utils/
       file_utils.py
+      document_store.py
   models/
   outputs/
+    documents/
 ```
 
 ## Windows Setup

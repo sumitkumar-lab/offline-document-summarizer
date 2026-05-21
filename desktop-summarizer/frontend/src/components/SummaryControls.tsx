@@ -1,6 +1,21 @@
 import { Download, Sparkles } from "lucide-react";
 import type { SummaryLength, SummaryMode } from "../types";
 
+const SUMMARY_MODE_OPTIONS: Array<{ value: SummaryMode; label: string }> = [
+  { value: "concise", label: "Concise paragraph" },
+  { value: "bullets", label: "Bullet points" },
+  { value: "key_ideas", label: "Key ideas only" },
+  { value: "study_notes", label: "Study notes" },
+  { value: "action_items", label: "Action items" },
+  { value: "eli10", label: "Explain like I'm 10" },
+  { value: "meeting_notes", label: "Meeting notes" },
+  { value: "research_paper", label: "Research paper summary" },
+  { value: "legal_policy", label: "Legal / policy summary" },
+  { value: "email", label: "Email-style summary" },
+  { value: "x_thread", label: "X post-style thread" },
+  { value: "reddit_linkedin", label: "Reddit / LinkedIn posts" },
+];
+
 interface SummaryControlsProps {
   mode: SummaryMode;
   length: SummaryLength;
@@ -34,10 +49,11 @@ export function SummaryControls({
             disabled={isSummarizing}
             onChange={(event) => onModeChange(event.target.value as SummaryMode)}
           >
-            <option value="concise">Concise paragraph</option>
-            <option value="bullets">Bullet points</option>
-            <option value="key_ideas">Key ideas only</option>
-            <option value="study_notes">Study notes</option>
+            {SUMMARY_MODE_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
         </label>
 
@@ -78,4 +94,3 @@ export function SummaryControls({
     </section>
   );
 }
-

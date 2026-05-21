@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev:web": "vite --host 127.0.0.1 --port 5173",
-    "dev:backend": "../.venv/Scripts/python.exe ../backend/main.py",
+    "dev:backend": "..\\.venv\\Scripts\\python.exe ..\\backend\\main.py",
     "dev": "concurrently -k \"npm:dev:backend\" \"npm:dev:web\"",
     "tauri:dev": "concurrently -k \"npm:dev:backend\" \"tauri dev\"",
     "build": "tsc && vite build",

@@ -1,6 +1,19 @@
-export type SummaryMode = "concise" | "bullets" | "key_ideas" | "study_notes";
+export type SummaryMode =
+  | "concise"
+  | "bullets"
+  | "key_ideas"
+  | "study_notes"
+  | "action_items"
+  | "eli10"
+  | "meeting_notes"
+  | "research_paper"
+  | "legal_policy"
+  | "email"
+  | "x_thread"
+  | "reddit_linkedin";
 export type SummaryLength = "short" | "medium" | "detailed";
 export type Runtime = "ollama" | "llama.cpp";
+export type ChatRole = "user" | "assistant";
 
 export interface AppSettings {
   runtime: Runtime;
@@ -21,6 +34,29 @@ export interface SummaryStreamHandlers {
   onToken: (token: string) => void;
   onStatus: (message: string) => void;
   onError: (message: string) => void;
+}
+
+export interface ChatMessage {
+  id: string;
+  role: ChatRole;
+  content: string;
+}
+
+export type ChatStreamHandlers = SummaryStreamHandlers;
+
+export interface SavedDocumentSummary {
+  id: string;
+  filename: string;
+  fileType: string;
+  createdAt: string;
+  updatedAt: string;
+  textChars: number;
+  summaryChars: number;
+}
+
+export interface SavedDocumentDetail extends SavedDocumentSummary {
+  text: string;
+  summary: string;
 }
 
 export type SystemCheckStatus = "ready" | "warning" | "missing";

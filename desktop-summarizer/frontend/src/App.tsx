@@ -1,6 +1,18 @@
 import { AlertCircle, FileText, Settings } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { checkSystem, extractFile, saveSummary, summarizeStream } from "./api/backend";
+import {
+  chatStream,
+  checkSystem,
+  deleteDocument,
+  extractFile,
+  getDocument,
+  listDocuments,
+  saveDocument,
+  saveSummary,
+  summarizeStream,
+} from "./api/backend";
+import { DocumentLibrary } from "./components/DocumentLibrary";
+import { DocumentChat } from "./components/DocumentChat";
 import { DropZone } from "./components/DropZone";
 import { ExtractedTextPanel } from "./components/ExtractedTextPanel";
 import { FilePreview } from "./components/FilePreview";
@@ -11,6 +23,8 @@ import { SummaryControls } from "./components/SummaryControls";
 import { SummaryOutput } from "./components/SummaryOutput";
 import type {
   AppSettings,
+  ChatMessage,
+  SavedDocumentSummary,
   SummaryLength,
   SummaryMode,
   SystemCheckResponse,
@@ -37,9 +51,18 @@ function App() {
   const [summaryStatus, setSummaryStatus] = useState("Idle");
   const [summaryMode, setSummaryMode] = useState<SummaryMode>("concise");
   const [summaryLength, setSummaryLength] = useState<SummaryLength>("medium");
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+  const [chatQuestion, setChatQuestion] = useState("");
+  const [chatStatus, setChatStatus] = useState("Idle");
+  const [savedDocuments, setSavedDocuments] = useState<SavedDocumentSummary[]>([]);
+  const [currentDocumentId, setCurrentDocumentId] = useState<string | null>(null);
+  const [documentLibraryStatus, setDocumentLibraryStatus] = useState("Idle");
   const [error, setError] = useState("");
   const [isExtracting, setIsExtracting] = useState(false);
   const [isSummarizing, setIsSummarizing] = useState(false);
+  const [isChatting, setIsChatting] = useState(false);
+  const [isSavingDocument, setIsSavingDocument] = useState(false);
+  const [isOpeningDocument, setIsOpeningDocument] = useState(false);
   const [systemCheck, setSystemCheck] = useState<SystemCheckResponse | null>(null);
   const [isCheckingSystem, setIsCheckingSystem] = useState(true);
 
@@ -51,9 +74,30 @@ function App() {
     void refreshSystemCheck();
   }, [settings.runtime, settings.modelName, settings.ggufModelPath]);
 
+  useEffect(() => {
+    void refreshDocuments();
+  }, []);
+
+  const isDocumentBusy = isSavingDocument || isOpeningDocument;
+
   const canSummarize = useMemo(
-    () => extractedText.trim().length > 0 && !isExtracting,
-    [extractedText, isExtracting],
+    () => extractedText.trim().length > 0 && !isExtracting && !isChatting && !isDocumentBusy,
+    [extractedText, isExtracting, isChatting, isDocumentBusy],
+  );
+
+  const canChat = useMemo(
+    () => extractedText.trim().length > 0 && !isExtracting && !isSummarizing && !isDocumentBusy,
+    [extractedText, isExtracting, isSummarizing, isDocumentBusy],
+  );
+
+  const canSaveDocument = useMemo(
+    () =>
+      extractedText.trim().length > 0 &&
+      !isExtracting &&
+      !isSummarizing &&
+      !isChatting &&
+      !isDocumentBusy,
+    [extractedText, isExtracting, isSummarizing, isChatting, isDocumentBusy],
   );
 
   async function refreshSystemCheck() {
@@ -79,10 +123,27 @@ function App() {
     }
   }
 
+  async function refreshDocuments() {
+    setDocumentLibraryStatus("Loading");
+    try {
+      const documents = await listDocuments();
+      setSavedDocuments(documents);
+      setDocumentLibraryStatus(`${documents.length} saved`);
+    } catch (caught) {
+      setDocumentLibraryStatus("Unavailable");
+      setError(getErrorMessage(caught));
+    }
+  }
+
   async function handleFileSelected(file: File) {
     setError("");
     setSummary("");
     setSummaryStatus("Idle");
+    setChatMessages([]);
+    setChatQuestion("");
+    setChatStatus("Idle");
+    setCurrentDocumentId(null);
+    setDocumentLibraryStatus("Unsaved");
     setFilename(file.name);
     setFileType(guessFileType(file.name));
     setExtractionStatus("Extracting text locally...");
@@ -132,6 +193,144 @@ function App() {
       setError(getErrorMessage(caught));
     } finally {
       setIsSummarizing(false);
+    }
+  }
+
+  async function handleAskDocument() {
+    const question = chatQuestion.trim();
+    if (!extractedText.trim()) {
+      setError(filename ? "Empty extracted text." : "No file selected.");
+      return;
+    }
+    if (!question) {
+      setError("Enter a question about the document.");
+      return;
+    }
+
+    const history = chatMessages;
+    const userMessage: ChatMessage = {
+      id: createChatId(),
+      role: "user",
+      content: question,
+    };
+    const assistantMessage: ChatMessage = {
+      id: createChatId(),
+      role: "assistant",
+      content: "",
+    };
+
+    setError("");
+    setChatQuestion("");
+    setChatStatus("Starting local model...");
+    setIsChatting(true);
+    setChatMessages((current) => [...current, userMessage, assistantMessage]);
+
+    try {
+      await chatStream({
+        text: extractedText,
+        question,
+        history,
+        settings,
+        handlers: {
+          onToken: (token) => {
+            setChatMessages((current) =>
+              current.map((message) =>
+                message.id === assistantMessage.id
+                  ? { ...message, content: message.content + token }
+                  : message,
+              ),
+            );
+          },
+          onStatus: (message) => setChatStatus(message),
+          onError: (message) => setError(message),
+        },
+      });
+      setChatStatus("Complete");
+    } catch (caught) {
+      setChatStatus("Failed");
+      setError(getErrorMessage(caught));
+    } finally {
+      setIsChatting(false);
+    }
+  }
+
+  async function handleSaveDocument() {
+    if (!extractedText.trim()) {
+      setError(filename ? "Empty extracted text." : "No file selected.");
+      return;
+    }
+
+    setError("");
+    setIsSavingDocument(true);
+    setDocumentLibraryStatus("Saving");
+    try {
+      const document = await saveDocument({
+        id: currentDocumentId,
+        filename: filename || "Untitled document",
+        fileType: fileType || "Unknown",
+        text: extractedText,
+        summary,
+      });
+      setCurrentDocumentId(document.id);
+      setFilename(document.filename);
+      setFileType(document.fileType);
+      setDocumentLibraryStatus("Saved");
+      await refreshDocuments();
+    } catch (caught) {
+      setDocumentLibraryStatus("Save failed");
+      setError(getErrorMessage(caught));
+    } finally {
+      setIsSavingDocument(false);
+    }
+  }
+
+  async function handleOpenDocument(documentId: string) {
+    setError("");
+    setIsOpeningDocument(true);
+    setDocumentLibraryStatus("Opening");
+    try {
+      const document = await getDocument(documentId);
+      setCurrentDocumentId(document.id);
+      setFilename(document.filename);
+      setFileType(document.fileType);
+      setExtractionStatus("Loaded from My Documents");
+      setExtractedText(document.text);
+      setSummary(document.summary);
+      setSummaryStatus(document.summary.trim() ? "Loaded saved summary" : "No saved summary");
+      setChatMessages([]);
+      setChatQuestion("");
+      setChatStatus("Idle");
+      setDocumentLibraryStatus("Loaded");
+    } catch (caught) {
+      setDocumentLibraryStatus("Open failed");
+      setError(getErrorMessage(caught));
+    } finally {
+      setIsOpeningDocument(false);
+    }
+  }
+
+  async function handleDeleteDocument(documentId: string) {
+    const document = savedDocuments.find((item) => item.id === documentId);
+    const name = document?.filename ?? "this saved document";
+    if (!window.confirm(`Delete "${name}" from My Documents?`)) {
+      return;
+    }
+
+    setError("");
+    setIsOpeningDocument(true);
+    setDocumentLibraryStatus("Deleting");
+    try {
+      await deleteDocument(documentId);
+      if (currentDocumentId === documentId) {
+        setCurrentDocumentId(null);
+      }
+      setDocumentLibraryStatus("Deleted");
+      await refreshDocuments();
+    } catch (caught) {
+      setDocumentLibraryStatus("Delete failed");
+      setError(getErrorMessage(caught));
+    } finally {
+      setIsOpeningDocument(false);
     }
   }
 
@@ -197,12 +396,25 @@ function App() {
       {activeView === "workspace" ? (
         <div className="workspace-grid">
           <div className="left-stack">
-            <DropZone disabled={isExtracting || isSummarizing} onFileSelected={handleFileSelected} />
+            <DropZone
+              disabled={isExtracting || isSummarizing || isChatting || isDocumentBusy}
+              onFileSelected={handleFileSelected}
+            />
             <FilePreview
               filename={filename}
               fileType={fileType}
               status={extractionStatus}
               isBusy={isExtracting}
+            />
+            <DocumentLibrary
+              documents={savedDocuments}
+              activeDocumentId={currentDocumentId}
+              status={documentLibraryStatus}
+              canSaveCurrent={canSaveDocument}
+              isBusy={isDocumentBusy || isExtracting || isSummarizing || isChatting}
+              onSaveCurrent={handleSaveDocument}
+              onOpenDocument={handleOpenDocument}
+              onDeleteDocument={handleDeleteDocument}
             />
             <SummaryControls
               mode={summaryMode}
@@ -220,13 +432,26 @@ function App() {
           <div className="right-stack">
             <ExtractedTextPanel
               text={extractedText}
-              disabled={isExtracting || isSummarizing}
+              disabled={isExtracting || isSummarizing || isChatting}
               onChange={setExtractedText}
             />
             <SummaryOutput
               summary={summary}
               status={summaryStatus}
               isSummarizing={isSummarizing}
+            />
+            <DocumentChat
+              messages={chatMessages}
+              question={chatQuestion}
+              status={chatStatus}
+              canChat={canChat}
+              isChatting={isChatting}
+              onQuestionChange={setChatQuestion}
+              onAsk={handleAskDocument}
+              onClear={() => {
+                setChatMessages([]);
+                setChatStatus("Idle");
+              }}
             />
           </div>
         </div>
@@ -245,6 +470,13 @@ function loadSettings(): AppSettings {
   } catch {
     return DEFAULT_SETTINGS;
   }
+}
+
+function createChatId(): string {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
+    return crypto.randomUUID();
+  }
+  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
 function getErrorMessage(error: unknown): string {
