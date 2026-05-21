@@ -11,6 +11,7 @@ import {
   saveSummary,
   summarizeStream,
 } from "./api/backend";
+import { checkForUpdates, DEFAULT_UPDATE_FEED_URL } from "./api/updates";
 import { DocumentLibrary } from "./components/DocumentLibrary";
 import { DocumentChat } from "./components/DocumentChat";
 import { DropZone } from "./components/DropZone";
@@ -28,9 +29,13 @@ import type {
   SummaryLength,
   SummaryMode,
   SystemCheckResponse,
+  UpdateCheckResult,
 } from "./types";
+import { APP_VERSION } from "./version";
 
 const SETTINGS_KEY = "offline-document-summarizer-settings";
+const UPDATE_LAST_CHECK_KEY = "offline-document-summarizer-last-update-check";
+const UPDATE_CHECK_INTERVAL_MS = 24 * 60 * 60 * 1000;
 
 const DEFAULT_SETTINGS: AppSettings = {
   runtime: "ollama",
@@ -38,6 +43,8 @@ const DEFAULT_SETTINGS: AppSettings = {
   ggufModelPath: "",
   contextWindow: 4096,
   chunkSize: 9000,
+  updateFeedUrl: DEFAULT_UPDATE_FEED_URL,
+  autoCheckUpdates: Boolean(DEFAULT_UPDATE_FEED_URL),
 };
 
 function App() {
@@ -65,6 +72,9 @@ function App() {
   const [isOpeningDocument, setIsOpeningDocument] = useState(false);
   const [systemCheck, setSystemCheck] = useState<SystemCheckResponse | null>(null);
   const [isCheckingSystem, setIsCheckingSystem] = useState(true);
+  const [updateStatus, setUpdateStatus] = useState("Idle");
+  const [updateResult, setUpdateResult] = useState<UpdateCheckResult | null>(null);
+  const [isCheckingUpdates, setIsCheckingUpdates] = useState(false);
 
   useEffect(() => {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
@@ -77,6 +87,13 @@ function App() {
   useEffect(() => {
     void refreshDocuments();
   }, []);
+
+  useEffect(() => {
+    if (!settings.autoCheckUpdates || !settings.updateFeedUrl.trim()) return;
+    const lastCheck = Number(localStorage.getItem(UPDATE_LAST_CHECK_KEY) || "0");
+    if (Date.now() - lastCheck < UPDATE_CHECK_INTERVAL_MS) return;
+    void handleCheckForUpdates({ silent: true });
+  }, [settings.autoCheckUpdates, settings.updateFeedUrl]);
 
   const isDocumentBusy = isSavingDocument || isOpeningDocument;
 
@@ -132,6 +149,31 @@ function App() {
     } catch (caught) {
       setDocumentLibraryStatus("Unavailable");
       setError(getErrorMessage(caught));
+    }
+  }
+
+  async function handleCheckForUpdates(options: { silent?: boolean } = {}) {
+    if (!settings.updateFeedUrl.trim()) {
+      setUpdateStatus("Add update feed URL");
+      if (!options.silent) {
+        setError("Add a GitHub Releases feed URL in Settings before checking for updates.");
+      }
+      return;
+    }
+
+    if (!options.silent) setError("");
+    setIsCheckingUpdates(true);
+    setUpdateStatus("Checking");
+    try {
+      const result = await checkForUpdates(settings.updateFeedUrl, APP_VERSION);
+      setUpdateResult(result);
+      localStorage.setItem(UPDATE_LAST_CHECK_KEY, String(Date.now()));
+      setUpdateStatus(result.isUpdateAvailable ? "Update available" : "Up to date");
+    } catch (caught) {
+      setUpdateStatus("Check failed");
+      if (!options.silent) setError(getErrorMessage(caught));
+    } finally {
+      setIsCheckingUpdates(false);
     }
   }
 
@@ -456,7 +498,15 @@ function App() {
           </div>
         </div>
       ) : (
-        <SettingsPage settings={settings} onChange={setSettings} />
+        <SettingsPage
+          settings={settings}
+          appVersion={APP_VERSION}
+          updateStatus={updateStatus}
+          updateResult={updateResult}
+          isCheckingUpdates={isCheckingUpdates}
+          onCheckUpdates={() => handleCheckForUpdates()}
+          onChange={setSettings}
+        />
       )}
     </main>
   );

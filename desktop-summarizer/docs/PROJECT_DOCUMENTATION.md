@@ -1,6 +1,6 @@
 # Offline Document Summarizer Project Guide
 
-Version covered: 0.3.0
+Version covered: 0.4.0
 
 This document explains how the Offline Document Summarizer works, how the parts connect, and where to make future feature changes. It is written for maintainers who need to understand the project quickly before modifying it.
 
@@ -70,11 +70,13 @@ desktop-summarizer/
     src/
       App.tsx
       api/backend.ts
+      api/updates.ts
       components/
         DocumentLibrary.tsx
         DocumentChat.tsx
       styles.css
       types.ts
+      version.ts
     src-tauri/
       tauri.conf.json
       Cargo.toml
@@ -99,6 +101,7 @@ Current local-only rules:
 - Summaries are saved to local disk.
 - Document chat uses the current extracted text and recent in-memory chat only.
 - The My Documents library stores extracted text, summaries, and metadata under local `outputs/documents/`.
+- Update checks call GitHub Releases metadata only, and only when configured. No document content is sent.
 
 Do not add remote API calls for document content unless the user explicitly opts into a new feature and the privacy UI is updated.
 
@@ -128,6 +131,9 @@ User drops file
   -> backend/utils/document_store.py writes local document files under outputs/documents/
   -> User opens an old document from My Documents
   -> React sends GET /documents/{id} and restores extracted text plus saved summary
+  -> User checks for updates or enables startup checks
+  -> React reads GitHub Releases metadata from the configured feed URL
+  -> React compares the latest tag with frontend/src/version.ts
   -> User clicks Save Summary
   -> Tauri save dialog writes .txt locally, or backend fallback writes under outputs/
 ```
@@ -151,6 +157,7 @@ This file coordinates the whole UI:
 - selected summary mode and length
 - document chat messages, draft question, and status
 - saved document list and current saved document id
+- update check status and latest release metadata
 - local setup readiness check
 - loading flags and error state
 
@@ -161,6 +168,7 @@ Important handlers:
 - `handleAskDocument()` starts streaming document Q&A.
 - `handleSaveDocument()` saves or updates the current document in My Documents.
 - `handleOpenDocument(documentId)` restores extracted text and saved summary from My Documents.
+- `handleCheckForUpdates()` checks the configured GitHub Releases feed.
 - `handleSave()` saves summary output.
 - `refreshSystemCheck()` checks local prerequisites.
 
@@ -170,6 +178,24 @@ Change this file when:
 - You add new state that multiple components need.
 - You add a new page/tab.
 - You change the order of the main workspace layout.
+
+### Update API Wrapper
+
+File: `frontend/src/api/updates.ts`
+
+This file checks GitHub Releases metadata:
+
+- normalizes `github.com/owner/repo` into the GitHub API URL
+- fetches `releases/latest`
+- compares semantic versions such as `v0.4.0`
+- chooses a likely `.exe` or `.msi` download URL from release assets
+
+Change this file when:
+
+- You switch away from GitHub Releases.
+- You add prerelease channels.
+- You add signed Tauri auto-updates.
+- You change version comparison rules.
 
 ### Backend API Wrapper
 
@@ -205,6 +231,7 @@ Contains TypeScript interfaces and union types:
 - `ChatMessage`
 - `SavedDocumentSummary`
 - `SavedDocumentDetail`
+- `UpdateCheckResult`
 - `SystemCheckResponse`
 - `SystemCheckItem`
 
@@ -214,6 +241,7 @@ Change this file when:
 - You add a new setting.
 - You add a new backend response shape.
 - You add a saved document metadata field.
+- You add update metadata fields.
 - You add a new runtime.
 
 ### Components
@@ -230,7 +258,7 @@ Folder: `frontend/src/components`
 | SummaryOutput | `SummaryOutput.tsx` | Displays streaming summary output and loading state. |
 | DocumentChat | `DocumentChat.tsx` | Displays a local chat session for asking questions about the extracted document. |
 | SetupCheck | `SetupCheck.tsx` | Shows readiness status for backend, OCR, Ollama, and model. |
-| SettingsPage | `SettingsPage.tsx` | Runtime, model name, GGUF path, context window, and chunk size settings. |
+| SettingsPage | `SettingsPage.tsx` | Runtime, model, chunking, and update-check settings. |
 | PrivacyNote | `PrivacyNote.tsx` | Shows the local privacy note. |
 
 ### Styling
@@ -246,6 +274,7 @@ This is the central stylesheet. It controls:
 - My Documents list
 - summary output display
 - document chat transcript and input
+- update settings and status cards
 - text area sizing
 - mobile layout
 
@@ -868,13 +897,13 @@ frontend/src-tauri/target/release/bundle/
 Recommended public download:
 
 ```text
-frontend/src-tauri/target/release/bundle/nsis/Offline Document Summarizer_0.3.0_x64-setup.exe
+frontend/src-tauri/target/release/bundle/nsis/Offline Document Summarizer_0.4.0_x64-setup.exe
 ```
 
 MSI alternative:
 
 ```text
-frontend/src-tauri/target/release/bundle/msi/Offline Document Summarizer_0.3.0_x64_en-US.msi
+frontend/src-tauri/target/release/bundle/msi/Offline Document Summarizer_0.4.0_x64_en-US.msi
 ```
 
 ## 12. Where To Make Common Feature Changes
@@ -1043,6 +1072,24 @@ Current behavior:
 - Each saved document has metadata, extracted text, and summary text.
 - Opening a saved document restores extracted text and saved summary.
 
+### Change Update Notifications
+
+Files to change:
+
+- `frontend/src/api/updates.ts`
+- `frontend/src/components/SettingsPage.tsx`
+- `frontend/src/App.tsx`
+- `frontend/src/types.ts`
+- `frontend/src/version.ts`
+- `frontend/src-tauri/tauri.conf.json` if update metadata hosts change
+
+Current behavior:
+
+- The app checks GitHub Releases metadata from the configured feed URL.
+- Startup checks run only when enabled and at most once every 24 hours.
+- The checker reports a newer version and links to a release asset.
+- This is not a signed automatic installer updater.
+
 ### Change UI Layout
 
 Files to change:
@@ -1075,6 +1122,7 @@ This feature has security implications and should be planned carefully.
 | Context too small | `summarize.py`, `llama_cpp_runtime.py` | User is told to increase context window or reduce chunk size. |
 | Save failed | `file_utils.py`, `backend.ts` | User sees local save error. |
 | Saved document missing | `document_store.py` | User sees that the saved document was not found. |
+| Update check failed | `updates.ts`, `SettingsPage.tsx` | User sees update check failure in Settings. |
 
 ## 14. Important Defaults
 
@@ -1088,6 +1136,8 @@ This feature has security implications and should be planned carefully.
 | Ollama URL | `http://127.0.0.1:11434` | `backend/model/ollama_runtime.py`, `backend/utils/system_check.py` |
 | Reserved output tokens | `900` | `backend/summarizer/summarize.py` |
 | Saved documents folder | `outputs/documents/` | `backend/main.py`, `backend/utils/document_store.py` |
+| App version | `0.4.0` | `frontend/src/version.ts`, Tauri/package metadata |
+| Update feed URL | `https://api.github.com/repos/sumitkumar-lab/offline-document-summarizer/releases/latest` | `frontend/src/api/updates.ts`, `frontend/src/App.tsx` |
 
 ## 15. Testing Checklist Before Release
 

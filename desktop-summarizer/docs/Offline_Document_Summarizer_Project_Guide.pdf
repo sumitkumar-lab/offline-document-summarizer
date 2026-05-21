@@ -4,7 +4,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R 35 0 R 37 0 R 39 0 R 41 0 R 43 0 R 45 0 R 47 0 R 49 0 R] /Count 22 >>
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R 35 0 R 37 0 R 39 0 R 41 0 R 43 0 R 45 0 R 47 0 R 49 0 R 51 0 R] /Count 23 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
@@ -19,7 +19,7 @@ endobj
 << /Length 3883 >>
 stream
 BT /F2 18.00 Tf 52.00 730.00 Td (Offline Document Summarizer Project Guide) Tj ET
-BT /F1 9.50 Tf 52.00 703.00 Td (Version covered: 0.3.0) Tj ET
+BT /F1 9.50 Tf 52.00 703.00 Td (Version covered: 0.4.0) Tj ET
 BT /F1 9.50 Tf 52.00 677.00 Td (This document explains how the Offline Document Summarizer works, how the parts connect, and where to) Tj ET
 BT /F1 9.50 Tf 52.00 664.00 Td (make future feature changes. It is written for maintainers who need to understand the project quickly) Tj ET
 BT /F1 9.50 Tf 52.00 651.00 Td (before modifying it.) Tj ET
@@ -60,15 +60,15 @@ BT /F3 8.00 Tf 60.00 121.00 Td (  backend/) Tj ET
 BT /F3 8.00 Tf 60.00 111.00 Td (    main.py) Tj ET
 BT /F3 8.00 Tf 60.00 101.00 Td (    requirements.txt) Tj ET
 BT /F3 8.00 Tf 60.00 91.00 Td (    requirements-build.txt) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 1 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 1 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 7 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >>
 endobj
 8 0 obj
-<< /Length 3596 >>
+<< /Length 3760 >>
 stream
 BT /F3 8.00 Tf 60.00 736.00 Td (    requirements-llama-cpp.txt) Tj ET
 BT /F3 8.00 Tf 60.00 726.00 Td (    extraction/) Tj ET
@@ -93,1020 +93,1072 @@ BT /F3 8.00 Tf 60.00 546.00 Td (    package.json) Tj ET
 BT /F3 8.00 Tf 60.00 536.00 Td (    src/) Tj ET
 BT /F3 8.00 Tf 60.00 526.00 Td (      App.tsx) Tj ET
 BT /F3 8.00 Tf 60.00 516.00 Td (      api/backend.ts) Tj ET
-BT /F3 8.00 Tf 60.00 506.00 Td (      components/) Tj ET
-BT /F3 8.00 Tf 60.00 496.00 Td (        DocumentLibrary.tsx) Tj ET
-BT /F3 8.00 Tf 60.00 486.00 Td (        DocumentChat.tsx) Tj ET
-BT /F3 8.00 Tf 60.00 476.00 Td (      styles.css) Tj ET
-BT /F3 8.00 Tf 60.00 466.00 Td (      types.ts) Tj ET
-BT /F3 8.00 Tf 60.00 456.00 Td (    src-tauri/) Tj ET
-BT /F3 8.00 Tf 60.00 446.00 Td (      tauri.conf.json) Tj ET
-BT /F3 8.00 Tf 60.00 436.00 Td (      Cargo.toml) Tj ET
-BT /F3 8.00 Tf 60.00 426.00 Td (      src/lib.rs) Tj ET
-BT /F3 8.00 Tf 60.00 416.00 Td (      icons/) Tj ET
-BT /F3 8.00 Tf 60.00 406.00 Td (  models/) Tj ET
-BT /F3 8.00 Tf 60.00 396.00 Td (  outputs/) Tj ET
-BT /F2 14.00 Tf 52.00 373.00 Td (4. Privacy and Offline Boundary) Tj ET
-BT /F1 9.50 Tf 52.00 342.00 Td (The privacy design is intentional and should be protected when adding features.) Tj ET
-BT /F1 9.50 Tf 52.00 316.00 Td (Current local-only rules:) Tj ET
-BT /F1 9.50 Tf 62.00 290.00 Td (- The React UI calls only http://127.0.0.1:8765.) Tj ET
-BT /F1 9.50 Tf 62.00 277.00 Td (- The FastAPI backend binds only to 127.0.0.1.) Tj ET
-BT /F1 9.50 Tf 62.00 264.00 Td (- Ollama calls go only to http://127.0.0.1:11434.) Tj ET
-BT /F1 9.50 Tf 62.00 251.00 Td (- OllamaRuntime rejects non-local Ollama hostnames.) Tj ET
-BT /F1 9.50 Tf 62.00 238.00 Td (- Files are uploaded only to the local backend process.) Tj ET
-BT /F1 9.50 Tf 62.00 225.00 Td (- Temporary uploaded files are deleted after extraction.) Tj ET
-BT /F1 9.50 Tf 62.00 212.00 Td (- Summaries are saved to local disk.) Tj ET
-BT /F1 9.50 Tf 62.00 199.00 Td (- Document chat uses the current extracted text and recent in-memory chat only.) Tj ET
-BT /F1 9.50 Tf 62.00 186.00 Td (- The My Documents library stores extracted text, summaries, and metadata under local) Tj ET
-BT /F1 9.50 Tf 62.00 173.00 Td (outputs/documents/.) Tj ET
-BT /F1 9.50 Tf 52.00 147.00 Td (Do not add remote API calls for document content unless the user explicitly opts into a new feature) Tj ET
-BT /F1 9.50 Tf 52.00 134.00 Td (and the privacy UI is updated.) Tj ET
-BT /F2 14.00 Tf 52.00 108.00 Td (5. High-Level Runtime Flow) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 2 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F3 8.00 Tf 60.00 506.00 Td (      api/updates.ts) Tj ET
+BT /F3 8.00 Tf 60.00 496.00 Td (      components/) Tj ET
+BT /F3 8.00 Tf 60.00 486.00 Td (        DocumentLibrary.tsx) Tj ET
+BT /F3 8.00 Tf 60.00 476.00 Td (        DocumentChat.tsx) Tj ET
+BT /F3 8.00 Tf 60.00 466.00 Td (      styles.css) Tj ET
+BT /F3 8.00 Tf 60.00 456.00 Td (      types.ts) Tj ET
+BT /F3 8.00 Tf 60.00 446.00 Td (      version.ts) Tj ET
+BT /F3 8.00 Tf 60.00 436.00 Td (    src-tauri/) Tj ET
+BT /F3 8.00 Tf 60.00 426.00 Td (      tauri.conf.json) Tj ET
+BT /F3 8.00 Tf 60.00 416.00 Td (      Cargo.toml) Tj ET
+BT /F3 8.00 Tf 60.00 406.00 Td (      src/lib.rs) Tj ET
+BT /F3 8.00 Tf 60.00 396.00 Td (      icons/) Tj ET
+BT /F3 8.00 Tf 60.00 386.00 Td (  models/) Tj ET
+BT /F3 8.00 Tf 60.00 376.00 Td (  outputs/) Tj ET
+BT /F2 14.00 Tf 52.00 353.00 Td (4. Privacy and Offline Boundary) Tj ET
+BT /F1 9.50 Tf 52.00 322.00 Td (The privacy design is intentional and should be protected when adding features.) Tj ET
+BT /F1 9.50 Tf 52.00 296.00 Td (Current local-only rules:) Tj ET
+BT /F1 9.50 Tf 62.00 270.00 Td (- The React UI calls only http://127.0.0.1:8765.) Tj ET
+BT /F1 9.50 Tf 62.00 257.00 Td (- The FastAPI backend binds only to 127.0.0.1.) Tj ET
+BT /F1 9.50 Tf 62.00 244.00 Td (- Ollama calls go only to http://127.0.0.1:11434.) Tj ET
+BT /F1 9.50 Tf 62.00 231.00 Td (- OllamaRuntime rejects non-local Ollama hostnames.) Tj ET
+BT /F1 9.50 Tf 62.00 218.00 Td (- Files are uploaded only to the local backend process.) Tj ET
+BT /F1 9.50 Tf 62.00 205.00 Td (- Temporary uploaded files are deleted after extraction.) Tj ET
+BT /F1 9.50 Tf 62.00 192.00 Td (- Summaries are saved to local disk.) Tj ET
+BT /F1 9.50 Tf 62.00 179.00 Td (- Document chat uses the current extracted text and recent in-memory chat only.) Tj ET
+BT /F1 9.50 Tf 62.00 166.00 Td (- The My Documents library stores extracted text, summaries, and metadata under local) Tj ET
+BT /F1 9.50 Tf 62.00 153.00 Td (outputs/documents/.) Tj ET
+BT /F1 9.50 Tf 62.00 140.00 Td (- Update checks call GitHub Releases metadata only, and only when configured. No document content is) Tj ET
+BT /F1 9.50 Tf 62.00 127.00 Td (sent.) Tj ET
+BT /F1 9.50 Tf 52.00 101.00 Td (Do not add remote API calls for document content unless the user explicitly opts into a new feature) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 2 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 9 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >>
 endobj
 10 0 obj
-<< /Length 4044 >>
+<< /Length 4120 >>
 stream
-BT /F3 8.00 Tf 60.00 723.00 Td (User drops file) Tj ET
-BT /F3 8.00 Tf 60.00 713.00 Td (  -> React DropZone receives File) Tj ET
-BT /F3 8.00 Tf 60.00 703.00 Td (  -> frontend/src/api/backend.ts sends multipart POST /extract) Tj ET
-BT /F3 8.00 Tf 60.00 693.00 Td (  -> backend/main.py saves temp file) Tj ET
-BT /F3 8.00 Tf 60.00 683.00 Td (  -> backend/extraction/* extracts text locally) Tj ET
-BT /F3 8.00 Tf 60.00 673.00 Td (  -> React displays editable extracted text) Tj ET
-BT /F3 8.00 Tf 60.00 663.00 Td (  -> User clicks Summarize) Tj ET
-BT /F3 8.00 Tf 60.00 653.00 Td (  -> React sends POST /summarize with text, mode, length, settings) Tj ET
-BT /F3 8.00 Tf 60.00 643.00 Td (  -> backend/summarizer/summarize.py chooses direct or chunked summarization) Tj ET
-BT /F3 8.00 Tf 60.00 633.00 Td (  -> backend/model/runtime.py loads selected runtime) Tj ET
-BT /F3 8.00 Tf 60.00 623.00 Td (  -> Ollama or llama.cpp streams tokens) Tj ET
-BT /F3 8.00 Tf 60.00 613.00 Td (  -> FastAPI streams Server-Sent Events to React) Tj ET
-BT /F3 8.00 Tf 60.00 603.00 Td (  -> React appends tokens into SummaryOutput) Tj ET
-BT /F3 8.00 Tf 60.00 593.00 Td (  -> User asks a document question) Tj ET
-BT /F3 8.00 Tf 60.00 583.00 Td (  -> React sends POST /chat with extracted text, question, recent chat, and settings) Tj ET
-BT /F3 8.00 Tf 60.00 573.00 Td (  -> backend/summarizer/chat.py selects relevant local document context) Tj ET
-BT /F3 8.00 Tf 60.00 563.00 Td (  -> Ollama or llama.cpp streams answer tokens) Tj ET
-BT /F3 8.00 Tf 60.00 553.00 Td (  -> React appends tokens into DocumentChat) Tj ET
-BT /F3 8.00 Tf 60.00 543.00 Td (  -> User clicks Save Document) Tj ET
-BT /F3 8.00 Tf 60.00 533.00 Td (  -> React sends POST /documents with filename, file type, extracted text, and summary) Tj ET
-BT /F3 8.00 Tf 60.00 523.00 Td (  -> backend/utils/document_store.py writes local document files under outputs/documents/) Tj ET
-BT /F3 8.00 Tf 60.00 513.00 Td (  -> User opens an old document from My Documents) Tj ET
-BT /F3 8.00 Tf 60.00 503.00 Td (  -> React sends GET /documents/{id} and restores extracted text plus saved summary) Tj ET
-BT /F3 8.00 Tf 60.00 493.00 Td (  -> User clicks Save Summary) Tj ET
-BT /F3 8.00 Tf 60.00 483.00 Td (  -> Tauri save dialog writes .txt locally, or backend fallback writes under outputs/) Tj ET
-BT /F2 14.00 Tf 52.00 460.00 Td (6. Frontend Architecture) Tj ET
-BT /F1 9.50 Tf 52.00 429.00 Td (The frontend lives under frontend/src.) Tj ET
-BT /F2 11.50 Tf 52.00 403.00 Td (Main App State) Tj ET
-BT /F1 9.50 Tf 52.00 375.00 Td (File: frontend/src/App.tsx) Tj ET
-BT /F1 9.50 Tf 52.00 349.00 Td (This file coordinates the whole UI:) Tj ET
-BT /F1 9.50 Tf 62.00 323.00 Td (- active view: workspace or settings) Tj ET
-BT /F1 9.50 Tf 62.00 310.00 Td (- current settings) Tj ET
-BT /F1 9.50 Tf 62.00 297.00 Td (- selected filename and file type) Tj ET
-BT /F1 9.50 Tf 62.00 284.00 Td (- extraction status) Tj ET
-BT /F1 9.50 Tf 62.00 271.00 Td (- extracted text) Tj ET
-BT /F1 9.50 Tf 62.00 258.00 Td (- summary text and status) Tj ET
-BT /F1 9.50 Tf 62.00 245.00 Td (- selected summary mode and length) Tj ET
-BT /F1 9.50 Tf 62.00 232.00 Td (- document chat messages, draft question, and status) Tj ET
-BT /F1 9.50 Tf 62.00 219.00 Td (- saved document list and current saved document id) Tj ET
-BT /F1 9.50 Tf 62.00 206.00 Td (- local setup readiness check) Tj ET
-BT /F1 9.50 Tf 62.00 193.00 Td (- loading flags and error state) Tj ET
-BT /F1 9.50 Tf 52.00 167.00 Td (Important handlers:) Tj ET
-BT /F1 9.50 Tf 62.00 141.00 Td (- handleFileSelected\(file\) calls local extraction.) Tj ET
-BT /F1 9.50 Tf 62.00 128.00 Td (- handleSummarize\(\) starts streaming summarization.) Tj ET
-BT /F1 9.50 Tf 62.00 115.00 Td (- handleAskDocument\(\) starts streaming document Q&A.) Tj ET
-BT /F1 9.50 Tf 62.00 102.00 Td (- handleSaveDocument\(\) saves or updates the current document in My Documents.) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 3 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 52.00 736.00 Td (and the privacy UI is updated.) Tj ET
+BT /F2 14.00 Tf 52.00 710.00 Td (5. High-Level Runtime Flow) Tj ET
+BT /F3 8.00 Tf 60.00 679.00 Td (User drops file) Tj ET
+BT /F3 8.00 Tf 60.00 669.00 Td (  -> React DropZone receives File) Tj ET
+BT /F3 8.00 Tf 60.00 659.00 Td (  -> frontend/src/api/backend.ts sends multipart POST /extract) Tj ET
+BT /F3 8.00 Tf 60.00 649.00 Td (  -> backend/main.py saves temp file) Tj ET
+BT /F3 8.00 Tf 60.00 639.00 Td (  -> backend/extraction/* extracts text locally) Tj ET
+BT /F3 8.00 Tf 60.00 629.00 Td (  -> React displays editable extracted text) Tj ET
+BT /F3 8.00 Tf 60.00 619.00 Td (  -> User clicks Summarize) Tj ET
+BT /F3 8.00 Tf 60.00 609.00 Td (  -> React sends POST /summarize with text, mode, length, settings) Tj ET
+BT /F3 8.00 Tf 60.00 599.00 Td (  -> backend/summarizer/summarize.py chooses direct or chunked summarization) Tj ET
+BT /F3 8.00 Tf 60.00 589.00 Td (  -> backend/model/runtime.py loads selected runtime) Tj ET
+BT /F3 8.00 Tf 60.00 579.00 Td (  -> Ollama or llama.cpp streams tokens) Tj ET
+BT /F3 8.00 Tf 60.00 569.00 Td (  -> FastAPI streams Server-Sent Events to React) Tj ET
+BT /F3 8.00 Tf 60.00 559.00 Td (  -> React appends tokens into SummaryOutput) Tj ET
+BT /F3 8.00 Tf 60.00 549.00 Td (  -> User asks a document question) Tj ET
+BT /F3 8.00 Tf 60.00 539.00 Td (  -> React sends POST /chat with extracted text, question, recent chat, and settings) Tj ET
+BT /F3 8.00 Tf 60.00 529.00 Td (  -> backend/summarizer/chat.py selects relevant local document context) Tj ET
+BT /F3 8.00 Tf 60.00 519.00 Td (  -> Ollama or llama.cpp streams answer tokens) Tj ET
+BT /F3 8.00 Tf 60.00 509.00 Td (  -> React appends tokens into DocumentChat) Tj ET
+BT /F3 8.00 Tf 60.00 499.00 Td (  -> User clicks Save Document) Tj ET
+BT /F3 8.00 Tf 60.00 489.00 Td (  -> React sends POST /documents with filename, file type, extracted text, and summary) Tj ET
+BT /F3 8.00 Tf 60.00 479.00 Td (  -> backend/utils/document_store.py writes local document files under outputs/documents/) Tj ET
+BT /F3 8.00 Tf 60.00 469.00 Td (  -> User opens an old document from My Documents) Tj ET
+BT /F3 8.00 Tf 60.00 459.00 Td (  -> React sends GET /documents/{id} and restores extracted text plus saved summary) Tj ET
+BT /F3 8.00 Tf 60.00 449.00 Td (  -> User checks for updates or enables startup checks) Tj ET
+BT /F3 8.00 Tf 60.00 439.00 Td (  -> React reads GitHub Releases metadata from the configured feed URL) Tj ET
+BT /F3 8.00 Tf 60.00 429.00 Td (  -> React compares the latest tag with frontend/src/version.ts) Tj ET
+BT /F3 8.00 Tf 60.00 419.00 Td (  -> User clicks Save Summary) Tj ET
+BT /F3 8.00 Tf 60.00 409.00 Td (  -> Tauri save dialog writes .txt locally, or backend fallback writes under outputs/) Tj ET
+BT /F2 14.00 Tf 52.00 386.00 Td (6. Frontend Architecture) Tj ET
+BT /F1 9.50 Tf 52.00 355.00 Td (The frontend lives under frontend/src.) Tj ET
+BT /F2 11.50 Tf 52.00 329.00 Td (Main App State) Tj ET
+BT /F1 9.50 Tf 52.00 301.00 Td (File: frontend/src/App.tsx) Tj ET
+BT /F1 9.50 Tf 52.00 275.00 Td (This file coordinates the whole UI:) Tj ET
+BT /F1 9.50 Tf 62.00 249.00 Td (- active view: workspace or settings) Tj ET
+BT /F1 9.50 Tf 62.00 236.00 Td (- current settings) Tj ET
+BT /F1 9.50 Tf 62.00 223.00 Td (- selected filename and file type) Tj ET
+BT /F1 9.50 Tf 62.00 210.00 Td (- extraction status) Tj ET
+BT /F1 9.50 Tf 62.00 197.00 Td (- extracted text) Tj ET
+BT /F1 9.50 Tf 62.00 184.00 Td (- summary text and status) Tj ET
+BT /F1 9.50 Tf 62.00 171.00 Td (- selected summary mode and length) Tj ET
+BT /F1 9.50 Tf 62.00 158.00 Td (- document chat messages, draft question, and status) Tj ET
+BT /F1 9.50 Tf 62.00 145.00 Td (- saved document list and current saved document id) Tj ET
+BT /F1 9.50 Tf 62.00 132.00 Td (- update check status and latest release metadata) Tj ET
+BT /F1 9.50 Tf 62.00 119.00 Td (- local setup readiness check) Tj ET
+BT /F1 9.50 Tf 62.00 106.00 Td (- loading flags and error state) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 3 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 11 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 10 0 R >>
 endobj
 12 0 obj
-<< /Length 3002 >>
+<< /Length 3300 >>
 stream
-BT /F1 9.50 Tf 62.00 736.00 Td (- handleOpenDocument\(documentId\) restores extracted text and saved summary from My Documents.) Tj ET
-BT /F1 9.50 Tf 62.00 723.00 Td (- handleSave\(\) saves summary output.) Tj ET
-BT /F1 9.50 Tf 62.00 710.00 Td (- refreshSystemCheck\(\) checks local prerequisites.) Tj ET
-BT /F1 9.50 Tf 52.00 684.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 658.00 Td (- You add a new app-wide workflow.) Tj ET
-BT /F1 9.50 Tf 62.00 645.00 Td (- You add new state that multiple components need.) Tj ET
-BT /F1 9.50 Tf 62.00 632.00 Td (- You add a new page/tab.) Tj ET
-BT /F1 9.50 Tf 62.00 619.00 Td (- You change the order of the main workspace layout.) Tj ET
-BT /F2 11.50 Tf 52.00 593.00 Td (Backend API Wrapper) Tj ET
-BT /F1 9.50 Tf 52.00 565.00 Td (File: frontend/src/api/backend.ts) Tj ET
-BT /F1 9.50 Tf 52.00 539.00 Td (This file contains browser-side calls to the Python backend:) Tj ET
-BT /F1 9.50 Tf 62.00 513.00 Td (- checkSystem\(settings\) calls POST /system-check.) Tj ET
-BT /F1 9.50 Tf 62.00 500.00 Td (- extractFile\(file\) calls POST /extract.) Tj ET
-BT /F1 9.50 Tf 62.00 487.00 Td (- summarizeStream\(...\) calls POST /summarize and parses Server-Sent Events.) Tj ET
-BT /F1 9.50 Tf 62.00 474.00 Td (- chatStream\(...\) calls POST /chat and parses Server-Sent Events.) Tj ET
-BT /F1 9.50 Tf 62.00 461.00 Td (- listDocuments\(\), getDocument\(...\), saveDocument\(...\), and deleteDocument\(...\) call the local) Tj ET
-BT /F1 9.50 Tf 62.00 448.00 Td (document library endpoints.) Tj ET
-BT /F1 9.50 Tf 62.00 435.00 Td (- saveSummary\(summary\) uses Tauri's save dialog when available, with backend fallback.) Tj ET
-BT /F1 9.50 Tf 52.00 409.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 383.00 Td (- You add a new backend route.) Tj ET
-BT /F1 9.50 Tf 62.00 370.00 Td (- You change request/response shapes.) Tj ET
-BT /F1 9.50 Tf 62.00 357.00 Td (- You add new streaming event types.) Tj ET
-BT /F1 9.50 Tf 62.00 344.00 Td (- You change local backend URL configuration.) Tj ET
-BT /F2 11.50 Tf 52.00 318.00 Td (Shared Types) Tj ET
-BT /F1 9.50 Tf 52.00 290.00 Td (File: frontend/src/types.ts) Tj ET
-BT /F1 9.50 Tf 52.00 264.00 Td (Contains TypeScript interfaces and union types:) Tj ET
-BT /F1 9.50 Tf 62.00 238.00 Td (- SummaryMode) Tj ET
-BT /F1 9.50 Tf 62.00 225.00 Td (- SummaryLength) Tj ET
-BT /F1 9.50 Tf 62.00 212.00 Td (- Runtime) Tj ET
-BT /F1 9.50 Tf 62.00 199.00 Td (- AppSettings) Tj ET
-BT /F1 9.50 Tf 62.00 186.00 Td (- ExtractResponse) Tj ET
-BT /F1 9.50 Tf 62.00 173.00 Td (- ChatMessage) Tj ET
-BT /F1 9.50 Tf 62.00 160.00 Td (- SavedDocumentSummary) Tj ET
-BT /F1 9.50 Tf 62.00 147.00 Td (- SavedDocumentDetail) Tj ET
-BT /F1 9.50 Tf 62.00 134.00 Td (- SystemCheckResponse) Tj ET
-BT /F1 9.50 Tf 62.00 121.00 Td (- SystemCheckItem) Tj ET
-BT /F1 9.50 Tf 52.00 95.00 Td (Change this file when:) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 4 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 52.00 736.00 Td (Important handlers:) Tj ET
+BT /F1 9.50 Tf 62.00 710.00 Td (- handleFileSelected\(file\) calls local extraction.) Tj ET
+BT /F1 9.50 Tf 62.00 697.00 Td (- handleSummarize\(\) starts streaming summarization.) Tj ET
+BT /F1 9.50 Tf 62.00 684.00 Td (- handleAskDocument\(\) starts streaming document Q&A.) Tj ET
+BT /F1 9.50 Tf 62.00 671.00 Td (- handleSaveDocument\(\) saves or updates the current document in My Documents.) Tj ET
+BT /F1 9.50 Tf 62.00 658.00 Td (- handleOpenDocument\(documentId\) restores extracted text and saved summary from My Documents.) Tj ET
+BT /F1 9.50 Tf 62.00 645.00 Td (- handleCheckForUpdates\(\) checks the configured GitHub Releases feed.) Tj ET
+BT /F1 9.50 Tf 62.00 632.00 Td (- handleSave\(\) saves summary output.) Tj ET
+BT /F1 9.50 Tf 62.00 619.00 Td (- refreshSystemCheck\(\) checks local prerequisites.) Tj ET
+BT /F1 9.50 Tf 52.00 593.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 567.00 Td (- You add a new app-wide workflow.) Tj ET
+BT /F1 9.50 Tf 62.00 554.00 Td (- You add new state that multiple components need.) Tj ET
+BT /F1 9.50 Tf 62.00 541.00 Td (- You add a new page/tab.) Tj ET
+BT /F1 9.50 Tf 62.00 528.00 Td (- You change the order of the main workspace layout.) Tj ET
+BT /F2 11.50 Tf 52.00 502.00 Td (Update API Wrapper) Tj ET
+BT /F1 9.50 Tf 52.00 474.00 Td (File: frontend/src/api/updates.ts) Tj ET
+BT /F1 9.50 Tf 52.00 448.00 Td (This file checks GitHub Releases metadata:) Tj ET
+BT /F1 9.50 Tf 62.00 422.00 Td (- normalizes github.com/owner/repo into the GitHub API URL) Tj ET
+BT /F1 9.50 Tf 62.00 409.00 Td (- fetches releases/latest) Tj ET
+BT /F1 9.50 Tf 62.00 396.00 Td (- compares semantic versions such as v0.4.0) Tj ET
+BT /F1 9.50 Tf 62.00 383.00 Td (- chooses a likely .exe or .msi download URL from release assets) Tj ET
+BT /F1 9.50 Tf 52.00 357.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 331.00 Td (- You switch away from GitHub Releases.) Tj ET
+BT /F1 9.50 Tf 62.00 318.00 Td (- You add prerelease channels.) Tj ET
+BT /F1 9.50 Tf 62.00 305.00 Td (- You add signed Tauri auto-updates.) Tj ET
+BT /F1 9.50 Tf 62.00 292.00 Td (- You change version comparison rules.) Tj ET
+BT /F2 11.50 Tf 52.00 266.00 Td (Backend API Wrapper) Tj ET
+BT /F1 9.50 Tf 52.00 238.00 Td (File: frontend/src/api/backend.ts) Tj ET
+BT /F1 9.50 Tf 52.00 212.00 Td (This file contains browser-side calls to the Python backend:) Tj ET
+BT /F1 9.50 Tf 62.00 186.00 Td (- checkSystem\(settings\) calls POST /system-check.) Tj ET
+BT /F1 9.50 Tf 62.00 173.00 Td (- extractFile\(file\) calls POST /extract.) Tj ET
+BT /F1 9.50 Tf 62.00 160.00 Td (- summarizeStream\(...\) calls POST /summarize and parses Server-Sent Events.) Tj ET
+BT /F1 9.50 Tf 62.00 147.00 Td (- chatStream\(...\) calls POST /chat and parses Server-Sent Events.) Tj ET
+BT /F1 9.50 Tf 62.00 134.00 Td (- listDocuments\(\), getDocument\(...\), saveDocument\(...\), and deleteDocument\(...\) call the local) Tj ET
+BT /F1 9.50 Tf 62.00 121.00 Td (document library endpoints.) Tj ET
+BT /F1 9.50 Tf 62.00 108.00 Td (- saveSummary\(summary\) uses Tauri's save dialog when available, with backend fallback.) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 4 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 13 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 12 0 R >>
 endobj
 14 0 obj
-<< /Length 3472 >>
+<< /Length 3590 >>
 stream
-BT /F1 9.50 Tf 62.00 723.00 Td (- You add a new summary mode.) Tj ET
-BT /F1 9.50 Tf 62.00 710.00 Td (- You add a new setting.) Tj ET
-BT /F1 9.50 Tf 62.00 697.00 Td (- You add a new backend response shape.) Tj ET
-BT /F1 9.50 Tf 62.00 684.00 Td (- You add a saved document metadata field.) Tj ET
-BT /F1 9.50 Tf 62.00 671.00 Td (- You add a new runtime.) Tj ET
-BT /F2 11.50 Tf 52.00 645.00 Td (Components) Tj ET
-BT /F1 9.50 Tf 52.00 617.00 Td (Folder: frontend/src/components) Tj ET
-BT /F3 8.00 Tf 60.00 591.00 Td (| Component | File | Responsibility |) Tj ET
-BT /F3 8.00 Tf 60.00 581.00 Td (| --- | --- | --- |) Tj ET
-BT /F3 8.00 Tf 60.00 571.00 Td (| DropZone | `DropZone.tsx` | Drag-and-drop file input and Choose File button. |) Tj ET
-BT /F3 8.00 Tf 60.00 561.00 Td (| FilePreview | `FilePreview.tsx` | Shows filename, file type, and extraction status. |) Tj ET
-BT /F3 8.00 Tf 60.00 551.00 Td (| DocumentLibrary | `DocumentLibrary.tsx` | Shows My Documents, saves the current document, opens old ) Tj ET
-BT /F3 8.00 Tf 60.00 541.00 Td (documents, and deletes saved documents. |) Tj ET
-BT /F3 8.00 Tf 60.00 531.00 Td (| ExtractedTextPanel | `ExtractedTextPanel.tsx` | Shows editable extracted text. |) Tj ET
-BT /F3 8.00 Tf 60.00 521.00 Td (| SummaryControls | `SummaryControls.tsx` | Summary style dropdown, length dropdown, Summarize, and Save) Tj ET
-BT /F3 8.00 Tf 60.00 511.00 Td ( Summary. |) Tj ET
-BT /F3 8.00 Tf 60.00 501.00 Td (| SummaryOutput | `SummaryOutput.tsx` | Displays streaming summary output and loading state. |) Tj ET
-BT /F3 8.00 Tf 60.00 491.00 Td (| DocumentChat | `DocumentChat.tsx` | Displays a local chat session for asking questions about the ) Tj ET
-BT /F3 8.00 Tf 60.00 481.00 Td (extracted document. |) Tj ET
-BT /F3 8.00 Tf 60.00 471.00 Td (| SetupCheck | `SetupCheck.tsx` | Shows readiness status for backend, OCR, Ollama, and model. |) Tj ET
-BT /F3 8.00 Tf 60.00 461.00 Td (| SettingsPage | `SettingsPage.tsx` | Runtime, model name, GGUF path, context window, and chunk size ) Tj ET
-BT /F3 8.00 Tf 60.00 451.00 Td (settings. |) Tj ET
-BT /F3 8.00 Tf 60.00 441.00 Td (| PrivacyNote | `PrivacyNote.tsx` | Shows the local privacy note. |) Tj ET
-BT /F2 11.50 Tf 52.00 418.00 Td (Styling) Tj ET
-BT /F1 9.50 Tf 52.00 390.00 Td (File: frontend/src/styles.css) Tj ET
-BT /F1 9.50 Tf 52.00 364.00 Td (This is the central stylesheet. It controls:) Tj ET
-BT /F1 9.50 Tf 62.00 338.00 Td (- app layout) Tj ET
-BT /F1 9.50 Tf 62.00 325.00 Td (- responsive breakpoints) Tj ET
-BT /F1 9.50 Tf 62.00 312.00 Td (- panels and buttons) Tj ET
-BT /F1 9.50 Tf 62.00 299.00 Td (- setup check cards) Tj ET
-BT /F1 9.50 Tf 62.00 286.00 Td (- My Documents list) Tj ET
-BT /F1 9.50 Tf 62.00 273.00 Td (- summary output display) Tj ET
-BT /F1 9.50 Tf 62.00 260.00 Td (- document chat transcript and input) Tj ET
-BT /F1 9.50 Tf 62.00 247.00 Td (- text area sizing) Tj ET
-BT /F1 9.50 Tf 62.00 234.00 Td (- mobile layout) Tj ET
-BT /F1 9.50 Tf 52.00 208.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 182.00 Td (- You adjust layout.) Tj ET
-BT /F1 9.50 Tf 62.00 169.00 Td (- You add visual states.) Tj ET
-BT /F1 9.50 Tf 62.00 156.00 Td (- You add a component and need styling.) Tj ET
-BT /F1 9.50 Tf 62.00 143.00 Td (- You improve mobile responsiveness.) Tj ET
-BT /F2 14.00 Tf 52.00 117.00 Td (7. Backend Architecture) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 5 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 52.00 736.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 710.00 Td (- You add a new backend route.) Tj ET
+BT /F1 9.50 Tf 62.00 697.00 Td (- You change request/response shapes.) Tj ET
+BT /F1 9.50 Tf 62.00 684.00 Td (- You add new streaming event types.) Tj ET
+BT /F1 9.50 Tf 62.00 671.00 Td (- You change local backend URL configuration.) Tj ET
+BT /F2 11.50 Tf 52.00 645.00 Td (Shared Types) Tj ET
+BT /F1 9.50 Tf 52.00 617.00 Td (File: frontend/src/types.ts) Tj ET
+BT /F1 9.50 Tf 52.00 591.00 Td (Contains TypeScript interfaces and union types:) Tj ET
+BT /F1 9.50 Tf 62.00 565.00 Td (- SummaryMode) Tj ET
+BT /F1 9.50 Tf 62.00 552.00 Td (- SummaryLength) Tj ET
+BT /F1 9.50 Tf 62.00 539.00 Td (- Runtime) Tj ET
+BT /F1 9.50 Tf 62.00 526.00 Td (- AppSettings) Tj ET
+BT /F1 9.50 Tf 62.00 513.00 Td (- ExtractResponse) Tj ET
+BT /F1 9.50 Tf 62.00 500.00 Td (- ChatMessage) Tj ET
+BT /F1 9.50 Tf 62.00 487.00 Td (- SavedDocumentSummary) Tj ET
+BT /F1 9.50 Tf 62.00 474.00 Td (- SavedDocumentDetail) Tj ET
+BT /F1 9.50 Tf 62.00 461.00 Td (- UpdateCheckResult) Tj ET
+BT /F1 9.50 Tf 62.00 448.00 Td (- SystemCheckResponse) Tj ET
+BT /F1 9.50 Tf 62.00 435.00 Td (- SystemCheckItem) Tj ET
+BT /F1 9.50 Tf 52.00 409.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 383.00 Td (- You add a new summary mode.) Tj ET
+BT /F1 9.50 Tf 62.00 370.00 Td (- You add a new setting.) Tj ET
+BT /F1 9.50 Tf 62.00 357.00 Td (- You add a new backend response shape.) Tj ET
+BT /F1 9.50 Tf 62.00 344.00 Td (- You add a saved document metadata field.) Tj ET
+BT /F1 9.50 Tf 62.00 331.00 Td (- You add update metadata fields.) Tj ET
+BT /F1 9.50 Tf 62.00 318.00 Td (- You add a new runtime.) Tj ET
+BT /F2 11.50 Tf 52.00 292.00 Td (Components) Tj ET
+BT /F1 9.50 Tf 52.00 264.00 Td (Folder: frontend/src/components) Tj ET
+BT /F3 8.00 Tf 60.00 238.00 Td (| Component | File | Responsibility |) Tj ET
+BT /F3 8.00 Tf 60.00 228.00 Td (| --- | --- | --- |) Tj ET
+BT /F3 8.00 Tf 60.00 218.00 Td (| DropZone | `DropZone.tsx` | Drag-and-drop file input and Choose File button. |) Tj ET
+BT /F3 8.00 Tf 60.00 208.00 Td (| FilePreview | `FilePreview.tsx` | Shows filename, file type, and extraction status. |) Tj ET
+BT /F3 8.00 Tf 60.00 198.00 Td (| DocumentLibrary | `DocumentLibrary.tsx` | Shows My Documents, saves the current document, opens old ) Tj ET
+BT /F3 8.00 Tf 60.00 188.00 Td (documents, and deletes saved documents. |) Tj ET
+BT /F3 8.00 Tf 60.00 178.00 Td (| ExtractedTextPanel | `ExtractedTextPanel.tsx` | Shows editable extracted text. |) Tj ET
+BT /F3 8.00 Tf 60.00 168.00 Td (| SummaryControls | `SummaryControls.tsx` | Summary style dropdown, length dropdown, Summarize, and Save) Tj ET
+BT /F3 8.00 Tf 60.00 158.00 Td ( Summary. |) Tj ET
+BT /F3 8.00 Tf 60.00 148.00 Td (| SummaryOutput | `SummaryOutput.tsx` | Displays streaming summary output and loading state. |) Tj ET
+BT /F3 8.00 Tf 60.00 138.00 Td (| DocumentChat | `DocumentChat.tsx` | Displays a local chat session for asking questions about the ) Tj ET
+BT /F3 8.00 Tf 60.00 128.00 Td (extracted document. |) Tj ET
+BT /F3 8.00 Tf 60.00 118.00 Td (| SetupCheck | `SetupCheck.tsx` | Shows readiness status for backend, OCR, Ollama, and model. |) Tj ET
+BT /F3 8.00 Tf 60.00 108.00 Td (| SettingsPage | `SettingsPage.tsx` | Runtime, model, chunking, and update-check settings. |) Tj ET
+BT /F3 8.00 Tf 60.00 98.00 Td (| PrivacyNote | `PrivacyNote.tsx` | Shows the local privacy note. |) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 5 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 15 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 14 0 R >>
 endobj
 16 0 obj
-<< /Length 3452 >>
+<< /Length 3043 >>
 stream
-BT /F1 9.50 Tf 52.00 736.00 Td (The backend lives under backend.) Tj ET
-BT /F2 11.50 Tf 52.00 710.00 Td (FastAPI Entrypoint) Tj ET
-BT /F1 9.50 Tf 52.00 682.00 Td (File: backend/main.py) Tj ET
-BT /F1 9.50 Tf 52.00 656.00 Td (Important routes:) Tj ET
-BT /F3 8.00 Tf 60.00 630.00 Td (| Route | Method | Purpose |) Tj ET
-BT /F3 8.00 Tf 60.00 620.00 Td (| --- | --- | --- |) Tj ET
-BT /F3 8.00 Tf 60.00 610.00 Td (| `/health` | GET | Confirms local backend is running. |) Tj ET
-BT /F3 8.00 Tf 60.00 600.00 Td (| `/system-check` | POST | Checks local prerequisites based on current settings. |) Tj ET
-BT /F3 8.00 Tf 60.00 590.00 Td (| `/extract` | POST | Receives one file and extracts text locally. |) Tj ET
-BT /F3 8.00 Tf 60.00 580.00 Td (| `/summarize` | POST | Streams summary events using the selected runtime. |) Tj ET
-BT /F3 8.00 Tf 60.00 570.00 Td (| `/chat` | POST | Streams document Q&A events using the selected runtime. |) Tj ET
-BT /F3 8.00 Tf 60.00 560.00 Td (| `/documents` | GET | Lists locally saved documents. |) Tj ET
-BT /F3 8.00 Tf 60.00 550.00 Td (| `/documents/{document_id}` | GET | Opens one locally saved document. |) Tj ET
-BT /F3 8.00 Tf 60.00 540.00 Td (| `/documents` | POST | Saves or updates one local document record. |) Tj ET
-BT /F3 8.00 Tf 60.00 530.00 Td (| `/documents/{document_id}` | DELETE | Deletes one locally saved document. |) Tj ET
-BT /F3 8.00 Tf 60.00 520.00 Td (| `/save-summary` | POST | Saves summary text as `.txt` locally. |) Tj ET
-BT /F1 9.50 Tf 52.00 497.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 471.00 Td (- You add a backend endpoint.) Tj ET
-BT /F1 9.50 Tf 62.00 458.00 Td (- You change CORS rules.) Tj ET
-BT /F1 9.50 Tf 62.00 445.00 Td (- You add request models.) Tj ET
-BT /F1 9.50 Tf 62.00 432.00 Td (- You change upload or streaming behavior.) Tj ET
-BT /F1 9.50 Tf 62.00 419.00 Td (- You change backend app metadata/version.) Tj ET
-BT /F2 11.50 Tf 52.00 393.00 Td (Extraction Modules) Tj ET
-BT /F1 9.50 Tf 52.00 365.00 Td (Folder: backend/extraction) Tj ET
-BT /F3 8.00 Tf 60.00 339.00 Td (| File | Function | Purpose |) Tj ET
-BT /F3 8.00 Tf 60.00 329.00 Td (| --- | --- | --- |) Tj ET
-BT /F3 8.00 Tf 60.00 319.00 Td (| `image_ocr.py` | `extract_text_from_image\(file_path\)` | Uses Pillow and Tesseract OCR for image files.) Tj ET
-BT /F3 8.00 Tf 60.00 309.00 Td ( |) Tj ET
-BT /F3 8.00 Tf 60.00 299.00 Td (| `pdf_reader.py` | `extract_text_from_pdf\(file_path\)` | Uses `pdfplumber`, then `pypdf`, to extract ) Tj ET
-BT /F3 8.00 Tf 60.00 289.00 Td (selectable PDF text. |) Tj ET
-BT /F3 8.00 Tf 60.00 279.00 Td (| `txt_reader.py` | `extract_text_from_txt\(file_path\)` | Reads TXT with UTF-8 and fallback encodings. |) Tj ET
-BT /F1 9.50 Tf 52.00 256.00 Td (Change these files when:) Tj ET
-BT /F1 9.50 Tf 62.00 230.00 Td (- You add a new input format.) Tj ET
-BT /F1 9.50 Tf 62.00 217.00 Td (- You improve OCR preprocessing.) Tj ET
-BT /F1 9.50 Tf 62.00 204.00 Td (- You add scanned-PDF OCR fallback.) Tj ET
-BT /F1 9.50 Tf 62.00 191.00 Td (- You improve encoding detection.) Tj ET
-BT /F1 9.50 Tf 62.00 178.00 Td (- You change extraction error messages.) Tj ET
-BT /F2 11.50 Tf 52.00 152.00 Td (File Utilities) Tj ET
-BT /F1 9.50 Tf 52.00 124.00 Td (File: backend/utils/file_utils.py) Tj ET
-BT /F1 9.50 Tf 52.00 98.00 Td (Responsibilities:) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 6 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F2 11.50 Tf 52.00 723.00 Td (Styling) Tj ET
+BT /F1 9.50 Tf 52.00 695.00 Td (File: frontend/src/styles.css) Tj ET
+BT /F1 9.50 Tf 52.00 669.00 Td (This is the central stylesheet. It controls:) Tj ET
+BT /F1 9.50 Tf 62.00 643.00 Td (- app layout) Tj ET
+BT /F1 9.50 Tf 62.00 630.00 Td (- responsive breakpoints) Tj ET
+BT /F1 9.50 Tf 62.00 617.00 Td (- panels and buttons) Tj ET
+BT /F1 9.50 Tf 62.00 604.00 Td (- setup check cards) Tj ET
+BT /F1 9.50 Tf 62.00 591.00 Td (- My Documents list) Tj ET
+BT /F1 9.50 Tf 62.00 578.00 Td (- summary output display) Tj ET
+BT /F1 9.50 Tf 62.00 565.00 Td (- document chat transcript and input) Tj ET
+BT /F1 9.50 Tf 62.00 552.00 Td (- update settings and status cards) Tj ET
+BT /F1 9.50 Tf 62.00 539.00 Td (- text area sizing) Tj ET
+BT /F1 9.50 Tf 62.00 526.00 Td (- mobile layout) Tj ET
+BT /F1 9.50 Tf 52.00 500.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 474.00 Td (- You adjust layout.) Tj ET
+BT /F1 9.50 Tf 62.00 461.00 Td (- You add visual states.) Tj ET
+BT /F1 9.50 Tf 62.00 448.00 Td (- You add a component and need styling.) Tj ET
+BT /F1 9.50 Tf 62.00 435.00 Td (- You improve mobile responsiveness.) Tj ET
+BT /F2 14.00 Tf 52.00 409.00 Td (7. Backend Architecture) Tj ET
+BT /F1 9.50 Tf 52.00 378.00 Td (The backend lives under backend.) Tj ET
+BT /F2 11.50 Tf 52.00 352.00 Td (FastAPI Entrypoint) Tj ET
+BT /F1 9.50 Tf 52.00 324.00 Td (File: backend/main.py) Tj ET
+BT /F1 9.50 Tf 52.00 298.00 Td (Important routes:) Tj ET
+BT /F3 8.00 Tf 60.00 272.00 Td (| Route | Method | Purpose |) Tj ET
+BT /F3 8.00 Tf 60.00 262.00 Td (| --- | --- | --- |) Tj ET
+BT /F3 8.00 Tf 60.00 252.00 Td (| `/health` | GET | Confirms local backend is running. |) Tj ET
+BT /F3 8.00 Tf 60.00 242.00 Td (| `/system-check` | POST | Checks local prerequisites based on current settings. |) Tj ET
+BT /F3 8.00 Tf 60.00 232.00 Td (| `/extract` | POST | Receives one file and extracts text locally. |) Tj ET
+BT /F3 8.00 Tf 60.00 222.00 Td (| `/summarize` | POST | Streams summary events using the selected runtime. |) Tj ET
+BT /F3 8.00 Tf 60.00 212.00 Td (| `/chat` | POST | Streams document Q&A events using the selected runtime. |) Tj ET
+BT /F3 8.00 Tf 60.00 202.00 Td (| `/documents` | GET | Lists locally saved documents. |) Tj ET
+BT /F3 8.00 Tf 60.00 192.00 Td (| `/documents/{document_id}` | GET | Opens one locally saved document. |) Tj ET
+BT /F3 8.00 Tf 60.00 182.00 Td (| `/documents` | POST | Saves or updates one local document record. |) Tj ET
+BT /F3 8.00 Tf 60.00 172.00 Td (| `/documents/{document_id}` | DELETE | Deletes one locally saved document. |) Tj ET
+BT /F3 8.00 Tf 60.00 162.00 Td (| `/save-summary` | POST | Saves summary text as `.txt` locally. |) Tj ET
+BT /F1 9.50 Tf 52.00 139.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 113.00 Td (- You add a backend endpoint.) Tj ET
+BT /F1 9.50 Tf 62.00 100.00 Td (- You change CORS rules.) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 6 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 17 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 16 0 R >>
 endobj
 18 0 obj
-<< /Length 2635 >>
+<< /Length 2859 >>
 stream
-BT /F1 9.50 Tf 62.00 723.00 Td (- supported extension lists) Tj ET
-BT /F1 9.50 Tf 62.00 710.00 Td (- file type detection) Tj ET
-BT /F1 9.50 Tf 62.00 697.00 Td (- AppError application exception) Tj ET
-BT /F1 9.50 Tf 62.00 684.00 Td (- local summary saving) Tj ET
-BT /F1 9.50 Tf 52.00 658.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 632.00 Td (- You add supported file extensions.) Tj ET
-BT /F1 9.50 Tf 62.00 619.00 Td (- You change output filename behavior.) Tj ET
-BT /F1 9.50 Tf 62.00 606.00 Td (- You want centralized validation logic.) Tj ET
-BT /F2 11.50 Tf 52.00 580.00 Td (Document Store) Tj ET
-BT /F1 9.50 Tf 52.00 552.00 Td (File: backend/utils/document_store.py) Tj ET
-BT /F1 9.50 Tf 52.00 526.00 Td (Responsibilities:) Tj ET
-BT /F1 9.50 Tf 62.00 500.00 Td (- list saved documents from outputs/documents/) Tj ET
-BT /F1 9.50 Tf 62.00 487.00 Td (- save extracted text, summary text, and metadata locally) Tj ET
-BT /F1 9.50 Tf 62.00 474.00 Td (- open one saved document by id) Tj ET
-BT /F1 9.50 Tf 62.00 461.00 Td (- delete one saved document by id) Tj ET
-BT /F1 9.50 Tf 62.00 448.00 Td (- prevent path traversal with safe document ids) Tj ET
-BT /F1 9.50 Tf 52.00 422.00 Td (Saved document layout:) Tj ET
-BT /F3 8.00 Tf 60.00 396.00 Td (outputs/documents/{document_id}/) Tj ET
-BT /F3 8.00 Tf 60.00 386.00 Td (  metadata.json) Tj ET
-BT /F3 8.00 Tf 60.00 376.00 Td (  extracted.txt) Tj ET
-BT /F3 8.00 Tf 60.00 366.00 Td (  summary.txt) Tj ET
-BT /F1 9.50 Tf 52.00 343.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 317.00 Td (- You add tags, folders, search, or favorites.) Tj ET
-BT /F1 9.50 Tf 62.00 304.00 Td (- You add original-file copying.) Tj ET
-BT /F1 9.50 Tf 62.00 291.00 Td (- You change saved document metadata.) Tj ET
-BT /F1 9.50 Tf 62.00 278.00 Td (- You add import/export for the local library.) Tj ET
-BT /F2 11.50 Tf 52.00 252.00 Td (System Readiness Check) Tj ET
-BT /F1 9.50 Tf 52.00 224.00 Td (File: backend/utils/system_check.py) Tj ET
-BT /F1 9.50 Tf 52.00 198.00 Td (This is the first-run setup checker. It checks:) Tj ET
-BT /F1 9.50 Tf 62.00 172.00 Td (- local backend is running) Tj ET
-BT /F1 9.50 Tf 62.00 159.00 Td (- Tesseract availability) Tj ET
-BT /F1 9.50 Tf 62.00 146.00 Td (- Ollama availability) Tj ET
-BT /F1 9.50 Tf 62.00 133.00 Td (- whether selected Ollama model is installed) Tj ET
-BT /F1 9.50 Tf 62.00 120.00 Td (- optional llama.cpp dependency and GGUF path) Tj ET
-BT /F1 9.50 Tf 52.00 94.00 Td (Change this file when:) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 7 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 62.00 736.00 Td (- You add request models.) Tj ET
+BT /F1 9.50 Tf 62.00 723.00 Td (- You change upload or streaming behavior.) Tj ET
+BT /F1 9.50 Tf 62.00 710.00 Td (- You change backend app metadata/version.) Tj ET
+BT /F2 11.50 Tf 52.00 684.00 Td (Extraction Modules) Tj ET
+BT /F1 9.50 Tf 52.00 656.00 Td (Folder: backend/extraction) Tj ET
+BT /F3 8.00 Tf 60.00 630.00 Td (| File | Function | Purpose |) Tj ET
+BT /F3 8.00 Tf 60.00 620.00 Td (| --- | --- | --- |) Tj ET
+BT /F3 8.00 Tf 60.00 610.00 Td (| `image_ocr.py` | `extract_text_from_image\(file_path\)` | Uses Pillow and Tesseract OCR for image files.) Tj ET
+BT /F3 8.00 Tf 60.00 600.00 Td ( |) Tj ET
+BT /F3 8.00 Tf 60.00 590.00 Td (| `pdf_reader.py` | `extract_text_from_pdf\(file_path\)` | Uses `pdfplumber`, then `pypdf`, to extract ) Tj ET
+BT /F3 8.00 Tf 60.00 580.00 Td (selectable PDF text. |) Tj ET
+BT /F3 8.00 Tf 60.00 570.00 Td (| `txt_reader.py` | `extract_text_from_txt\(file_path\)` | Reads TXT with UTF-8 and fallback encodings. |) Tj ET
+BT /F1 9.50 Tf 52.00 547.00 Td (Change these files when:) Tj ET
+BT /F1 9.50 Tf 62.00 521.00 Td (- You add a new input format.) Tj ET
+BT /F1 9.50 Tf 62.00 508.00 Td (- You improve OCR preprocessing.) Tj ET
+BT /F1 9.50 Tf 62.00 495.00 Td (- You add scanned-PDF OCR fallback.) Tj ET
+BT /F1 9.50 Tf 62.00 482.00 Td (- You improve encoding detection.) Tj ET
+BT /F1 9.50 Tf 62.00 469.00 Td (- You change extraction error messages.) Tj ET
+BT /F2 11.50 Tf 52.00 443.00 Td (File Utilities) Tj ET
+BT /F1 9.50 Tf 52.00 415.00 Td (File: backend/utils/file_utils.py) Tj ET
+BT /F1 9.50 Tf 52.00 389.00 Td (Responsibilities:) Tj ET
+BT /F1 9.50 Tf 62.00 363.00 Td (- supported extension lists) Tj ET
+BT /F1 9.50 Tf 62.00 350.00 Td (- file type detection) Tj ET
+BT /F1 9.50 Tf 62.00 337.00 Td (- AppError application exception) Tj ET
+BT /F1 9.50 Tf 62.00 324.00 Td (- local summary saving) Tj ET
+BT /F1 9.50 Tf 52.00 298.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 272.00 Td (- You add supported file extensions.) Tj ET
+BT /F1 9.50 Tf 62.00 259.00 Td (- You change output filename behavior.) Tj ET
+BT /F1 9.50 Tf 62.00 246.00 Td (- You want centralized validation logic.) Tj ET
+BT /F2 11.50 Tf 52.00 220.00 Td (Document Store) Tj ET
+BT /F1 9.50 Tf 52.00 192.00 Td (File: backend/utils/document_store.py) Tj ET
+BT /F1 9.50 Tf 52.00 166.00 Td (Responsibilities:) Tj ET
+BT /F1 9.50 Tf 62.00 140.00 Td (- list saved documents from outputs/documents/) Tj ET
+BT /F1 9.50 Tf 62.00 127.00 Td (- save extracted text, summary text, and metadata locally) Tj ET
+BT /F1 9.50 Tf 62.00 114.00 Td (- open one saved document by id) Tj ET
+BT /F1 9.50 Tf 62.00 101.00 Td (- delete one saved document by id) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 7 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 19 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 18 0 R >>
 endobj
 20 0 obj
-<< /Length 2476 >>
+<< /Length 2611 >>
 stream
-BT /F1 9.50 Tf 62.00 723.00 Td (- You add a new runtime.) Tj ET
-BT /F1 9.50 Tf 62.00 710.00 Td (- You add a dependency that should be checked before use.) Tj ET
-BT /F1 9.50 Tf 62.00 697.00 Td (- You want better setup instructions in the UI.) Tj ET
-BT /F1 9.50 Tf 62.00 684.00 Td (- You change default model requirements.) Tj ET
-BT /F2 11.50 Tf 52.00 658.00 Td (Model Runtime Selector) Tj ET
-BT /F1 9.50 Tf 52.00 630.00 Td (File: backend/model/runtime.py) Tj ET
-BT /F1 9.50 Tf 52.00 604.00 Td (This selects the model runtime from settings:) Tj ET
-BT /F1 9.50 Tf 62.00 578.00 Td (- ollama -> backend/model/ollama_runtime.py) Tj ET
-BT /F1 9.50 Tf 62.00 565.00 Td (- llama.cpp -> backend/model/llama_cpp_runtime.py) Tj ET
-BT /F1 9.50 Tf 52.00 539.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 513.00 Td (- You add a new model backend.) Tj ET
-BT /F1 9.50 Tf 62.00 500.00 Td (- You rename runtime values.) Tj ET
-BT /F1 9.50 Tf 62.00 487.00 Td (- You change runtime selection rules.) Tj ET
-BT /F2 11.50 Tf 52.00 461.00 Td (Ollama Runtime) Tj ET
-BT /F1 9.50 Tf 52.00 433.00 Td (File: backend/model/ollama_runtime.py) Tj ET
-BT /F1 9.50 Tf 52.00 407.00 Td (Responsibilities:) Tj ET
-BT /F1 9.50 Tf 62.00 381.00 Td (- enforces local-only Ollama host) Tj ET
-BT /F1 9.50 Tf 62.00 368.00 Td (- sends prompt to /api/generate) Tj ET
-BT /F1 9.50 Tf 62.00 355.00 Td (- streams response tokens) Tj ET
-BT /F1 9.50 Tf 62.00 342.00 Td (- maps Ollama errors into friendly AppError messages) Tj ET
-BT /F1 9.50 Tf 52.00 316.00 Td (Important defaults:) Tj ET
-BT /F1 9.50 Tf 62.00 290.00 Td (- URL: http://127.0.0.1:11434) Tj ET
-BT /F1 9.50 Tf 62.00 277.00 Td (- model: gemma:2b) Tj ET
-BT /F1 9.50 Tf 62.00 264.00 Td (- temperature: 0.2) Tj ET
-BT /F1 9.50 Tf 62.00 251.00 Td (- top_p: 0.9) Tj ET
-BT /F1 9.50 Tf 62.00 238.00 Td (- context: from settings) Tj ET
-BT /F1 9.50 Tf 52.00 212.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 186.00 Td (- You change generation parameters.) Tj ET
-BT /F1 9.50 Tf 62.00 173.00 Td (- You add stop sequences.) Tj ET
-BT /F1 9.50 Tf 62.00 160.00 Td (- You add model warmup.) Tj ET
-BT /F1 9.50 Tf 62.00 147.00 Td (- You support a different Ollama endpoint.) Tj ET
-BT /F1 9.50 Tf 62.00 134.00 Td (- You improve model-not-found handling.) Tj ET
-BT /F2 11.50 Tf 52.00 108.00 Td (llama.cpp Runtime) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 8 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 62.00 736.00 Td (- prevent path traversal with safe document ids) Tj ET
+BT /F1 9.50 Tf 52.00 710.00 Td (Saved document layout:) Tj ET
+BT /F3 8.00 Tf 60.00 684.00 Td (outputs/documents/{document_id}/) Tj ET
+BT /F3 8.00 Tf 60.00 674.00 Td (  metadata.json) Tj ET
+BT /F3 8.00 Tf 60.00 664.00 Td (  extracted.txt) Tj ET
+BT /F3 8.00 Tf 60.00 654.00 Td (  summary.txt) Tj ET
+BT /F1 9.50 Tf 52.00 631.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 605.00 Td (- You add tags, folders, search, or favorites.) Tj ET
+BT /F1 9.50 Tf 62.00 592.00 Td (- You add original-file copying.) Tj ET
+BT /F1 9.50 Tf 62.00 579.00 Td (- You change saved document metadata.) Tj ET
+BT /F1 9.50 Tf 62.00 566.00 Td (- You add import/export for the local library.) Tj ET
+BT /F2 11.50 Tf 52.00 540.00 Td (System Readiness Check) Tj ET
+BT /F1 9.50 Tf 52.00 512.00 Td (File: backend/utils/system_check.py) Tj ET
+BT /F1 9.50 Tf 52.00 486.00 Td (This is the first-run setup checker. It checks:) Tj ET
+BT /F1 9.50 Tf 62.00 460.00 Td (- local backend is running) Tj ET
+BT /F1 9.50 Tf 62.00 447.00 Td (- Tesseract availability) Tj ET
+BT /F1 9.50 Tf 62.00 434.00 Td (- Ollama availability) Tj ET
+BT /F1 9.50 Tf 62.00 421.00 Td (- whether selected Ollama model is installed) Tj ET
+BT /F1 9.50 Tf 62.00 408.00 Td (- optional llama.cpp dependency and GGUF path) Tj ET
+BT /F1 9.50 Tf 52.00 382.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 356.00 Td (- You add a new runtime.) Tj ET
+BT /F1 9.50 Tf 62.00 343.00 Td (- You add a dependency that should be checked before use.) Tj ET
+BT /F1 9.50 Tf 62.00 330.00 Td (- You want better setup instructions in the UI.) Tj ET
+BT /F1 9.50 Tf 62.00 317.00 Td (- You change default model requirements.) Tj ET
+BT /F2 11.50 Tf 52.00 291.00 Td (Model Runtime Selector) Tj ET
+BT /F1 9.50 Tf 52.00 263.00 Td (File: backend/model/runtime.py) Tj ET
+BT /F1 9.50 Tf 52.00 237.00 Td (This selects the model runtime from settings:) Tj ET
+BT /F1 9.50 Tf 62.00 211.00 Td (- ollama -> backend/model/ollama_runtime.py) Tj ET
+BT /F1 9.50 Tf 62.00 198.00 Td (- llama.cpp -> backend/model/llama_cpp_runtime.py) Tj ET
+BT /F1 9.50 Tf 52.00 172.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 146.00 Td (- You add a new model backend.) Tj ET
+BT /F1 9.50 Tf 62.00 133.00 Td (- You rename runtime values.) Tj ET
+BT /F1 9.50 Tf 62.00 120.00 Td (- You change runtime selection rules.) Tj ET
+BT /F2 11.50 Tf 52.00 94.00 Td (Ollama Runtime) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 8 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 21 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 20 0 R >>
 endobj
 22 0 obj
-<< /Length 2303 >>
+<< /Length 2361 >>
 stream
-BT /F1 9.50 Tf 52.00 736.00 Td (File: backend/model/llama_cpp_runtime.py) Tj ET
-BT /F1 9.50 Tf 52.00 710.00 Td (This is already scaffolded for local GGUF models through llama-cpp-python.) Tj ET
-BT /F1 9.50 Tf 52.00 684.00 Td (It validates:) Tj ET
-BT /F1 9.50 Tf 62.00 658.00 Td (- GGUF path is provided) Tj ET
-BT /F1 9.50 Tf 62.00 645.00 Td (- file exists) Tj ET
-BT /F1 9.50 Tf 62.00 632.00 Td (- llama_cpp can be imported) Tj ET
-BT /F1 9.50 Tf 52.00 606.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 580.00 Td (- You fully invest in GGUF support.) Tj ET
-BT /F1 9.50 Tf 62.00 567.00 Td (- You expose CPU/GPU layer settings.) Tj ET
-BT /F1 9.50 Tf 62.00 554.00 Td (- You tune n_threads, n_ctx, temperature, or max_tokens.) Tj ET
-BT /F1 9.50 Tf 62.00 541.00 Td (- You add model caching.) Tj ET
-BT /F2 14.00 Tf 52.00 515.00 Td (8. Summarization Pipeline) Tj ET
-BT /F1 9.50 Tf 52.00 484.00 Td (Folder: backend/summarizer) Tj ET
-BT /F2 11.50 Tf 52.00 458.00 Td (Prompt Building) Tj ET
-BT /F1 9.50 Tf 52.00 430.00 Td (File: backend/summarizer/prompts.py) Tj ET
-BT /F1 9.50 Tf 52.00 404.00 Td (Current modes:) Tj ET
-BT /F1 9.50 Tf 62.00 378.00 Td (- concise) Tj ET
-BT /F1 9.50 Tf 62.00 365.00 Td (- bullets) Tj ET
-BT /F1 9.50 Tf 62.00 352.00 Td (- key_ideas) Tj ET
-BT /F1 9.50 Tf 62.00 339.00 Td (- study_notes) Tj ET
-BT /F1 9.50 Tf 62.00 326.00 Td (- action_items) Tj ET
-BT /F1 9.50 Tf 62.00 313.00 Td (- eli10) Tj ET
-BT /F1 9.50 Tf 62.00 300.00 Td (- meeting_notes) Tj ET
-BT /F1 9.50 Tf 62.00 287.00 Td (- research_paper) Tj ET
-BT /F1 9.50 Tf 62.00 274.00 Td (- legal_policy) Tj ET
-BT /F1 9.50 Tf 62.00 261.00 Td (- email) Tj ET
-BT /F1 9.50 Tf 62.00 248.00 Td (- x_thread) Tj ET
-BT /F1 9.50 Tf 62.00 235.00 Td (- reddit_linkedin) Tj ET
-BT /F1 9.50 Tf 52.00 209.00 Td (Current lengths:) Tj ET
-BT /F1 9.50 Tf 62.00 183.00 Td (- short) Tj ET
-BT /F1 9.50 Tf 62.00 170.00 Td (- medium) Tj ET
-BT /F1 9.50 Tf 62.00 157.00 Td (- detailed) Tj ET
-BT /F1 9.50 Tf 52.00 131.00 Td (The build_prompt\(\) function adds:) Tj ET
-BT /F1 9.50 Tf 62.00 105.00 Td (- a length hint) Tj ET
-BT /F1 9.50 Tf 62.00 92.00 Td (- an instruction to return only the summary) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 9 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 52.00 723.00 Td (File: backend/model/ollama_runtime.py) Tj ET
+BT /F1 9.50 Tf 52.00 697.00 Td (Responsibilities:) Tj ET
+BT /F1 9.50 Tf 62.00 671.00 Td (- enforces local-only Ollama host) Tj ET
+BT /F1 9.50 Tf 62.00 658.00 Td (- sends prompt to /api/generate) Tj ET
+BT /F1 9.50 Tf 62.00 645.00 Td (- streams response tokens) Tj ET
+BT /F1 9.50 Tf 62.00 632.00 Td (- maps Ollama errors into friendly AppError messages) Tj ET
+BT /F1 9.50 Tf 52.00 606.00 Td (Important defaults:) Tj ET
+BT /F1 9.50 Tf 62.00 580.00 Td (- URL: http://127.0.0.1:11434) Tj ET
+BT /F1 9.50 Tf 62.00 567.00 Td (- model: gemma:2b) Tj ET
+BT /F1 9.50 Tf 62.00 554.00 Td (- temperature: 0.2) Tj ET
+BT /F1 9.50 Tf 62.00 541.00 Td (- top_p: 0.9) Tj ET
+BT /F1 9.50 Tf 62.00 528.00 Td (- context: from settings) Tj ET
+BT /F1 9.50 Tf 52.00 502.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 476.00 Td (- You change generation parameters.) Tj ET
+BT /F1 9.50 Tf 62.00 463.00 Td (- You add stop sequences.) Tj ET
+BT /F1 9.50 Tf 62.00 450.00 Td (- You add model warmup.) Tj ET
+BT /F1 9.50 Tf 62.00 437.00 Td (- You support a different Ollama endpoint.) Tj ET
+BT /F1 9.50 Tf 62.00 424.00 Td (- You improve model-not-found handling.) Tj ET
+BT /F2 11.50 Tf 52.00 398.00 Td (llama.cpp Runtime) Tj ET
+BT /F1 9.50 Tf 52.00 370.00 Td (File: backend/model/llama_cpp_runtime.py) Tj ET
+BT /F1 9.50 Tf 52.00 344.00 Td (This is already scaffolded for local GGUF models through llama-cpp-python.) Tj ET
+BT /F1 9.50 Tf 52.00 318.00 Td (It validates:) Tj ET
+BT /F1 9.50 Tf 62.00 292.00 Td (- GGUF path is provided) Tj ET
+BT /F1 9.50 Tf 62.00 279.00 Td (- file exists) Tj ET
+BT /F1 9.50 Tf 62.00 266.00 Td (- llama_cpp can be imported) Tj ET
+BT /F1 9.50 Tf 52.00 240.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 214.00 Td (- You fully invest in GGUF support.) Tj ET
+BT /F1 9.50 Tf 62.00 201.00 Td (- You expose CPU/GPU layer settings.) Tj ET
+BT /F1 9.50 Tf 62.00 188.00 Td (- You tune n_threads, n_ctx, temperature, or max_tokens.) Tj ET
+BT /F1 9.50 Tf 62.00 175.00 Td (- You add model caching.) Tj ET
+BT /F2 14.00 Tf 52.00 149.00 Td (8. Summarization Pipeline) Tj ET
+BT /F1 9.50 Tf 52.00 118.00 Td (Folder: backend/summarizer) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 9 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 23 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 22 0 R >>
 endobj
 24 0 obj
-<< /Length 2658 >>
+<< /Length 2269 >>
 stream
-BT /F1 9.50 Tf 62.00 736.00 Td (- mode-specific prompt text) Tj ET
-BT /F1 9.50 Tf 52.00 710.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 684.00 Td (- You add a summary style.) Tj ET
-BT /F1 9.50 Tf 62.00 671.00 Td (- You tune prompt wording.) Tj ET
-BT /F1 9.50 Tf 62.00 658.00 Td (- You add a new output format.) Tj ET
-BT /F1 9.50 Tf 62.00 645.00 Td (- You want different prompts per model/runtime.) Tj ET
-BT /F2 11.50 Tf 52.00 619.00 Td (Chunking) Tj ET
-BT /F1 9.50 Tf 52.00 591.00 Td (File: backend/summarizer/chunking.py) Tj ET
-BT /F1 9.50 Tf 52.00 565.00 Td (The current token estimate is simple:) Tj ET
-BT /F3 8.00 Tf 60.00 539.00 Td (estimated tokens = characters / 4) Tj ET
-BT /F1 9.50 Tf 52.00 516.00 Td (chunk_text\(\) splits large text by paragraphs first, then by sentences, then by fixed slices if needed.) Tj ET
-BT /F1 9.50 Tf 52.00 490.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 464.00 Td (- You need more accurate token counting.) Tj ET
-BT /F1 9.50 Tf 62.00 451.00 Td (- You add tokenizer-based chunking.) Tj ET
-BT /F1 9.50 Tf 62.00 438.00 Td (- You want overlap between chunks.) Tj ET
-BT /F1 9.50 Tf 62.00 425.00 Td (- You want page-aware chunking.) Tj ET
-BT /F2 11.50 Tf 52.00 399.00 Td (Summary Orchestration) Tj ET
-BT /F1 9.50 Tf 52.00 371.00 Td (File: backend/summarizer/summarize.py) Tj ET
-BT /F1 9.50 Tf 52.00 345.00 Td (Important functions:) Tj ET
-BT /F1 9.50 Tf 62.00 319.00 Td (- summarize_text\(text, mode, length, settings\)) Tj ET
-BT /F1 9.50 Tf 62.00 306.00 Td (- summarize_large_document\(text, mode, length, settings\)) Tj ET
-BT /F1 9.50 Tf 62.00 293.00 Td (- iter_summary_events\(text, mode, length, settings\)) Tj ET
-BT /F1 9.50 Tf 52.00 267.00 Td (Direct summarization path:) Tj ET
-BT /F3 8.00 Tf 60.00 241.00 Td (Estimate token count) Tj ET
-BT /F3 8.00 Tf 60.00 231.00 Td (If text fits context:) Tj ET
-BT /F3 8.00 Tf 60.00 221.00 Td (  build prompt) Tj ET
-BT /F3 8.00 Tf 60.00 211.00 Td (  stream model tokens) Tj ET
-BT /F1 9.50 Tf 52.00 188.00 Td (Large document path:) Tj ET
-BT /F3 8.00 Tf 60.00 162.00 Td (Estimate token count) Tj ET
-BT /F3 8.00 Tf 60.00 152.00 Td (If text is too large:) Tj ET
-BT /F3 8.00 Tf 60.00 142.00 Td (  split into chunks) Tj ET
-BT /F3 8.00 Tf 60.00 132.00 Td (  summarize each chunk using short length) Tj ET
-BT /F3 8.00 Tf 60.00 122.00 Td (  combine chunk summaries) Tj ET
-BT /F3 8.00 Tf 60.00 112.00 Td (  run final summary over combined summaries) Tj ET
-BT /F3 8.00 Tf 60.00 102.00 Td (  stream final output) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 10 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F2 11.50 Tf 52.00 736.00 Td (Prompt Building) Tj ET
+BT /F1 9.50 Tf 52.00 708.00 Td (File: backend/summarizer/prompts.py) Tj ET
+BT /F1 9.50 Tf 52.00 682.00 Td (Current modes:) Tj ET
+BT /F1 9.50 Tf 62.00 656.00 Td (- concise) Tj ET
+BT /F1 9.50 Tf 62.00 643.00 Td (- bullets) Tj ET
+BT /F1 9.50 Tf 62.00 630.00 Td (- key_ideas) Tj ET
+BT /F1 9.50 Tf 62.00 617.00 Td (- study_notes) Tj ET
+BT /F1 9.50 Tf 62.00 604.00 Td (- action_items) Tj ET
+BT /F1 9.50 Tf 62.00 591.00 Td (- eli10) Tj ET
+BT /F1 9.50 Tf 62.00 578.00 Td (- meeting_notes) Tj ET
+BT /F1 9.50 Tf 62.00 565.00 Td (- research_paper) Tj ET
+BT /F1 9.50 Tf 62.00 552.00 Td (- legal_policy) Tj ET
+BT /F1 9.50 Tf 62.00 539.00 Td (- email) Tj ET
+BT /F1 9.50 Tf 62.00 526.00 Td (- x_thread) Tj ET
+BT /F1 9.50 Tf 62.00 513.00 Td (- reddit_linkedin) Tj ET
+BT /F1 9.50 Tf 52.00 487.00 Td (Current lengths:) Tj ET
+BT /F1 9.50 Tf 62.00 461.00 Td (- short) Tj ET
+BT /F1 9.50 Tf 62.00 448.00 Td (- medium) Tj ET
+BT /F1 9.50 Tf 62.00 435.00 Td (- detailed) Tj ET
+BT /F1 9.50 Tf 52.00 409.00 Td (The build_prompt\(\) function adds:) Tj ET
+BT /F1 9.50 Tf 62.00 383.00 Td (- a length hint) Tj ET
+BT /F1 9.50 Tf 62.00 370.00 Td (- an instruction to return only the summary) Tj ET
+BT /F1 9.50 Tf 62.00 357.00 Td (- mode-specific prompt text) Tj ET
+BT /F1 9.50 Tf 52.00 331.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 305.00 Td (- You add a summary style.) Tj ET
+BT /F1 9.50 Tf 62.00 292.00 Td (- You tune prompt wording.) Tj ET
+BT /F1 9.50 Tf 62.00 279.00 Td (- You add a new output format.) Tj ET
+BT /F1 9.50 Tf 62.00 266.00 Td (- You want different prompts per model/runtime.) Tj ET
+BT /F2 11.50 Tf 52.00 240.00 Td (Chunking) Tj ET
+BT /F1 9.50 Tf 52.00 212.00 Td (File: backend/summarizer/chunking.py) Tj ET
+BT /F1 9.50 Tf 52.00 186.00 Td (The current token estimate is simple:) Tj ET
+BT /F3 8.00 Tf 60.00 160.00 Td (estimated tokens = characters / 4) Tj ET
+BT /F1 9.50 Tf 52.00 137.00 Td (chunk_text\(\) splits large text by paragraphs first, then by sentences, then by fixed slices if needed.) Tj ET
+BT /F1 9.50 Tf 52.00 111.00 Td (Change this file when:) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 10 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 25 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 24 0 R >>
 endobj
 26 0 obj
-<< /Length 2861 >>
+<< /Length 2821 >>
 stream
-BT /F1 9.50 Tf 52.00 736.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 710.00 Td (- You change large-document strategy.) Tj ET
-BT /F1 9.50 Tf 62.00 697.00 Td (- You add progress percentages.) Tj ET
-BT /F1 9.50 Tf 62.00 684.00 Td (- You stream chunk summaries into the UI.) Tj ET
-BT /F1 9.50 Tf 62.00 671.00 Td (- You add cancellation support.) Tj ET
-BT /F1 9.50 Tf 62.00 658.00 Td (- You add caching.) Tj ET
-BT /F2 11.50 Tf 52.00 632.00 Td (Document Chat Orchestration) Tj ET
-BT /F1 9.50 Tf 52.00 604.00 Td (File: backend/summarizer/chat.py) Tj ET
-BT /F1 9.50 Tf 52.00 578.00 Td (Important functions:) Tj ET
-BT /F1 9.50 Tf 62.00 552.00 Td (- iter_chat_events\(text, question, history, settings\)) Tj ET
-BT /F1 9.50 Tf 62.00 539.00 Td (- select_relevant_context\(text, question, settings, safe_input_tokens\)) Tj ET
-BT /F1 9.50 Tf 62.00 526.00 Td (- build_document_chat_prompt\(context, question, history\)) Tj ET
-BT /F1 9.50 Tf 52.00 500.00 Td (Direct chat path:) Tj ET
-BT /F3 8.00 Tf 60.00 474.00 Td (Validate extracted text and user question) Tj ET
-BT /F3 8.00 Tf 60.00 464.00 Td (If text fits context:) Tj ET
-BT /F3 8.00 Tf 60.00 454.00 Td (  use the full extracted text as document context) Tj ET
-BT /F3 8.00 Tf 60.00 444.00 Td (  stream model answer tokens) Tj ET
-BT /F1 9.50 Tf 52.00 421.00 Td (Large document chat path:) Tj ET
-BT /F3 8.00 Tf 60.00 395.00 Td (Estimate token count) Tj ET
-BT /F3 8.00 Tf 60.00 385.00 Td (If text is too large:) Tj ET
-BT /F3 8.00 Tf 60.00 375.00 Td (  split text into chunks) Tj ET
-BT /F3 8.00 Tf 60.00 365.00 Td (  score chunks against question keywords) Tj ET
-BT /F3 8.00 Tf 60.00 355.00 Td (  select the highest-scoring chunks within the context budget) Tj ET
-BT /F3 8.00 Tf 60.00 345.00 Td (  stream the model answer using selected excerpts) Tj ET
-BT /F1 9.50 Tf 52.00 322.00 Td (The chat prompt tells the model to answer only from the document context. If the answer is not) Tj ET
-BT /F1 9.50 Tf 52.00 309.00 Td (present, the model should say it cannot find the answer in the document.) Tj ET
-BT /F1 9.50 Tf 52.00 283.00 Td (Change this file when:) Tj ET
-BT /F1 9.50 Tf 62.00 257.00 Td (- You improve document Q&A retrieval.) Tj ET
-BT /F1 9.50 Tf 62.00 244.00 Td (- You add embeddings or semantic search.) Tj ET
-BT /F1 9.50 Tf 62.00 231.00 Td (- You change how much chat history is included.) Tj ET
-BT /F1 9.50 Tf 62.00 218.00 Td (- You tune the document chat prompt.) Tj ET
-BT /F1 9.50 Tf 62.00 205.00 Td (- You add citations or page-aware references.) Tj ET
-BT /F2 14.00 Tf 52.00 179.00 Td (9. API Contract) Tj ET
-BT /F2 11.50 Tf 52.00 148.00 Td (GET `/health`) Tj ET
-BT /F1 9.50 Tf 52.00 120.00 Td (Returns:) Tj ET
-BT /F3 8.00 Tf 60.00 94.00 Td ({) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 11 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 62.00 736.00 Td (- You need more accurate token counting.) Tj ET
+BT /F1 9.50 Tf 62.00 723.00 Td (- You add tokenizer-based chunking.) Tj ET
+BT /F1 9.50 Tf 62.00 710.00 Td (- You want overlap between chunks.) Tj ET
+BT /F1 9.50 Tf 62.00 697.00 Td (- You want page-aware chunking.) Tj ET
+BT /F2 11.50 Tf 52.00 671.00 Td (Summary Orchestration) Tj ET
+BT /F1 9.50 Tf 52.00 643.00 Td (File: backend/summarizer/summarize.py) Tj ET
+BT /F1 9.50 Tf 52.00 617.00 Td (Important functions:) Tj ET
+BT /F1 9.50 Tf 62.00 591.00 Td (- summarize_text\(text, mode, length, settings\)) Tj ET
+BT /F1 9.50 Tf 62.00 578.00 Td (- summarize_large_document\(text, mode, length, settings\)) Tj ET
+BT /F1 9.50 Tf 62.00 565.00 Td (- iter_summary_events\(text, mode, length, settings\)) Tj ET
+BT /F1 9.50 Tf 52.00 539.00 Td (Direct summarization path:) Tj ET
+BT /F3 8.00 Tf 60.00 513.00 Td (Estimate token count) Tj ET
+BT /F3 8.00 Tf 60.00 503.00 Td (If text fits context:) Tj ET
+BT /F3 8.00 Tf 60.00 493.00 Td (  build prompt) Tj ET
+BT /F3 8.00 Tf 60.00 483.00 Td (  stream model tokens) Tj ET
+BT /F1 9.50 Tf 52.00 460.00 Td (Large document path:) Tj ET
+BT /F3 8.00 Tf 60.00 434.00 Td (Estimate token count) Tj ET
+BT /F3 8.00 Tf 60.00 424.00 Td (If text is too large:) Tj ET
+BT /F3 8.00 Tf 60.00 414.00 Td (  split into chunks) Tj ET
+BT /F3 8.00 Tf 60.00 404.00 Td (  summarize each chunk using short length) Tj ET
+BT /F3 8.00 Tf 60.00 394.00 Td (  combine chunk summaries) Tj ET
+BT /F3 8.00 Tf 60.00 384.00 Td (  run final summary over combined summaries) Tj ET
+BT /F3 8.00 Tf 60.00 374.00 Td (  stream final output) Tj ET
+BT /F1 9.50 Tf 52.00 351.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 325.00 Td (- You change large-document strategy.) Tj ET
+BT /F1 9.50 Tf 62.00 312.00 Td (- You add progress percentages.) Tj ET
+BT /F1 9.50 Tf 62.00 299.00 Td (- You stream chunk summaries into the UI.) Tj ET
+BT /F1 9.50 Tf 62.00 286.00 Td (- You add cancellation support.) Tj ET
+BT /F1 9.50 Tf 62.00 273.00 Td (- You add caching.) Tj ET
+BT /F2 11.50 Tf 52.00 247.00 Td (Document Chat Orchestration) Tj ET
+BT /F1 9.50 Tf 52.00 219.00 Td (File: backend/summarizer/chat.py) Tj ET
+BT /F1 9.50 Tf 52.00 193.00 Td (Important functions:) Tj ET
+BT /F1 9.50 Tf 62.00 167.00 Td (- iter_chat_events\(text, question, history, settings\)) Tj ET
+BT /F1 9.50 Tf 62.00 154.00 Td (- select_relevant_context\(text, question, settings, safe_input_tokens\)) Tj ET
+BT /F1 9.50 Tf 62.00 141.00 Td (- build_document_chat_prompt\(context, question, history\)) Tj ET
+BT /F1 9.50 Tf 52.00 115.00 Td (Direct chat path:) Tj ET
+BT /F3 8.00 Tf 60.00 89.00 Td (Validate extracted text and user question) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 11 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 27 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 26 0 R >>
 endobj
 28 0 obj
-<< /Length 2693 >>
+<< /Length 2934 >>
 stream
-BT /F3 8.00 Tf 60.00 736.00 Td (  "status": "ok",) Tj ET
-BT /F3 8.00 Tf 60.00 726.00 Td (  "privacy": "local-only",) Tj ET
-BT /F3 8.00 Tf 60.00 716.00 Td (  "ollamaApi": "http://127.0.0.1:11434") Tj ET
-BT /F3 8.00 Tf 60.00 706.00 Td (}) Tj ET
-BT /F2 11.50 Tf 52.00 683.00 Td (POST `/system-check`) Tj ET
-BT /F1 9.50 Tf 52.00 655.00 Td (Request body:) Tj ET
-BT /F3 8.00 Tf 60.00 629.00 Td ({) Tj ET
-BT /F3 8.00 Tf 60.00 619.00 Td (  "runtime": "ollama",) Tj ET
-BT /F3 8.00 Tf 60.00 609.00 Td (  "modelName": "gemma:2b",) Tj ET
-BT /F3 8.00 Tf 60.00 599.00 Td (  "ggufModelPath": "",) Tj ET
-BT /F3 8.00 Tf 60.00 589.00 Td (  "contextWindow": 4096,) Tj ET
-BT /F3 8.00 Tf 60.00 579.00 Td (  "chunkSize": 9000) Tj ET
-BT /F3 8.00 Tf 60.00 569.00 Td (}) Tj ET
-BT /F1 9.50 Tf 52.00 546.00 Td (Returns:) Tj ET
-BT /F3 8.00 Tf 60.00 520.00 Td ({) Tj ET
-BT /F3 8.00 Tf 60.00 510.00 Td (  "allReady": true,) Tj ET
-BT /F3 8.00 Tf 60.00 500.00 Td (  "checkedAt": "2026-05-02T16:12:04",) Tj ET
-BT /F3 8.00 Tf 60.00 490.00 Td (  "items": [) Tj ET
-BT /F3 8.00 Tf 60.00 480.00 Td (    {) Tj ET
-BT /F3 8.00 Tf 60.00 470.00 Td (      "id": "backend",) Tj ET
-BT /F3 8.00 Tf 60.00 460.00 Td (      "label": "Local backend",) Tj ET
-BT /F3 8.00 Tf 60.00 450.00 Td (      "status": "ready",) Tj ET
-BT /F3 8.00 Tf 60.00 440.00 Td (      "message": "Running on 127.0.0.1 only.",) Tj ET
-BT /F3 8.00 Tf 60.00 430.00 Td (      "detail": "") Tj ET
-BT /F3 8.00 Tf 60.00 420.00 Td (    }) Tj ET
-BT /F3 8.00 Tf 60.00 410.00 Td (  ]) Tj ET
-BT /F3 8.00 Tf 60.00 400.00 Td (}) Tj ET
-BT /F2 11.50 Tf 52.00 377.00 Td (POST `/extract`) Tj ET
-BT /F1 9.50 Tf 52.00 349.00 Td (Request:) Tj ET
-BT /F1 9.50 Tf 62.00 323.00 Td (- multipart form) Tj ET
-BT /F1 9.50 Tf 62.00 310.00 Td (- field name: file) Tj ET
-BT /F1 9.50 Tf 52.00 284.00 Td (Returns:) Tj ET
-BT /F3 8.00 Tf 60.00 258.00 Td ({) Tj ET
-BT /F3 8.00 Tf 60.00 248.00 Td (  "filename": "notes.pdf",) Tj ET
-BT /F3 8.00 Tf 60.00 238.00 Td (  "fileType": "pdf",) Tj ET
-BT /F3 8.00 Tf 60.00 228.00 Td (  "status": "Text extracted locally",) Tj ET
-BT /F3 8.00 Tf 60.00 218.00 Td (  "text": "...") Tj ET
-BT /F3 8.00 Tf 60.00 208.00 Td (}) Tj ET
-BT /F2 11.50 Tf 52.00 185.00 Td (POST `/summarize`) Tj ET
-BT /F1 9.50 Tf 52.00 157.00 Td (Request body:) Tj ET
-BT /F3 8.00 Tf 60.00 131.00 Td ({) Tj ET
-BT /F3 8.00 Tf 60.00 121.00 Td (  "text": "extracted text",) Tj ET
-BT /F3 8.00 Tf 60.00 111.00 Td (  "mode": "concise",) Tj ET
-BT /F3 8.00 Tf 60.00 101.00 Td (  "length": "medium",) Tj ET
-BT /F3 8.00 Tf 60.00 91.00 Td (  "settings": {) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 12 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F3 8.00 Tf 60.00 736.00 Td (If text fits context:) Tj ET
+BT /F3 8.00 Tf 60.00 726.00 Td (  use the full extracted text as document context) Tj ET
+BT /F3 8.00 Tf 60.00 716.00 Td (  stream model answer tokens) Tj ET
+BT /F1 9.50 Tf 52.00 693.00 Td (Large document chat path:) Tj ET
+BT /F3 8.00 Tf 60.00 667.00 Td (Estimate token count) Tj ET
+BT /F3 8.00 Tf 60.00 657.00 Td (If text is too large:) Tj ET
+BT /F3 8.00 Tf 60.00 647.00 Td (  split text into chunks) Tj ET
+BT /F3 8.00 Tf 60.00 637.00 Td (  score chunks against question keywords) Tj ET
+BT /F3 8.00 Tf 60.00 627.00 Td (  select the highest-scoring chunks within the context budget) Tj ET
+BT /F3 8.00 Tf 60.00 617.00 Td (  stream the model answer using selected excerpts) Tj ET
+BT /F1 9.50 Tf 52.00 594.00 Td (The chat prompt tells the model to answer only from the document context. If the answer is not) Tj ET
+BT /F1 9.50 Tf 52.00 581.00 Td (present, the model should say it cannot find the answer in the document.) Tj ET
+BT /F1 9.50 Tf 52.00 555.00 Td (Change this file when:) Tj ET
+BT /F1 9.50 Tf 62.00 529.00 Td (- You improve document Q&A retrieval.) Tj ET
+BT /F1 9.50 Tf 62.00 516.00 Td (- You add embeddings or semantic search.) Tj ET
+BT /F1 9.50 Tf 62.00 503.00 Td (- You change how much chat history is included.) Tj ET
+BT /F1 9.50 Tf 62.00 490.00 Td (- You tune the document chat prompt.) Tj ET
+BT /F1 9.50 Tf 62.00 477.00 Td (- You add citations or page-aware references.) Tj ET
+BT /F2 14.00 Tf 52.00 451.00 Td (9. API Contract) Tj ET
+BT /F2 11.50 Tf 52.00 420.00 Td (GET `/health`) Tj ET
+BT /F1 9.50 Tf 52.00 392.00 Td (Returns:) Tj ET
+BT /F3 8.00 Tf 60.00 366.00 Td ({) Tj ET
+BT /F3 8.00 Tf 60.00 356.00 Td (  "status": "ok",) Tj ET
+BT /F3 8.00 Tf 60.00 346.00 Td (  "privacy": "local-only",) Tj ET
+BT /F3 8.00 Tf 60.00 336.00 Td (  "ollamaApi": "http://127.0.0.1:11434") Tj ET
+BT /F3 8.00 Tf 60.00 326.00 Td (}) Tj ET
+BT /F2 11.50 Tf 52.00 303.00 Td (POST `/system-check`) Tj ET
+BT /F1 9.50 Tf 52.00 275.00 Td (Request body:) Tj ET
+BT /F3 8.00 Tf 60.00 249.00 Td ({) Tj ET
+BT /F3 8.00 Tf 60.00 239.00 Td (  "runtime": "ollama",) Tj ET
+BT /F3 8.00 Tf 60.00 229.00 Td (  "modelName": "gemma:2b",) Tj ET
+BT /F3 8.00 Tf 60.00 219.00 Td (  "ggufModelPath": "",) Tj ET
+BT /F3 8.00 Tf 60.00 209.00 Td (  "contextWindow": 4096,) Tj ET
+BT /F3 8.00 Tf 60.00 199.00 Td (  "chunkSize": 9000) Tj ET
+BT /F3 8.00 Tf 60.00 189.00 Td (}) Tj ET
+BT /F1 9.50 Tf 52.00 166.00 Td (Returns:) Tj ET
+BT /F3 8.00 Tf 60.00 140.00 Td ({) Tj ET
+BT /F3 8.00 Tf 60.00 130.00 Td (  "allReady": true,) Tj ET
+BT /F3 8.00 Tf 60.00 120.00 Td (  "checkedAt": "2026-05-02T16:12:04",) Tj ET
+BT /F3 8.00 Tf 60.00 110.00 Td (  "items": [) Tj ET
+BT /F3 8.00 Tf 60.00 100.00 Td (    {) Tj ET
+BT /F3 8.00 Tf 60.00 90.00 Td (      "id": "backend",) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 12 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 29 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 28 0 R >>
 endobj
 30 0 obj
-<< /Length 3004 >>
+<< /Length 2613 >>
 stream
-BT /F3 8.00 Tf 60.00 736.00 Td (    "runtime": "ollama",) Tj ET
-BT /F3 8.00 Tf 60.00 726.00 Td (    "modelName": "gemma:2b",) Tj ET
-BT /F3 8.00 Tf 60.00 716.00 Td (    "ggufModelPath": "",) Tj ET
-BT /F3 8.00 Tf 60.00 706.00 Td (    "contextWindow": 4096,) Tj ET
-BT /F3 8.00 Tf 60.00 696.00 Td (    "chunkSize": 9000) Tj ET
-BT /F3 8.00 Tf 60.00 686.00 Td (  }) Tj ET
+BT /F3 8.00 Tf 60.00 736.00 Td (      "label": "Local backend",) Tj ET
+BT /F3 8.00 Tf 60.00 726.00 Td (      "status": "ready",) Tj ET
+BT /F3 8.00 Tf 60.00 716.00 Td (      "message": "Running on 127.0.0.1 only.",) Tj ET
+BT /F3 8.00 Tf 60.00 706.00 Td (      "detail": "") Tj ET
+BT /F3 8.00 Tf 60.00 696.00 Td (    }) Tj ET
+BT /F3 8.00 Tf 60.00 686.00 Td (  ]) Tj ET
 BT /F3 8.00 Tf 60.00 676.00 Td (}) Tj ET
-BT /F1 9.50 Tf 52.00 653.00 Td (Response:) Tj ET
-BT /F1 9.50 Tf 62.00 627.00 Td (- text/event-stream) Tj ET
-BT /F1 9.50 Tf 62.00 614.00 Td (- event names: status, token, error, done) Tj ET
-BT /F1 9.50 Tf 52.00 588.00 Td (Example events:) Tj ET
-BT /F3 8.00 Tf 60.00 562.00 Td (event: status) Tj ET
-BT /F3 8.00 Tf 60.00 552.00 Td (data: {"type":"status","message":"Summarizing locally..."}) Tj ET
-BT /F3 8.00 Tf 60.00 532.00 Td (event: token) Tj ET
-BT /F3 8.00 Tf 60.00 522.00 Td (data: {"type":"token","text":"The document explains..."}) Tj ET
-BT /F2 11.50 Tf 52.00 499.00 Td (POST `/chat`) Tj ET
-BT /F1 9.50 Tf 52.00 471.00 Td (Request body:) Tj ET
-BT /F3 8.00 Tf 60.00 445.00 Td ({) Tj ET
-BT /F3 8.00 Tf 60.00 435.00 Td (  "text": "extracted text",) Tj ET
-BT /F3 8.00 Tf 60.00 425.00 Td (  "question": "What are the action items?",) Tj ET
-BT /F3 8.00 Tf 60.00 415.00 Td (  "history": [) Tj ET
-BT /F3 8.00 Tf 60.00 405.00 Td (    {) Tj ET
-BT /F3 8.00 Tf 60.00 395.00 Td (      "role": "user",) Tj ET
-BT /F3 8.00 Tf 60.00 385.00 Td (      "content": "What is this document about?") Tj ET
-BT /F3 8.00 Tf 60.00 375.00 Td (    },) Tj ET
-BT /F3 8.00 Tf 60.00 365.00 Td (    {) Tj ET
-BT /F3 8.00 Tf 60.00 355.00 Td (      "role": "assistant",) Tj ET
-BT /F3 8.00 Tf 60.00 345.00 Td (      "content": "It explains...") Tj ET
-BT /F3 8.00 Tf 60.00 335.00 Td (    }) Tj ET
-BT /F3 8.00 Tf 60.00 325.00 Td (  ],) Tj ET
-BT /F3 8.00 Tf 60.00 315.00 Td (  "settings": {) Tj ET
-BT /F3 8.00 Tf 60.00 305.00 Td (    "runtime": "ollama",) Tj ET
-BT /F3 8.00 Tf 60.00 295.00 Td (    "modelName": "gemma:2b",) Tj ET
-BT /F3 8.00 Tf 60.00 285.00 Td (    "ggufModelPath": "",) Tj ET
-BT /F3 8.00 Tf 60.00 275.00 Td (    "contextWindow": 4096,) Tj ET
-BT /F3 8.00 Tf 60.00 265.00 Td (    "chunkSize": 9000) Tj ET
-BT /F3 8.00 Tf 60.00 255.00 Td (  }) Tj ET
-BT /F3 8.00 Tf 60.00 245.00 Td (}) Tj ET
-BT /F1 9.50 Tf 52.00 222.00 Td (Response:) Tj ET
-BT /F1 9.50 Tf 62.00 196.00 Td (- text/event-stream) Tj ET
-BT /F1 9.50 Tf 62.00 183.00 Td (- event names: status, token, error, done) Tj ET
-BT /F1 9.50 Tf 52.00 157.00 Td (Example events:) Tj ET
-BT /F3 8.00 Tf 60.00 131.00 Td (event: status) Tj ET
-BT /F3 8.00 Tf 60.00 121.00 Td (data: {"type":"status","message":"Finding relevant document context locally..."}) Tj ET
-BT /F3 8.00 Tf 60.00 101.00 Td (event: token) Tj ET
-BT /F3 8.00 Tf 60.00 91.00 Td (data: {"type":"token","text":"The document lists three action items..."}) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 13 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F2 11.50 Tf 52.00 653.00 Td (POST `/extract`) Tj ET
+BT /F1 9.50 Tf 52.00 625.00 Td (Request:) Tj ET
+BT /F1 9.50 Tf 62.00 599.00 Td (- multipart form) Tj ET
+BT /F1 9.50 Tf 62.00 586.00 Td (- field name: file) Tj ET
+BT /F1 9.50 Tf 52.00 560.00 Td (Returns:) Tj ET
+BT /F3 8.00 Tf 60.00 534.00 Td ({) Tj ET
+BT /F3 8.00 Tf 60.00 524.00 Td (  "filename": "notes.pdf",) Tj ET
+BT /F3 8.00 Tf 60.00 514.00 Td (  "fileType": "pdf",) Tj ET
+BT /F3 8.00 Tf 60.00 504.00 Td (  "status": "Text extracted locally",) Tj ET
+BT /F3 8.00 Tf 60.00 494.00 Td (  "text": "...") Tj ET
+BT /F3 8.00 Tf 60.00 484.00 Td (}) Tj ET
+BT /F2 11.50 Tf 52.00 461.00 Td (POST `/summarize`) Tj ET
+BT /F1 9.50 Tf 52.00 433.00 Td (Request body:) Tj ET
+BT /F3 8.00 Tf 60.00 407.00 Td ({) Tj ET
+BT /F3 8.00 Tf 60.00 397.00 Td (  "text": "extracted text",) Tj ET
+BT /F3 8.00 Tf 60.00 387.00 Td (  "mode": "concise",) Tj ET
+BT /F3 8.00 Tf 60.00 377.00 Td (  "length": "medium",) Tj ET
+BT /F3 8.00 Tf 60.00 367.00 Td (  "settings": {) Tj ET
+BT /F3 8.00 Tf 60.00 357.00 Td (    "runtime": "ollama",) Tj ET
+BT /F3 8.00 Tf 60.00 347.00 Td (    "modelName": "gemma:2b",) Tj ET
+BT /F3 8.00 Tf 60.00 337.00 Td (    "ggufModelPath": "",) Tj ET
+BT /F3 8.00 Tf 60.00 327.00 Td (    "contextWindow": 4096,) Tj ET
+BT /F3 8.00 Tf 60.00 317.00 Td (    "chunkSize": 9000) Tj ET
+BT /F3 8.00 Tf 60.00 307.00 Td (  }) Tj ET
+BT /F3 8.00 Tf 60.00 297.00 Td (}) Tj ET
+BT /F1 9.50 Tf 52.00 274.00 Td (Response:) Tj ET
+BT /F1 9.50 Tf 62.00 248.00 Td (- text/event-stream) Tj ET
+BT /F1 9.50 Tf 62.00 235.00 Td (- event names: status, token, error, done) Tj ET
+BT /F1 9.50 Tf 52.00 209.00 Td (Example events:) Tj ET
+BT /F3 8.00 Tf 60.00 183.00 Td (event: status) Tj ET
+BT /F3 8.00 Tf 60.00 173.00 Td (data: {"type":"status","message":"Summarizing locally..."}) Tj ET
+BT /F3 8.00 Tf 60.00 153.00 Td (event: token) Tj ET
+BT /F3 8.00 Tf 60.00 143.00 Td (data: {"type":"token","text":"The document explains..."}) Tj ET
+BT /F2 11.50 Tf 52.00 120.00 Td (POST `/chat`) Tj ET
+BT /F1 9.50 Tf 52.00 92.00 Td (Request body:) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 13 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 31 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 30 0 R >>
 endobj
 32 0 obj
-<< /Length 2859 >>
+<< /Length 3052 >>
 stream
-BT /F2 11.50 Tf 52.00 723.00 Td (GET `/documents`) Tj ET
-BT /F1 9.50 Tf 52.00 695.00 Td (Returns:) Tj ET
-BT /F3 8.00 Tf 60.00 669.00 Td ({) Tj ET
-BT /F3 8.00 Tf 60.00 659.00 Td (  "documents": [) Tj ET
-BT /F3 8.00 Tf 60.00 649.00 Td (    {) Tj ET
-BT /F3 8.00 Tf 60.00 639.00 Td (      "id": "7a6f...",) Tj ET
-BT /F3 8.00 Tf 60.00 629.00 Td (      "filename": "Biology chapter.pdf",) Tj ET
-BT /F3 8.00 Tf 60.00 619.00 Td (      "fileType": "PDF",) Tj ET
-BT /F3 8.00 Tf 60.00 609.00 Td (      "createdAt": "2026-05-21T13:12:04+00:00",) Tj ET
-BT /F3 8.00 Tf 60.00 599.00 Td (      "updatedAt": "2026-05-21T13:20:11+00:00",) Tj ET
-BT /F3 8.00 Tf 60.00 589.00 Td (      "textChars": 18640,) Tj ET
-BT /F3 8.00 Tf 60.00 579.00 Td (      "summaryChars": 1240) Tj ET
-BT /F3 8.00 Tf 60.00 569.00 Td (    }) Tj ET
-BT /F3 8.00 Tf 60.00 559.00 Td (  ]) Tj ET
-BT /F3 8.00 Tf 60.00 549.00 Td (}) Tj ET
-BT /F2 11.50 Tf 52.00 526.00 Td (GET `/documents/{document_id}`) Tj ET
-BT /F1 9.50 Tf 52.00 498.00 Td (Returns one saved document, including extracted text and summary:) Tj ET
-BT /F3 8.00 Tf 60.00 472.00 Td ({) Tj ET
-BT /F3 8.00 Tf 60.00 462.00 Td (  "id": "7a6f...",) Tj ET
-BT /F3 8.00 Tf 60.00 452.00 Td (  "filename": "Biology chapter.pdf",) Tj ET
-BT /F3 8.00 Tf 60.00 442.00 Td (  "fileType": "PDF",) Tj ET
-BT /F3 8.00 Tf 60.00 432.00 Td (  "createdAt": "2026-05-21T13:12:04+00:00",) Tj ET
-BT /F3 8.00 Tf 60.00 422.00 Td (  "updatedAt": "2026-05-21T13:20:11+00:00",) Tj ET
-BT /F3 8.00 Tf 60.00 412.00 Td (  "textChars": 18640,) Tj ET
-BT /F3 8.00 Tf 60.00 402.00 Td (  "summaryChars": 1240,) Tj ET
-BT /F3 8.00 Tf 60.00 392.00 Td (  "text": "extracted text",) Tj ET
-BT /F3 8.00 Tf 60.00 382.00 Td (  "summary": "saved summary") Tj ET
-BT /F3 8.00 Tf 60.00 372.00 Td (}) Tj ET
-BT /F2 11.50 Tf 52.00 349.00 Td (POST `/documents`) Tj ET
-BT /F1 9.50 Tf 52.00 321.00 Td (Creates or updates one saved document. If id is omitted or null, a new saved document is created.) Tj ET
-BT /F1 9.50 Tf 52.00 295.00 Td (Request body:) Tj ET
-BT /F3 8.00 Tf 60.00 269.00 Td ({) Tj ET
-BT /F3 8.00 Tf 60.00 259.00 Td (  "id": null,) Tj ET
-BT /F3 8.00 Tf 60.00 249.00 Td (  "filename": "Meeting notes.txt",) Tj ET
-BT /F3 8.00 Tf 60.00 239.00 Td (  "fileType": "TXT",) Tj ET
-BT /F3 8.00 Tf 60.00 229.00 Td (  "text": "extracted text",) Tj ET
-BT /F3 8.00 Tf 60.00 219.00 Td (  "summary": "saved summary") Tj ET
-BT /F3 8.00 Tf 60.00 209.00 Td (}) Tj ET
-BT /F1 9.50 Tf 52.00 186.00 Td (Returns the saved document detail.) Tj ET
-BT /F2 11.50 Tf 52.00 160.00 Td (DELETE `/documents/{document_id}`) Tj ET
-BT /F1 9.50 Tf 52.00 132.00 Td (Deletes the saved document folder from outputs/documents/.) Tj ET
-BT /F1 9.50 Tf 52.00 106.00 Td (Returns:) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 14 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F3 8.00 Tf 60.00 723.00 Td ({) Tj ET
+BT /F3 8.00 Tf 60.00 713.00 Td (  "text": "extracted text",) Tj ET
+BT /F3 8.00 Tf 60.00 703.00 Td (  "question": "What are the action items?",) Tj ET
+BT /F3 8.00 Tf 60.00 693.00 Td (  "history": [) Tj ET
+BT /F3 8.00 Tf 60.00 683.00 Td (    {) Tj ET
+BT /F3 8.00 Tf 60.00 673.00 Td (      "role": "user",) Tj ET
+BT /F3 8.00 Tf 60.00 663.00 Td (      "content": "What is this document about?") Tj ET
+BT /F3 8.00 Tf 60.00 653.00 Td (    },) Tj ET
+BT /F3 8.00 Tf 60.00 643.00 Td (    {) Tj ET
+BT /F3 8.00 Tf 60.00 633.00 Td (      "role": "assistant",) Tj ET
+BT /F3 8.00 Tf 60.00 623.00 Td (      "content": "It explains...") Tj ET
+BT /F3 8.00 Tf 60.00 613.00 Td (    }) Tj ET
+BT /F3 8.00 Tf 60.00 603.00 Td (  ],) Tj ET
+BT /F3 8.00 Tf 60.00 593.00 Td (  "settings": {) Tj ET
+BT /F3 8.00 Tf 60.00 583.00 Td (    "runtime": "ollama",) Tj ET
+BT /F3 8.00 Tf 60.00 573.00 Td (    "modelName": "gemma:2b",) Tj ET
+BT /F3 8.00 Tf 60.00 563.00 Td (    "ggufModelPath": "",) Tj ET
+BT /F3 8.00 Tf 60.00 553.00 Td (    "contextWindow": 4096,) Tj ET
+BT /F3 8.00 Tf 60.00 543.00 Td (    "chunkSize": 9000) Tj ET
+BT /F3 8.00 Tf 60.00 533.00 Td (  }) Tj ET
+BT /F3 8.00 Tf 60.00 523.00 Td (}) Tj ET
+BT /F1 9.50 Tf 52.00 500.00 Td (Response:) Tj ET
+BT /F1 9.50 Tf 62.00 474.00 Td (- text/event-stream) Tj ET
+BT /F1 9.50 Tf 62.00 461.00 Td (- event names: status, token, error, done) Tj ET
+BT /F1 9.50 Tf 52.00 435.00 Td (Example events:) Tj ET
+BT /F3 8.00 Tf 60.00 409.00 Td (event: status) Tj ET
+BT /F3 8.00 Tf 60.00 399.00 Td (data: {"type":"status","message":"Finding relevant document context locally..."}) Tj ET
+BT /F3 8.00 Tf 60.00 379.00 Td (event: token) Tj ET
+BT /F3 8.00 Tf 60.00 369.00 Td (data: {"type":"token","text":"The document lists three action items..."}) Tj ET
+BT /F2 11.50 Tf 52.00 346.00 Td (GET `/documents`) Tj ET
+BT /F1 9.50 Tf 52.00 318.00 Td (Returns:) Tj ET
+BT /F3 8.00 Tf 60.00 292.00 Td ({) Tj ET
+BT /F3 8.00 Tf 60.00 282.00 Td (  "documents": [) Tj ET
+BT /F3 8.00 Tf 60.00 272.00 Td (    {) Tj ET
+BT /F3 8.00 Tf 60.00 262.00 Td (      "id": "7a6f...",) Tj ET
+BT /F3 8.00 Tf 60.00 252.00 Td (      "filename": "Biology chapter.pdf",) Tj ET
+BT /F3 8.00 Tf 60.00 242.00 Td (      "fileType": "PDF",) Tj ET
+BT /F3 8.00 Tf 60.00 232.00 Td (      "createdAt": "2026-05-21T13:12:04+00:00",) Tj ET
+BT /F3 8.00 Tf 60.00 222.00 Td (      "updatedAt": "2026-05-21T13:20:11+00:00",) Tj ET
+BT /F3 8.00 Tf 60.00 212.00 Td (      "textChars": 18640,) Tj ET
+BT /F3 8.00 Tf 60.00 202.00 Td (      "summaryChars": 1240) Tj ET
+BT /F3 8.00 Tf 60.00 192.00 Td (    }) Tj ET
+BT /F3 8.00 Tf 60.00 182.00 Td (  ]) Tj ET
+BT /F3 8.00 Tf 60.00 172.00 Td (}) Tj ET
+BT /F2 11.50 Tf 52.00 149.00 Td (GET `/documents/{document_id}`) Tj ET
+BT /F1 9.50 Tf 52.00 121.00 Td (Returns one saved document, including extracted text and summary:) Tj ET
+BT /F3 8.00 Tf 60.00 95.00 Td ({) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 14 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 33 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 32 0 R >>
 endobj
 34 0 obj
-<< /Length 2720 >>
+<< /Length 2725 >>
 stream
-BT /F3 8.00 Tf 60.00 736.00 Td ({) Tj ET
-BT /F3 8.00 Tf 60.00 726.00 Td (  "status": "Saved document deleted locally") Tj ET
-BT /F3 8.00 Tf 60.00 716.00 Td (}) Tj ET
-BT /F2 11.50 Tf 52.00 693.00 Td (POST `/save-summary`) Tj ET
-BT /F1 9.50 Tf 52.00 665.00 Td (Request body:) Tj ET
-BT /F3 8.00 Tf 60.00 639.00 Td ({) Tj ET
-BT /F3 8.00 Tf 60.00 629.00 Td (  "summary": "summary text",) Tj ET
-BT /F3 8.00 Tf 60.00 619.00 Td (  "outputPath": null) Tj ET
-BT /F3 8.00 Tf 60.00 609.00 Td (}) Tj ET
-BT /F1 9.50 Tf 52.00 586.00 Td (Returns:) Tj ET
-BT /F3 8.00 Tf 60.00 560.00 Td ({) Tj ET
-BT /F3 8.00 Tf 60.00 550.00 Td (  "path": "D:\\\\offline_llm\\\\desktop-summarizer\\\\outputs\\\\summary-20260502-161204.txt",) Tj ET
-BT /F3 8.00 Tf 60.00 540.00 Td (  "status": "Summary saved locally") Tj ET
-BT /F3 8.00 Tf 60.00 530.00 Td (}) Tj ET
-BT /F2 14.00 Tf 52.00 507.00 Td (10. Tauri Packaging) Tj ET
-BT /F1 9.50 Tf 52.00 476.00 Td (Tauri files live under frontend/src-tauri.) Tj ET
-BT /F1 9.50 Tf 52.00 450.00 Td (Important files:) Tj ET
-BT /F3 8.00 Tf 60.00 424.00 Td (| File | Purpose |) Tj ET
-BT /F3 8.00 Tf 60.00 414.00 Td (| --- | --- |) Tj ET
-BT /F3 8.00 Tf 60.00 404.00 Td (| `tauri.conf.json` | App metadata, bundle config, CSP, sidecar config, window config. |) Tj ET
-BT /F3 8.00 Tf 60.00 394.00 Td (| `Cargo.toml` | Rust package metadata and Tauri plugin dependencies. |) Tj ET
-BT /F3 8.00 Tf 60.00 384.00 Td (| `src/lib.rs` | Registers plugins and starts backend sidecar in release builds. |) Tj ET
-BT /F3 8.00 Tf 60.00 374.00 Td (| `capabilities/default.json` | Tauri permissions for dialog, filesystem, and shell plugin. |) Tj ET
-BT /F3 8.00 Tf 60.00 364.00 Td (| `icons/icon.ico` | Windows app and installer icon. |) Tj ET
-BT /F1 9.50 Tf 52.00 341.00 Td (Release behavior:) Tj ET
-BT /F1 9.50 Tf 62.00 315.00 Td (- In development, npm run tauri:dev starts the Python backend with dev:backend.) Tj ET
-BT /F1 9.50 Tf 62.00 302.00 Td (- In release builds, Tauri starts the bundled backend sidecar.) Tj ET
-BT /F1 9.50 Tf 62.00 289.00 Td (- The sidecar binary must be named with the Windows target suffix:) Tj ET
-BT /F3 8.00 Tf 60.00 263.00 Td (backend-dist/offline-summarizer-backend-x86_64-pc-windows-msvc.exe) Tj ET
-BT /F2 14.00 Tf 52.00 240.00 Td (11. Build and Release Workflow) Tj ET
-BT /F2 11.50 Tf 52.00 209.00 Td (Development Run) Tj ET
-BT /F1 9.50 Tf 52.00 181.00 Td (From frontend/:) Tj ET
-BT /F3 8.00 Tf 60.00 155.00 Td (npm run tauri:dev) Tj ET
-BT /F2 11.50 Tf 52.00 132.00 Td (Build Backend Sidecar) Tj ET
-BT /F1 9.50 Tf 52.00 104.00 Td (From backend/:) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 15 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F3 8.00 Tf 60.00 736.00 Td (  "id": "7a6f...",) Tj ET
+BT /F3 8.00 Tf 60.00 726.00 Td (  "filename": "Biology chapter.pdf",) Tj ET
+BT /F3 8.00 Tf 60.00 716.00 Td (  "fileType": "PDF",) Tj ET
+BT /F3 8.00 Tf 60.00 706.00 Td (  "createdAt": "2026-05-21T13:12:04+00:00",) Tj ET
+BT /F3 8.00 Tf 60.00 696.00 Td (  "updatedAt": "2026-05-21T13:20:11+00:00",) Tj ET
+BT /F3 8.00 Tf 60.00 686.00 Td (  "textChars": 18640,) Tj ET
+BT /F3 8.00 Tf 60.00 676.00 Td (  "summaryChars": 1240,) Tj ET
+BT /F3 8.00 Tf 60.00 666.00 Td (  "text": "extracted text",) Tj ET
+BT /F3 8.00 Tf 60.00 656.00 Td (  "summary": "saved summary") Tj ET
+BT /F3 8.00 Tf 60.00 646.00 Td (}) Tj ET
+BT /F2 11.50 Tf 52.00 623.00 Td (POST `/documents`) Tj ET
+BT /F1 9.50 Tf 52.00 595.00 Td (Creates or updates one saved document. If id is omitted or null, a new saved document is created.) Tj ET
+BT /F1 9.50 Tf 52.00 569.00 Td (Request body:) Tj ET
+BT /F3 8.00 Tf 60.00 543.00 Td ({) Tj ET
+BT /F3 8.00 Tf 60.00 533.00 Td (  "id": null,) Tj ET
+BT /F3 8.00 Tf 60.00 523.00 Td (  "filename": "Meeting notes.txt",) Tj ET
+BT /F3 8.00 Tf 60.00 513.00 Td (  "fileType": "TXT",) Tj ET
+BT /F3 8.00 Tf 60.00 503.00 Td (  "text": "extracted text",) Tj ET
+BT /F3 8.00 Tf 60.00 493.00 Td (  "summary": "saved summary") Tj ET
+BT /F3 8.00 Tf 60.00 483.00 Td (}) Tj ET
+BT /F1 9.50 Tf 52.00 460.00 Td (Returns the saved document detail.) Tj ET
+BT /F2 11.50 Tf 52.00 434.00 Td (DELETE `/documents/{document_id}`) Tj ET
+BT /F1 9.50 Tf 52.00 406.00 Td (Deletes the saved document folder from outputs/documents/.) Tj ET
+BT /F1 9.50 Tf 52.00 380.00 Td (Returns:) Tj ET
+BT /F3 8.00 Tf 60.00 354.00 Td ({) Tj ET
+BT /F3 8.00 Tf 60.00 344.00 Td (  "status": "Saved document deleted locally") Tj ET
+BT /F3 8.00 Tf 60.00 334.00 Td (}) Tj ET
+BT /F2 11.50 Tf 52.00 311.00 Td (POST `/save-summary`) Tj ET
+BT /F1 9.50 Tf 52.00 283.00 Td (Request body:) Tj ET
+BT /F3 8.00 Tf 60.00 257.00 Td ({) Tj ET
+BT /F3 8.00 Tf 60.00 247.00 Td (  "summary": "summary text",) Tj ET
+BT /F3 8.00 Tf 60.00 237.00 Td (  "outputPath": null) Tj ET
+BT /F3 8.00 Tf 60.00 227.00 Td (}) Tj ET
+BT /F1 9.50 Tf 52.00 204.00 Td (Returns:) Tj ET
+BT /F3 8.00 Tf 60.00 178.00 Td ({) Tj ET
+BT /F3 8.00 Tf 60.00 168.00 Td (  "path": "D:\\\\offline_llm\\\\desktop-summarizer\\\\outputs\\\\summary-20260502-161204.txt",) Tj ET
+BT /F3 8.00 Tf 60.00 158.00 Td (  "status": "Summary saved locally") Tj ET
+BT /F3 8.00 Tf 60.00 148.00 Td (}) Tj ET
+BT /F2 14.00 Tf 52.00 125.00 Td (10. Tauri Packaging) Tj ET
+BT /F1 9.50 Tf 52.00 94.00 Td (Tauri files live under frontend/src-tauri.) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 15 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 35 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 34 0 R >>
 endobj
 36 0 obj
-<< /Length 2611 >>
+<< /Length 2781 >>
 stream
-BT /F3 8.00 Tf 60.00 736.00 Td (..\\.venv\\Scripts\\python.exe -m PyInstaller --name offline-summarizer-backend --onefile main.py --clean) Tj ET
-BT /F1 9.50 Tf 52.00 713.00 Td (Then copy:) Tj ET
-BT /F3 8.00 Tf 60.00 687.00 Td (Copy-Item backend\\dist\\offline-summarizer-backend.exe backend-dist\\offline-summarizer-backend-x86_64-pc-) Tj ET
-BT /F3 8.00 Tf 60.00 677.00 Td (windows-msvc.exe -Force) Tj ET
-BT /F2 11.50 Tf 52.00 654.00 Td (Build Windows App) Tj ET
-BT /F1 9.50 Tf 52.00 626.00 Td (From frontend/:) Tj ET
-BT /F3 8.00 Tf 60.00 600.00 Td (npm run tauri:build) Tj ET
-BT /F1 9.50 Tf 52.00 577.00 Td (If Git's link.exe is picked instead of MSVC's linker, build from the Visual Studio C++ developer) Tj ET
-BT /F1 9.50 Tf 52.00 564.00 Td (environment or prepend the MSVC linker directory to PATH.) Tj ET
-BT /F2 11.50 Tf 52.00 538.00 Td (Release Artifacts) Tj ET
-BT /F1 9.50 Tf 52.00 510.00 Td (Current release artifacts are created under:) Tj ET
-BT /F3 8.00 Tf 60.00 484.00 Td (frontend/src-tauri/target/release/bundle/) Tj ET
-BT /F1 9.50 Tf 52.00 461.00 Td (Recommended public download:) Tj ET
-BT /F3 8.00 Tf 60.00 435.00 Td (frontend/src-tauri/target/release/bundle/nsis/Offline Document Summarizer_0.3.0_x64-setup.exe) Tj ET
-BT /F1 9.50 Tf 52.00 412.00 Td (MSI alternative:) Tj ET
-BT /F3 8.00 Tf 60.00 386.00 Td (frontend/src-tauri/target/release/bundle/msi/Offline Document Summarizer_0.3.0_x64_en-US.msi) Tj ET
-BT /F2 14.00 Tf 52.00 363.00 Td (12. Where To Make Common Feature Changes) Tj ET
-BT /F2 11.50 Tf 52.00 332.00 Td (Add a New File Type) Tj ET
-BT /F1 9.50 Tf 52.00 304.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 278.00 Td (- backend/utils/file_utils.py) Tj ET
-BT /F1 9.50 Tf 62.00 265.00 Td (- add a new extraction module under backend/extraction/) Tj ET
-BT /F1 9.50 Tf 62.00 252.00 Td (- backend/main.py) Tj ET
-BT /F1 9.50 Tf 62.00 239.00 Td (- frontend/src/components/DropZone.tsx) Tj ET
-BT /F1 9.50 Tf 62.00 226.00 Td (- possibly frontend/src/App.tsx) Tj ET
-BT /F1 9.50 Tf 52.00 200.00 Td (Example:) Tj ET
-BT /F1 9.50 Tf 52.00 174.00 Td (To add DOCX support:) Tj ET
-BT /F1 9.50 Tf 52.00 148.00 Td (1. Add .docx to supported extensions in file_utils.py.) Tj ET
-BT /F1 9.50 Tf 52.00 135.00 Td (2. Create backend/extraction/docx_reader.py.) Tj ET
-BT /F1 9.50 Tf 52.00 122.00 Td (3. Route file_type == "docx" in backend/main.py.) Tj ET
-BT /F1 9.50 Tf 52.00 109.00 Td (4. Add .docx to the file input accept list in DropZone.tsx.) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 16 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 52.00 723.00 Td (Important files:) Tj ET
+BT /F3 8.00 Tf 60.00 697.00 Td (| File | Purpose |) Tj ET
+BT /F3 8.00 Tf 60.00 687.00 Td (| --- | --- |) Tj ET
+BT /F3 8.00 Tf 60.00 677.00 Td (| `tauri.conf.json` | App metadata, bundle config, CSP, sidecar config, window config. |) Tj ET
+BT /F3 8.00 Tf 60.00 667.00 Td (| `Cargo.toml` | Rust package metadata and Tauri plugin dependencies. |) Tj ET
+BT /F3 8.00 Tf 60.00 657.00 Td (| `src/lib.rs` | Registers plugins and starts backend sidecar in release builds. |) Tj ET
+BT /F3 8.00 Tf 60.00 647.00 Td (| `capabilities/default.json` | Tauri permissions for dialog, filesystem, and shell plugin. |) Tj ET
+BT /F3 8.00 Tf 60.00 637.00 Td (| `icons/icon.ico` | Windows app and installer icon. |) Tj ET
+BT /F1 9.50 Tf 52.00 614.00 Td (Release behavior:) Tj ET
+BT /F1 9.50 Tf 62.00 588.00 Td (- In development, npm run tauri:dev starts the Python backend with dev:backend.) Tj ET
+BT /F1 9.50 Tf 62.00 575.00 Td (- In release builds, Tauri starts the bundled backend sidecar.) Tj ET
+BT /F1 9.50 Tf 62.00 562.00 Td (- The sidecar binary must be named with the Windows target suffix:) Tj ET
+BT /F3 8.00 Tf 60.00 536.00 Td (backend-dist/offline-summarizer-backend-x86_64-pc-windows-msvc.exe) Tj ET
+BT /F2 14.00 Tf 52.00 513.00 Td (11. Build and Release Workflow) Tj ET
+BT /F2 11.50 Tf 52.00 482.00 Td (Development Run) Tj ET
+BT /F1 9.50 Tf 52.00 454.00 Td (From frontend/:) Tj ET
+BT /F3 8.00 Tf 60.00 428.00 Td (npm run tauri:dev) Tj ET
+BT /F2 11.50 Tf 52.00 405.00 Td (Build Backend Sidecar) Tj ET
+BT /F1 9.50 Tf 52.00 377.00 Td (From backend/:) Tj ET
+BT /F3 8.00 Tf 60.00 351.00 Td (..\\.venv\\Scripts\\python.exe -m PyInstaller --name offline-summarizer-backend --onefile main.py --clean) Tj ET
+BT /F1 9.50 Tf 52.00 328.00 Td (Then copy:) Tj ET
+BT /F3 8.00 Tf 60.00 302.00 Td (Copy-Item backend\\dist\\offline-summarizer-backend.exe backend-dist\\offline-summarizer-backend-x86_64-pc-) Tj ET
+BT /F3 8.00 Tf 60.00 292.00 Td (windows-msvc.exe -Force) Tj ET
+BT /F2 11.50 Tf 52.00 269.00 Td (Build Windows App) Tj ET
+BT /F1 9.50 Tf 52.00 241.00 Td (From frontend/:) Tj ET
+BT /F3 8.00 Tf 60.00 215.00 Td (npm run tauri:build) Tj ET
+BT /F1 9.50 Tf 52.00 192.00 Td (If Git's link.exe is picked instead of MSVC's linker, build from the Visual Studio C++ developer) Tj ET
+BT /F1 9.50 Tf 52.00 179.00 Td (environment or prepend the MSVC linker directory to PATH.) Tj ET
+BT /F2 11.50 Tf 52.00 153.00 Td (Release Artifacts) Tj ET
+BT /F1 9.50 Tf 52.00 125.00 Td (Current release artifacts are created under:) Tj ET
+BT /F3 8.00 Tf 60.00 99.00 Td (frontend/src-tauri/target/release/bundle/) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 16 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 37 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 36 0 R >>
 endobj
 38 0 obj
-<< /Length 2358 >>
+<< /Length 2416 >>
 stream
-BT /F2 11.50 Tf 52.00 736.00 Td (Improve OCR Quality) Tj ET
-BT /F1 9.50 Tf 52.00 708.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 682.00 Td (- backend/extraction/image_ocr.py) Tj ET
-BT /F1 9.50 Tf 52.00 656.00 Td (Possible improvements:) Tj ET
-BT /F1 9.50 Tf 62.00 630.00 Td (- deskew images) Tj ET
-BT /F1 9.50 Tf 62.00 617.00 Td (- increase contrast) Tj ET
-BT /F1 9.50 Tf 62.00 604.00 Td (- threshold image to black/white) Tj ET
-BT /F1 9.50 Tf 62.00 591.00 Td (- add language selection) Tj ET
-BT /F1 9.50 Tf 62.00 578.00 Td (- expose OCR language in settings) Tj ET
-BT /F2 11.50 Tf 52.00 552.00 Td (Add Scanned PDF OCR) Tj ET
-BT /F1 9.50 Tf 52.00 524.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 498.00 Td (- backend/extraction/pdf_reader.py) Tj ET
-BT /F1 9.50 Tf 62.00 485.00 Td (- possibly add pdf2image or PyMuPDF) Tj ET
-BT /F1 9.50 Tf 62.00 472.00 Td (- backend/requirements.txt) Tj ET
-BT /F1 9.50 Tf 62.00 459.00 Td (- README.md) Tj ET
-BT /F1 9.50 Tf 62.00 446.00 Td (- backend/utils/system_check.py) Tj ET
-BT /F1 9.50 Tf 52.00 420.00 Td (Suggested flow:) Tj ET
-BT /F1 9.50 Tf 52.00 394.00 Td (1. Try selectable text extraction.) Tj ET
-BT /F1 9.50 Tf 52.00 381.00 Td (2. If no text is found, render PDF pages as images.) Tj ET
-BT /F1 9.50 Tf 52.00 368.00 Td (3. Run local OCR per page.) Tj ET
-BT /F1 9.50 Tf 52.00 355.00 Td (4. Return page-labeled OCR text.) Tj ET
-BT /F2 11.50 Tf 52.00 329.00 Td (Add a New Summary Style) Tj ET
-BT /F1 9.50 Tf 52.00 301.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 275.00 Td (- backend/summarizer/prompts.py) Tj ET
-BT /F1 9.50 Tf 62.00 262.00 Td (- frontend/src/types.ts) Tj ET
-BT /F1 9.50 Tf 62.00 249.00 Td (- frontend/src/components/SummaryControls.tsx) Tj ET
-BT /F1 9.50 Tf 52.00 223.00 Td (Example:) Tj ET
-BT /F1 9.50 Tf 52.00 197.00 Td (1. Add a new key to MODE_PROMPTS.) Tj ET
-BT /F1 9.50 Tf 52.00 184.00 Td (2. Add the new union value to SummaryMode.) Tj ET
-BT /F1 9.50 Tf 52.00 171.00 Td (3. Add a new dropdown option in SummaryControls.tsx.) Tj ET
-BT /F2 11.50 Tf 52.00 145.00 Td (Add a New Length Option) Tj ET
-BT /F1 9.50 Tf 52.00 117.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 91.00 Td (- backend/summarizer/prompts.py) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 17 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 52.00 723.00 Td (Recommended public download:) Tj ET
+BT /F3 8.00 Tf 60.00 697.00 Td (frontend/src-tauri/target/release/bundle/nsis/Offline Document Summarizer_0.4.0_x64-setup.exe) Tj ET
+BT /F1 9.50 Tf 52.00 674.00 Td (MSI alternative:) Tj ET
+BT /F3 8.00 Tf 60.00 648.00 Td (frontend/src-tauri/target/release/bundle/msi/Offline Document Summarizer_0.4.0_x64_en-US.msi) Tj ET
+BT /F2 14.00 Tf 52.00 625.00 Td (12. Where To Make Common Feature Changes) Tj ET
+BT /F2 11.50 Tf 52.00 594.00 Td (Add a New File Type) Tj ET
+BT /F1 9.50 Tf 52.00 566.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 540.00 Td (- backend/utils/file_utils.py) Tj ET
+BT /F1 9.50 Tf 62.00 527.00 Td (- add a new extraction module under backend/extraction/) Tj ET
+BT /F1 9.50 Tf 62.00 514.00 Td (- backend/main.py) Tj ET
+BT /F1 9.50 Tf 62.00 501.00 Td (- frontend/src/components/DropZone.tsx) Tj ET
+BT /F1 9.50 Tf 62.00 488.00 Td (- possibly frontend/src/App.tsx) Tj ET
+BT /F1 9.50 Tf 52.00 462.00 Td (Example:) Tj ET
+BT /F1 9.50 Tf 52.00 436.00 Td (To add DOCX support:) Tj ET
+BT /F1 9.50 Tf 52.00 410.00 Td (1. Add .docx to supported extensions in file_utils.py.) Tj ET
+BT /F1 9.50 Tf 52.00 397.00 Td (2. Create backend/extraction/docx_reader.py.) Tj ET
+BT /F1 9.50 Tf 52.00 384.00 Td (3. Route file_type == "docx" in backend/main.py.) Tj ET
+BT /F1 9.50 Tf 52.00 371.00 Td (4. Add .docx to the file input accept list in DropZone.tsx.) Tj ET
+BT /F2 11.50 Tf 52.00 345.00 Td (Improve OCR Quality) Tj ET
+BT /F1 9.50 Tf 52.00 317.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 291.00 Td (- backend/extraction/image_ocr.py) Tj ET
+BT /F1 9.50 Tf 52.00 265.00 Td (Possible improvements:) Tj ET
+BT /F1 9.50 Tf 62.00 239.00 Td (- deskew images) Tj ET
+BT /F1 9.50 Tf 62.00 226.00 Td (- increase contrast) Tj ET
+BT /F1 9.50 Tf 62.00 213.00 Td (- threshold image to black/white) Tj ET
+BT /F1 9.50 Tf 62.00 200.00 Td (- add language selection) Tj ET
+BT /F1 9.50 Tf 62.00 187.00 Td (- expose OCR language in settings) Tj ET
+BT /F2 11.50 Tf 52.00 161.00 Td (Add Scanned PDF OCR) Tj ET
+BT /F1 9.50 Tf 52.00 133.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 107.00 Td (- backend/extraction/pdf_reader.py) Tj ET
+BT /F1 9.50 Tf 62.00 94.00 Td (- possibly add pdf2image or PyMuPDF) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 17 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 39 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 38 0 R >>
 endobj
 40 0 obj
-<< /Length 2464 >>
+<< /Length 2519 >>
 stream
-BT /F1 9.50 Tf 62.00 736.00 Td (- frontend/src/types.ts) Tj ET
-BT /F1 9.50 Tf 62.00 723.00 Td (- frontend/src/components/SummaryControls.tsx) Tj ET
-BT /F2 11.50 Tf 52.00 697.00 Td (Add a New Runtime) Tj ET
-BT /F1 9.50 Tf 52.00 669.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 643.00 Td (- backend/model/runtime.py) Tj ET
-BT /F1 9.50 Tf 62.00 630.00 Td (- create a new runtime file under backend/model/) Tj ET
-BT /F1 9.50 Tf 62.00 617.00 Td (- backend/utils/system_check.py) Tj ET
-BT /F1 9.50 Tf 62.00 604.00 Td (- frontend/src/types.ts) Tj ET
-BT /F1 9.50 Tf 62.00 591.00 Td (- frontend/src/components/SettingsPage.tsx) Tj ET
-BT /F2 11.50 Tf 52.00 565.00 Td (Change Ollama Model Defaults) Tj ET
-BT /F1 9.50 Tf 52.00 537.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 511.00 Td (- frontend/src/App.tsx for DEFAULT_SETTINGS) Tj ET
-BT /F1 9.50 Tf 62.00 498.00 Td (- backend/main.py for backend default Settings) Tj ET
-BT /F1 9.50 Tf 62.00 485.00 Td (- README.md for setup instructions) Tj ET
-BT /F1 9.50 Tf 62.00 472.00 Td (- backend/utils/system_check.py if readiness copy should change) Tj ET
-BT /F2 11.50 Tf 52.00 446.00 Td (Change Prompt Behavior) Tj ET
-BT /F1 9.50 Tf 52.00 418.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 392.00 Td (- backend/summarizer/prompts.py) Tj ET
-BT /F1 9.50 Tf 62.00 379.00 Td (- backend/model/ollama_runtime.py for system instruction) Tj ET
-BT /F2 11.50 Tf 52.00 353.00 Td (Change Chunking Behavior) Tj ET
-BT /F1 9.50 Tf 52.00 325.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 299.00 Td (- backend/summarizer/chunking.py) Tj ET
-BT /F1 9.50 Tf 62.00 286.00 Td (- backend/summarizer/summarize.py) Tj ET
-BT /F1 9.50 Tf 62.00 273.00 Td (- frontend/src/components/SettingsPage.tsx if settings need to change) Tj ET
-BT /F2 11.50 Tf 52.00 247.00 Td (Add Progress Percentage) Tj ET
-BT /F1 9.50 Tf 52.00 219.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 193.00 Td (- backend/summarizer/summarize.py) Tj ET
-BT /F1 9.50 Tf 62.00 180.00 Td (- backend/main.py only if event shape changes) Tj ET
-BT /F1 9.50 Tf 62.00 167.00 Td (- frontend/src/api/backend.ts) Tj ET
-BT /F1 9.50 Tf 62.00 154.00 Td (- frontend/src/components/SummaryOutput.tsx) Tj ET
-BT /F2 11.50 Tf 52.00 128.00 Td (Add Cancel Summarization) Tj ET
-BT /F1 9.50 Tf 52.00 100.00 Td (Files to change:) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 18 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 62.00 736.00 Td (- backend/requirements.txt) Tj ET
+BT /F1 9.50 Tf 62.00 723.00 Td (- README.md) Tj ET
+BT /F1 9.50 Tf 62.00 710.00 Td (- backend/utils/system_check.py) Tj ET
+BT /F1 9.50 Tf 52.00 684.00 Td (Suggested flow:) Tj ET
+BT /F1 9.50 Tf 52.00 658.00 Td (1. Try selectable text extraction.) Tj ET
+BT /F1 9.50 Tf 52.00 645.00 Td (2. If no text is found, render PDF pages as images.) Tj ET
+BT /F1 9.50 Tf 52.00 632.00 Td (3. Run local OCR per page.) Tj ET
+BT /F1 9.50 Tf 52.00 619.00 Td (4. Return page-labeled OCR text.) Tj ET
+BT /F2 11.50 Tf 52.00 593.00 Td (Add a New Summary Style) Tj ET
+BT /F1 9.50 Tf 52.00 565.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 539.00 Td (- backend/summarizer/prompts.py) Tj ET
+BT /F1 9.50 Tf 62.00 526.00 Td (- frontend/src/types.ts) Tj ET
+BT /F1 9.50 Tf 62.00 513.00 Td (- frontend/src/components/SummaryControls.tsx) Tj ET
+BT /F1 9.50 Tf 52.00 487.00 Td (Example:) Tj ET
+BT /F1 9.50 Tf 52.00 461.00 Td (1. Add a new key to MODE_PROMPTS.) Tj ET
+BT /F1 9.50 Tf 52.00 448.00 Td (2. Add the new union value to SummaryMode.) Tj ET
+BT /F1 9.50 Tf 52.00 435.00 Td (3. Add a new dropdown option in SummaryControls.tsx.) Tj ET
+BT /F2 11.50 Tf 52.00 409.00 Td (Add a New Length Option) Tj ET
+BT /F1 9.50 Tf 52.00 381.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 355.00 Td (- backend/summarizer/prompts.py) Tj ET
+BT /F1 9.50 Tf 62.00 342.00 Td (- frontend/src/types.ts) Tj ET
+BT /F1 9.50 Tf 62.00 329.00 Td (- frontend/src/components/SummaryControls.tsx) Tj ET
+BT /F2 11.50 Tf 52.00 303.00 Td (Add a New Runtime) Tj ET
+BT /F1 9.50 Tf 52.00 275.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 249.00 Td (- backend/model/runtime.py) Tj ET
+BT /F1 9.50 Tf 62.00 236.00 Td (- create a new runtime file under backend/model/) Tj ET
+BT /F1 9.50 Tf 62.00 223.00 Td (- backend/utils/system_check.py) Tj ET
+BT /F1 9.50 Tf 62.00 210.00 Td (- frontend/src/types.ts) Tj ET
+BT /F1 9.50 Tf 62.00 197.00 Td (- frontend/src/components/SettingsPage.tsx) Tj ET
+BT /F2 11.50 Tf 52.00 171.00 Td (Change Ollama Model Defaults) Tj ET
+BT /F1 9.50 Tf 52.00 143.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 117.00 Td (- frontend/src/App.tsx for DEFAULT_SETTINGS) Tj ET
+BT /F1 9.50 Tf 62.00 104.00 Td (- backend/main.py for backend default Settings) Tj ET
+BT /F1 9.50 Tf 62.00 91.00 Td (- README.md for setup instructions) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 18 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 41 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 40 0 R >>
 endobj
 42 0 obj
-<< /Length 2591 >>
+<< /Length 2455 >>
 stream
-BT /F1 9.50 Tf 62.00 723.00 Td (- frontend/src/api/backend.ts) Tj ET
-BT /F1 9.50 Tf 62.00 710.00 Td (- frontend/src/App.tsx) Tj ET
-BT /F1 9.50 Tf 62.00 697.00 Td (- frontend/src/components/SummaryControls.tsx) Tj ET
-BT /F1 9.50 Tf 62.00 684.00 Td (- backend may need request/session IDs if cancellation should stop the model call, not only ignore) Tj ET
-BT /F1 9.50 Tf 62.00 671.00 Td (output) Tj ET
-BT /F2 11.50 Tf 52.00 645.00 Td (Improve Settings Persistence) Tj ET
-BT /F1 9.50 Tf 52.00 617.00 Td (Current settings are stored in browser localStorage.) Tj ET
-BT /F1 9.50 Tf 52.00 591.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 565.00 Td (- frontend/src/App.tsx) Tj ET
-BT /F1 9.50 Tf 62.00 552.00 Td (- possibly add a Tauri filesystem-backed settings file) Tj ET
-BT /F1 9.50 Tf 62.00 539.00 Td (- frontend/src/api/backend.ts if backend persistence is added) Tj ET
-BT /F2 11.50 Tf 52.00 513.00 Td (Change Save Behavior) Tj ET
-BT /F1 9.50 Tf 52.00 485.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 459.00 Td (- frontend/src/api/backend.ts) Tj ET
-BT /F1 9.50 Tf 62.00 446.00 Td (- backend/utils/file_utils.py) Tj ET
-BT /F1 9.50 Tf 62.00 433.00 Td (- backend/main.py) Tj ET
-BT /F1 9.50 Tf 52.00 407.00 Td (Current behavior:) Tj ET
-BT /F1 9.50 Tf 62.00 381.00 Td (- In Tauri, save uses a native save dialog.) Tj ET
-BT /F1 9.50 Tf 62.00 368.00 Td (- Outside Tauri, backend fallback writes to outputs/.) Tj ET
-BT /F2 11.50 Tf 52.00 342.00 Td (Change My Documents Behavior) Tj ET
-BT /F1 9.50 Tf 52.00 314.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 288.00 Td (- backend/utils/document_store.py) Tj ET
-BT /F1 9.50 Tf 62.00 275.00 Td (- backend/main.py) Tj ET
-BT /F1 9.50 Tf 62.00 262.00 Td (- frontend/src/api/backend.ts) Tj ET
-BT /F1 9.50 Tf 62.00 249.00 Td (- frontend/src/components/DocumentLibrary.tsx) Tj ET
-BT /F1 9.50 Tf 62.00 236.00 Td (- frontend/src/App.tsx) Tj ET
-BT /F1 9.50 Tf 62.00 223.00 Td (- frontend/src/types.ts) Tj ET
-BT /F1 9.50 Tf 52.00 197.00 Td (Current behavior:) Tj ET
-BT /F1 9.50 Tf 62.00 171.00 Td (- Saved documents are stored locally under outputs/documents/.) Tj ET
-BT /F1 9.50 Tf 62.00 158.00 Td (- Each saved document has metadata, extracted text, and summary text.) Tj ET
-BT /F1 9.50 Tf 62.00 145.00 Td (- Opening a saved document restores extracted text and saved summary.) Tj ET
-BT /F2 11.50 Tf 52.00 119.00 Td (Change UI Layout) Tj ET
-BT /F1 9.50 Tf 52.00 91.00 Td (Files to change:) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 19 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 62.00 736.00 Td (- backend/utils/system_check.py if readiness copy should change) Tj ET
+BT /F2 11.50 Tf 52.00 710.00 Td (Change Prompt Behavior) Tj ET
+BT /F1 9.50 Tf 52.00 682.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 656.00 Td (- backend/summarizer/prompts.py) Tj ET
+BT /F1 9.50 Tf 62.00 643.00 Td (- backend/model/ollama_runtime.py for system instruction) Tj ET
+BT /F2 11.50 Tf 52.00 617.00 Td (Change Chunking Behavior) Tj ET
+BT /F1 9.50 Tf 52.00 589.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 563.00 Td (- backend/summarizer/chunking.py) Tj ET
+BT /F1 9.50 Tf 62.00 550.00 Td (- backend/summarizer/summarize.py) Tj ET
+BT /F1 9.50 Tf 62.00 537.00 Td (- frontend/src/components/SettingsPage.tsx if settings need to change) Tj ET
+BT /F2 11.50 Tf 52.00 511.00 Td (Add Progress Percentage) Tj ET
+BT /F1 9.50 Tf 52.00 483.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 457.00 Td (- backend/summarizer/summarize.py) Tj ET
+BT /F1 9.50 Tf 62.00 444.00 Td (- backend/main.py only if event shape changes) Tj ET
+BT /F1 9.50 Tf 62.00 431.00 Td (- frontend/src/api/backend.ts) Tj ET
+BT /F1 9.50 Tf 62.00 418.00 Td (- frontend/src/components/SummaryOutput.tsx) Tj ET
+BT /F2 11.50 Tf 52.00 392.00 Td (Add Cancel Summarization) Tj ET
+BT /F1 9.50 Tf 52.00 364.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 338.00 Td (- frontend/src/api/backend.ts) Tj ET
+BT /F1 9.50 Tf 62.00 325.00 Td (- frontend/src/App.tsx) Tj ET
+BT /F1 9.50 Tf 62.00 312.00 Td (- frontend/src/components/SummaryControls.tsx) Tj ET
+BT /F1 9.50 Tf 62.00 299.00 Td (- backend may need request/session IDs if cancellation should stop the model call, not only ignore) Tj ET
+BT /F1 9.50 Tf 62.00 286.00 Td (output) Tj ET
+BT /F2 11.50 Tf 52.00 260.00 Td (Improve Settings Persistence) Tj ET
+BT /F1 9.50 Tf 52.00 232.00 Td (Current settings are stored in browser localStorage.) Tj ET
+BT /F1 9.50 Tf 52.00 206.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 180.00 Td (- frontend/src/App.tsx) Tj ET
+BT /F1 9.50 Tf 62.00 167.00 Td (- possibly add a Tauri filesystem-backed settings file) Tj ET
+BT /F1 9.50 Tf 62.00 154.00 Td (- frontend/src/api/backend.ts if backend persistence is added) Tj ET
+BT /F2 11.50 Tf 52.00 128.00 Td (Change Save Behavior) Tj ET
+BT /F1 9.50 Tf 52.00 100.00 Td (Files to change:) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 19 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 43 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 42 0 R >>
 endobj
 44 0 obj
-<< /Length 4266 >>
+<< /Length 2712 >>
 stream
-BT /F1 9.50 Tf 62.00 723.00 Td (- frontend/src/App.tsx) Tj ET
-BT /F1 9.50 Tf 62.00 710.00 Td (- frontend/src/styles.css) Tj ET
-BT /F1 9.50 Tf 62.00 697.00 Td (- component files under frontend/src/components/) Tj ET
-BT /F2 11.50 Tf 52.00 671.00 Td (Add App Auto-Update) Tj ET
-BT /F1 9.50 Tf 52.00 643.00 Td (Files to change:) Tj ET
-BT /F1 9.50 Tf 62.00 617.00 Td (- Tauri updater configuration) Tj ET
-BT /F1 9.50 Tf 62.00 604.00 Td (- frontend/src-tauri/tauri.conf.json) Tj ET
-BT /F1 9.50 Tf 62.00 591.00 Td (- release signing keys and GitHub release process) Tj ET
-BT /F1 9.50 Tf 52.00 565.00 Td (This feature has security implications and should be planned carefully.) Tj ET
-BT /F2 14.00 Tf 52.00 539.00 Td (13. Error Handling Map) Tj ET
-BT /F3 8.00 Tf 60.00 508.00 Td (| Error | Where It Comes From | User-Facing Behavior |) Tj ET
-BT /F3 8.00 Tf 60.00 498.00 Td (| --- | --- | --- |) Tj ET
-BT /F3 8.00 Tf 60.00 488.00 Td (| Unsupported file type | `backend/main.py`, `file_utils.py` | Upload fails with supported extensions ) Tj ET
-BT /F3 8.00 Tf 60.00 478.00 Td (message. |) Tj ET
-BT /F3 8.00 Tf 60.00 468.00 Td (| OCR failed | `backend/extraction/image_ocr.py` | User sees OCR error. |) Tj ET
-BT /F3 8.00 Tf 60.00 458.00 Td (| Tesseract missing | `image_ocr.py`, `system_check.py` | Setup check marks OCR missing; extraction ) Tj ET
-BT /F3 8.00 Tf 60.00 448.00 Td (shows OCR failure. |) Tj ET
-BT /F3 8.00 Tf 60.00 438.00 Td (| PDF extraction failed | `backend/extraction/pdf_reader.py` | User sees PDF extraction error. |) Tj ET
-BT /F3 8.00 Tf 60.00 428.00 Td (| Empty extracted text | `backend/main.py`, `summarize.py` | User sees empty text message. |) Tj ET
-BT /F3 8.00 Tf 60.00 418.00 Td (| Ollama not running | `ollama_runtime.py`, `system_check.py` | Setup check marks Ollama missing; ) Tj ET
-BT /F3 8.00 Tf 60.00 408.00 Td (summarization fails gracefully. |) Tj ET
-BT /F3 8.00 Tf 60.00 398.00 Td (| Model missing | `ollama_runtime.py`, `system_check.py` | Setup check shows `ollama pull model`; ) Tj ET
-BT /F3 8.00 Tf 60.00 388.00 Td (summarization error includes pull command. |) Tj ET
-BT /F3 8.00 Tf 60.00 378.00 Td (| Context too small | `summarize.py`, `llama_cpp_runtime.py` | User is told to increase context window ) Tj ET
-BT /F3 8.00 Tf 60.00 368.00 Td (or reduce chunk size. |) Tj ET
-BT /F3 8.00 Tf 60.00 358.00 Td (| Save failed | `file_utils.py`, `backend.ts` | User sees local save error. |) Tj ET
-BT /F3 8.00 Tf 60.00 348.00 Td (| Saved document missing | `document_store.py` | User sees that the saved document was not found. |) Tj ET
-BT /F2 14.00 Tf 52.00 325.00 Td (14. Important Defaults) Tj ET
-BT /F3 8.00 Tf 60.00 294.00 Td (| Setting | Default | Where Defined |) Tj ET
-BT /F3 8.00 Tf 60.00 284.00 Td (| --- | --- | --- |) Tj ET
-BT /F3 8.00 Tf 60.00 274.00 Td (| Runtime | `ollama` | `frontend/src/App.tsx`, `backend/main.py` |) Tj ET
-BT /F3 8.00 Tf 60.00 264.00 Td (| Model | `gemma:2b` | `frontend/src/App.tsx`, `backend/main.py` |) Tj ET
-BT /F3 8.00 Tf 60.00 254.00 Td (| Context window | `4096` | `frontend/src/App.tsx`, `backend/main.py` |) Tj ET
-BT /F3 8.00 Tf 60.00 244.00 Td (| Chunk size | `9000` characters | `frontend/src/App.tsx`, `backend/main.py` |) Tj ET
-BT /F3 8.00 Tf 60.00 234.00 Td (| Backend URL | `http://127.0.0.1:8765` | `frontend/src/api/backend.ts` |) Tj ET
-BT /F3 8.00 Tf 60.00 224.00 Td (| Ollama URL | `http://127.0.0.1:11434` | `backend/model/ollama_runtime.py`, ) Tj ET
-BT /F3 8.00 Tf 60.00 214.00 Td (`backend/utils/system_check.py` |) Tj ET
-BT /F3 8.00 Tf 60.00 204.00 Td (| Reserved output tokens | `900` | `backend/summarizer/summarize.py` |) Tj ET
-BT /F3 8.00 Tf 60.00 194.00 Td (| Saved documents folder | `outputs/documents/` | `backend/main.py`, `backend/utils/document_store.py` |) Tj ET
-BT /F2 14.00 Tf 52.00 171.00 Td (15. Testing Checklist Before Release) Tj ET
-BT /F1 9.50 Tf 52.00 140.00 Td (Run these checks before publishing a new version:) Tj ET
-BT /F3 8.00 Tf 60.00 114.00 Td (.\\.venv\\Scripts\\python.exe -m compileall backend) Tj ET
-BT /F3 8.00 Tf 60.00 104.00 Td (cd frontend) Tj ET
-BT /F3 8.00 Tf 60.00 94.00 Td (npm run build) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 20 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 62.00 723.00 Td (- frontend/src/api/backend.ts) Tj ET
+BT /F1 9.50 Tf 62.00 710.00 Td (- backend/utils/file_utils.py) Tj ET
+BT /F1 9.50 Tf 62.00 697.00 Td (- backend/main.py) Tj ET
+BT /F1 9.50 Tf 52.00 671.00 Td (Current behavior:) Tj ET
+BT /F1 9.50 Tf 62.00 645.00 Td (- In Tauri, save uses a native save dialog.) Tj ET
+BT /F1 9.50 Tf 62.00 632.00 Td (- Outside Tauri, backend fallback writes to outputs/.) Tj ET
+BT /F2 11.50 Tf 52.00 606.00 Td (Change My Documents Behavior) Tj ET
+BT /F1 9.50 Tf 52.00 578.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 552.00 Td (- backend/utils/document_store.py) Tj ET
+BT /F1 9.50 Tf 62.00 539.00 Td (- backend/main.py) Tj ET
+BT /F1 9.50 Tf 62.00 526.00 Td (- frontend/src/api/backend.ts) Tj ET
+BT /F1 9.50 Tf 62.00 513.00 Td (- frontend/src/components/DocumentLibrary.tsx) Tj ET
+BT /F1 9.50 Tf 62.00 500.00 Td (- frontend/src/App.tsx) Tj ET
+BT /F1 9.50 Tf 62.00 487.00 Td (- frontend/src/types.ts) Tj ET
+BT /F1 9.50 Tf 52.00 461.00 Td (Current behavior:) Tj ET
+BT /F1 9.50 Tf 62.00 435.00 Td (- Saved documents are stored locally under outputs/documents/.) Tj ET
+BT /F1 9.50 Tf 62.00 422.00 Td (- Each saved document has metadata, extracted text, and summary text.) Tj ET
+BT /F1 9.50 Tf 62.00 409.00 Td (- Opening a saved document restores extracted text and saved summary.) Tj ET
+BT /F2 11.50 Tf 52.00 383.00 Td (Change Update Notifications) Tj ET
+BT /F1 9.50 Tf 52.00 355.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 329.00 Td (- frontend/src/api/updates.ts) Tj ET
+BT /F1 9.50 Tf 62.00 316.00 Td (- frontend/src/components/SettingsPage.tsx) Tj ET
+BT /F1 9.50 Tf 62.00 303.00 Td (- frontend/src/App.tsx) Tj ET
+BT /F1 9.50 Tf 62.00 290.00 Td (- frontend/src/types.ts) Tj ET
+BT /F1 9.50 Tf 62.00 277.00 Td (- frontend/src/version.ts) Tj ET
+BT /F1 9.50 Tf 62.00 264.00 Td (- frontend/src-tauri/tauri.conf.json if update metadata hosts change) Tj ET
+BT /F1 9.50 Tf 52.00 238.00 Td (Current behavior:) Tj ET
+BT /F1 9.50 Tf 62.00 212.00 Td (- The app checks GitHub Releases metadata from the configured feed URL.) Tj ET
+BT /F1 9.50 Tf 62.00 199.00 Td (- Startup checks run only when enabled and at most once every 24 hours.) Tj ET
+BT /F1 9.50 Tf 62.00 186.00 Td (- The checker reports a newer version and links to a release asset.) Tj ET
+BT /F1 9.50 Tf 62.00 173.00 Td (- This is not a signed automatic installer updater.) Tj ET
+BT /F2 11.50 Tf 52.00 147.00 Td (Change UI Layout) Tj ET
+BT /F1 9.50 Tf 52.00 119.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 93.00 Td (- frontend/src/App.tsx) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 20 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 45 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 44 0 R >>
 endobj
 46 0 obj
-<< /Length 3087 >>
+<< /Length 4659 >>
 stream
-BT /F3 8.00 Tf 60.00 736.00 Td (npm audit --omit=dev) Tj ET
-BT /F1 9.50 Tf 52.00 713.00 Td (Backend manual checks:) Tj ET
-BT /F1 9.50 Tf 62.00 687.00 Td (- Start backend.) Tj ET
-BT /F1 9.50 Tf 62.00 674.00 Td (- Open http://127.0.0.1:8765/health.) Tj ET
-BT /F1 9.50 Tf 62.00 661.00 Td (- Call /system-check.) Tj ET
-BT /F1 9.50 Tf 62.00 648.00 Td (- Extract from TXT.) Tj ET
-BT /F1 9.50 Tf 62.00 635.00 Td (- Extract from PDF.) Tj ET
-BT /F1 9.50 Tf 62.00 622.00 Td (- Extract from image OCR.) Tj ET
-BT /F1 9.50 Tf 62.00 609.00 Td (- Summarize a short document.) Tj ET
-BT /F1 9.50 Tf 62.00 596.00 Td (- Summarize a large document.) Tj ET
-BT /F1 9.50 Tf 62.00 583.00 Td (- Save summary.) Tj ET
-BT /F1 9.50 Tf 52.00 557.00 Td (Release build checks:) Tj ET
-BT /F1 9.50 Tf 62.00 531.00 Td (- Rebuild PyInstaller sidecar.) Tj ET
-BT /F1 9.50 Tf 62.00 518.00 Td (- Copy sidecar to backend-dist/.) Tj ET
-BT /F1 9.50 Tf 62.00 505.00 Td (- Run npm run tauri:build.) Tj ET
-BT /F1 9.50 Tf 62.00 492.00 Td (- Launch release executable.) Tj ET
-BT /F1 9.50 Tf 62.00 479.00 Td (- Confirm setup check is visible.) Tj ET
-BT /F1 9.50 Tf 62.00 466.00 Td (- Confirm Summarize streams output.) Tj ET
-BT /F1 9.50 Tf 62.00 453.00 Td (- Confirm installer files are under frontend/src-tauri/target/release/bundle/.) Tj ET
-BT /F2 14.00 Tf 52.00 427.00 Td (16. Current Limitations) Tj ET
-BT /F1 9.50 Tf 62.00 396.00 Td (- OCR only handles image files, not scanned PDFs directly.) Tj ET
-BT /F1 9.50 Tf 62.00 383.00 Td (- Token estimation is approximate.) Tj ET
-BT /F1 9.50 Tf 62.00 370.00 Td (- Ollama must be installed separately.) Tj ET
-BT /F1 9.50 Tf 62.00 357.00 Td (- gemma:2b must be pulled separately.) Tj ET
-BT /F1 9.50 Tf 62.00 344.00 Td (- llama.cpp mode is scaffolded but not as polished as Ollama mode.) Tj ET
-BT /F1 9.50 Tf 62.00 331.00 Td (- There is no cancellation button for long generations.) Tj ET
-BT /F1 9.50 Tf 62.00 318.00 Td (- There is no document preview image/PDF viewer, only filename/type/status and extracted text.) Tj ET
-BT /F1 9.50 Tf 62.00 305.00 Td (- There is no auto-update system.) Tj ET
-BT /F2 14.00 Tf 52.00 279.00 Td (17. Suggested Roadmap) Tj ET
-BT /F1 9.50 Tf 52.00 248.00 Td (High-impact next features:) Tj ET
-BT /F1 9.50 Tf 52.00 222.00 Td (1. Scanned PDF OCR fallback.) Tj ET
-BT /F1 9.50 Tf 52.00 209.00 Td (2. First-run installer/helper page with direct setup links.) Tj ET
-BT /F1 9.50 Tf 52.00 196.00 Td (3. Better model selector using installed Ollama models.) Tj ET
-BT /F1 9.50 Tf 52.00 183.00 Td (4. Cancel summarization button.) Tj ET
-BT /F1 9.50 Tf 52.00 170.00 Td (5. Progress percentage for chunked summarization.) Tj ET
-BT /F1 9.50 Tf 52.00 157.00 Td (6. Summary history stored locally.) Tj ET
-BT /F1 9.50 Tf 52.00 144.00 Td (7. Export as Markdown and PDF.) Tj ET
-BT /F1 9.50 Tf 52.00 131.00 Td (8. App auto-update after code signing is planned.) Tj ET
-BT /F2 14.00 Tf 52.00 105.00 Td (18. Maintenance Notes) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 21 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F1 9.50 Tf 62.00 736.00 Td (- frontend/src/styles.css) Tj ET
+BT /F1 9.50 Tf 62.00 723.00 Td (- component files under frontend/src/components/) Tj ET
+BT /F2 11.50 Tf 52.00 697.00 Td (Add App Auto-Update) Tj ET
+BT /F1 9.50 Tf 52.00 669.00 Td (Files to change:) Tj ET
+BT /F1 9.50 Tf 62.00 643.00 Td (- Tauri updater configuration) Tj ET
+BT /F1 9.50 Tf 62.00 630.00 Td (- frontend/src-tauri/tauri.conf.json) Tj ET
+BT /F1 9.50 Tf 62.00 617.00 Td (- release signing keys and GitHub release process) Tj ET
+BT /F1 9.50 Tf 52.00 591.00 Td (This feature has security implications and should be planned carefully.) Tj ET
+BT /F2 14.00 Tf 52.00 565.00 Td (13. Error Handling Map) Tj ET
+BT /F3 8.00 Tf 60.00 534.00 Td (| Error | Where It Comes From | User-Facing Behavior |) Tj ET
+BT /F3 8.00 Tf 60.00 524.00 Td (| --- | --- | --- |) Tj ET
+BT /F3 8.00 Tf 60.00 514.00 Td (| Unsupported file type | `backend/main.py`, `file_utils.py` | Upload fails with supported extensions ) Tj ET
+BT /F3 8.00 Tf 60.00 504.00 Td (message. |) Tj ET
+BT /F3 8.00 Tf 60.00 494.00 Td (| OCR failed | `backend/extraction/image_ocr.py` | User sees OCR error. |) Tj ET
+BT /F3 8.00 Tf 60.00 484.00 Td (| Tesseract missing | `image_ocr.py`, `system_check.py` | Setup check marks OCR missing; extraction ) Tj ET
+BT /F3 8.00 Tf 60.00 474.00 Td (shows OCR failure. |) Tj ET
+BT /F3 8.00 Tf 60.00 464.00 Td (| PDF extraction failed | `backend/extraction/pdf_reader.py` | User sees PDF extraction error. |) Tj ET
+BT /F3 8.00 Tf 60.00 454.00 Td (| Empty extracted text | `backend/main.py`, `summarize.py` | User sees empty text message. |) Tj ET
+BT /F3 8.00 Tf 60.00 444.00 Td (| Ollama not running | `ollama_runtime.py`, `system_check.py` | Setup check marks Ollama missing; ) Tj ET
+BT /F3 8.00 Tf 60.00 434.00 Td (summarization fails gracefully. |) Tj ET
+BT /F3 8.00 Tf 60.00 424.00 Td (| Model missing | `ollama_runtime.py`, `system_check.py` | Setup check shows `ollama pull model`; ) Tj ET
+BT /F3 8.00 Tf 60.00 414.00 Td (summarization error includes pull command. |) Tj ET
+BT /F3 8.00 Tf 60.00 404.00 Td (| Context too small | `summarize.py`, `llama_cpp_runtime.py` | User is told to increase context window ) Tj ET
+BT /F3 8.00 Tf 60.00 394.00 Td (or reduce chunk size. |) Tj ET
+BT /F3 8.00 Tf 60.00 384.00 Td (| Save failed | `file_utils.py`, `backend.ts` | User sees local save error. |) Tj ET
+BT /F3 8.00 Tf 60.00 374.00 Td (| Saved document missing | `document_store.py` | User sees that the saved document was not found. |) Tj ET
+BT /F3 8.00 Tf 60.00 364.00 Td (| Update check failed | `updates.ts`, `SettingsPage.tsx` | User sees update check failure in Settings. |) Tj ET
+BT /F2 14.00 Tf 52.00 341.00 Td (14. Important Defaults) Tj ET
+BT /F3 8.00 Tf 60.00 310.00 Td (| Setting | Default | Where Defined |) Tj ET
+BT /F3 8.00 Tf 60.00 300.00 Td (| --- | --- | --- |) Tj ET
+BT /F3 8.00 Tf 60.00 290.00 Td (| Runtime | `ollama` | `frontend/src/App.tsx`, `backend/main.py` |) Tj ET
+BT /F3 8.00 Tf 60.00 280.00 Td (| Model | `gemma:2b` | `frontend/src/App.tsx`, `backend/main.py` |) Tj ET
+BT /F3 8.00 Tf 60.00 270.00 Td (| Context window | `4096` | `frontend/src/App.tsx`, `backend/main.py` |) Tj ET
+BT /F3 8.00 Tf 60.00 260.00 Td (| Chunk size | `9000` characters | `frontend/src/App.tsx`, `backend/main.py` |) Tj ET
+BT /F3 8.00 Tf 60.00 250.00 Td (| Backend URL | `http://127.0.0.1:8765` | `frontend/src/api/backend.ts` |) Tj ET
+BT /F3 8.00 Tf 60.00 240.00 Td (| Ollama URL | `http://127.0.0.1:11434` | `backend/model/ollama_runtime.py`, ) Tj ET
+BT /F3 8.00 Tf 60.00 230.00 Td (`backend/utils/system_check.py` |) Tj ET
+BT /F3 8.00 Tf 60.00 220.00 Td (| Reserved output tokens | `900` | `backend/summarizer/summarize.py` |) Tj ET
+BT /F3 8.00 Tf 60.00 210.00 Td (| Saved documents folder | `outputs/documents/` | `backend/main.py`, `backend/utils/document_store.py` |) Tj ET
+BT /F3 8.00 Tf 60.00 200.00 Td (| App version | `0.4.0` | `frontend/src/version.ts`, Tauri/package metadata |) Tj ET
+BT /F3 8.00 Tf 60.00 190.00 Td (| Update feed URL | `https://api.github.com/repos/sumitkumar-lab/offline-document-) Tj ET
+BT /F3 8.00 Tf 60.00 180.00 Td (summarizer/releases/latest` | `frontend/src/api/updates.ts`, `frontend/src/App.tsx` |) Tj ET
+BT /F2 14.00 Tf 52.00 157.00 Td (15. Testing Checklist Before Release) Tj ET
+BT /F1 9.50 Tf 52.00 126.00 Td (Run these checks before publishing a new version:) Tj ET
+BT /F3 8.00 Tf 60.00 100.00 Td (.\\.venv\\Scripts\\python.exe -m compileall backend) Tj ET
+BT /F3 8.00 Tf 60.00 90.00 Td (cd frontend) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 21 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 47 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 46 0 R >>
 endobj
 48 0 obj
-<< /Length 938 >>
+<< /Length 3078 >>
 stream
-BT /F1 9.50 Tf 52.00 723.00 Td (Keep the project maintainable by following these rules:) Tj ET
-BT /F1 9.50 Tf 62.00 697.00 Td (- Preserve the local-only privacy boundary.) Tj ET
-BT /F1 9.50 Tf 62.00 684.00 Td (- Keep extraction logic in backend/extraction.) Tj ET
-BT /F1 9.50 Tf 62.00 671.00 Td (- Keep prompt logic in backend/summarizer/prompts.py.) Tj ET
-BT /F1 9.50 Tf 62.00 658.00 Td (- Keep runtime-specific model logic in backend/model.) Tj ET
-BT /F1 9.50 Tf 62.00 645.00 Td (- Keep frontend API calls centralized in frontend/src/api/backend.ts.) Tj ET
-BT /F1 9.50 Tf 62.00 632.00 Td (- Keep shared frontend types in frontend/src/types.ts.) Tj ET
-BT /F1 9.50 Tf 62.00 619.00 Td (- Update this document when you add a new runtime, file type, API endpoint, or release workflow.) Tj ET
-BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 22 of 22) Tj ET
-BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:12) Tj ET
+BT /F3 8.00 Tf 60.00 736.00 Td (npm run build) Tj ET
+BT /F3 8.00 Tf 60.00 726.00 Td (npm audit --omit=dev) Tj ET
+BT /F1 9.50 Tf 52.00 703.00 Td (Backend manual checks:) Tj ET
+BT /F1 9.50 Tf 62.00 677.00 Td (- Start backend.) Tj ET
+BT /F1 9.50 Tf 62.00 664.00 Td (- Open http://127.0.0.1:8765/health.) Tj ET
+BT /F1 9.50 Tf 62.00 651.00 Td (- Call /system-check.) Tj ET
+BT /F1 9.50 Tf 62.00 638.00 Td (- Extract from TXT.) Tj ET
+BT /F1 9.50 Tf 62.00 625.00 Td (- Extract from PDF.) Tj ET
+BT /F1 9.50 Tf 62.00 612.00 Td (- Extract from image OCR.) Tj ET
+BT /F1 9.50 Tf 62.00 599.00 Td (- Summarize a short document.) Tj ET
+BT /F1 9.50 Tf 62.00 586.00 Td (- Summarize a large document.) Tj ET
+BT /F1 9.50 Tf 62.00 573.00 Td (- Save summary.) Tj ET
+BT /F1 9.50 Tf 52.00 547.00 Td (Release build checks:) Tj ET
+BT /F1 9.50 Tf 62.00 521.00 Td (- Rebuild PyInstaller sidecar.) Tj ET
+BT /F1 9.50 Tf 62.00 508.00 Td (- Copy sidecar to backend-dist/.) Tj ET
+BT /F1 9.50 Tf 62.00 495.00 Td (- Run npm run tauri:build.) Tj ET
+BT /F1 9.50 Tf 62.00 482.00 Td (- Launch release executable.) Tj ET
+BT /F1 9.50 Tf 62.00 469.00 Td (- Confirm setup check is visible.) Tj ET
+BT /F1 9.50 Tf 62.00 456.00 Td (- Confirm Summarize streams output.) Tj ET
+BT /F1 9.50 Tf 62.00 443.00 Td (- Confirm installer files are under frontend/src-tauri/target/release/bundle/.) Tj ET
+BT /F2 14.00 Tf 52.00 417.00 Td (16. Current Limitations) Tj ET
+BT /F1 9.50 Tf 62.00 386.00 Td (- OCR only handles image files, not scanned PDFs directly.) Tj ET
+BT /F1 9.50 Tf 62.00 373.00 Td (- Token estimation is approximate.) Tj ET
+BT /F1 9.50 Tf 62.00 360.00 Td (- Ollama must be installed separately.) Tj ET
+BT /F1 9.50 Tf 62.00 347.00 Td (- gemma:2b must be pulled separately.) Tj ET
+BT /F1 9.50 Tf 62.00 334.00 Td (- llama.cpp mode is scaffolded but not as polished as Ollama mode.) Tj ET
+BT /F1 9.50 Tf 62.00 321.00 Td (- There is no cancellation button for long generations.) Tj ET
+BT /F1 9.50 Tf 62.00 308.00 Td (- There is no document preview image/PDF viewer, only filename/type/status and extracted text.) Tj ET
+BT /F1 9.50 Tf 62.00 295.00 Td (- There is no auto-update system.) Tj ET
+BT /F2 14.00 Tf 52.00 269.00 Td (17. Suggested Roadmap) Tj ET
+BT /F1 9.50 Tf 52.00 238.00 Td (High-impact next features:) Tj ET
+BT /F1 9.50 Tf 52.00 212.00 Td (1. Scanned PDF OCR fallback.) Tj ET
+BT /F1 9.50 Tf 52.00 199.00 Td (2. First-run installer/helper page with direct setup links.) Tj ET
+BT /F1 9.50 Tf 52.00 186.00 Td (3. Better model selector using installed Ollama models.) Tj ET
+BT /F1 9.50 Tf 52.00 173.00 Td (4. Cancel summarization button.) Tj ET
+BT /F1 9.50 Tf 52.00 160.00 Td (5. Progress percentage for chunked summarization.) Tj ET
+BT /F1 9.50 Tf 52.00 147.00 Td (6. Summary history stored locally.) Tj ET
+BT /F1 9.50 Tf 52.00 134.00 Td (7. Export as Markdown and PDF.) Tj ET
+BT /F1 9.50 Tf 52.00 121.00 Td (8. App auto-update after code signing is planned.) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 22 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
 endstream
 endobj
 49 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 48 0 R >>
 endobj
+50 0 obj
+<< /Length 1000 >>
+stream
+BT /F2 14.00 Tf 52.00 736.00 Td (18. Maintenance Notes) Tj ET
+BT /F1 9.50 Tf 52.00 705.00 Td (Keep the project maintainable by following these rules:) Tj ET
+BT /F1 9.50 Tf 62.00 679.00 Td (- Preserve the local-only privacy boundary.) Tj ET
+BT /F1 9.50 Tf 62.00 666.00 Td (- Keep extraction logic in backend/extraction.) Tj ET
+BT /F1 9.50 Tf 62.00 653.00 Td (- Keep prompt logic in backend/summarizer/prompts.py.) Tj ET
+BT /F1 9.50 Tf 62.00 640.00 Td (- Keep runtime-specific model logic in backend/model.) Tj ET
+BT /F1 9.50 Tf 62.00 627.00 Td (- Keep frontend API calls centralized in frontend/src/api/backend.ts.) Tj ET
+BT /F1 9.50 Tf 62.00 614.00 Td (- Keep shared frontend types in frontend/src/types.ts.) Tj ET
+BT /F1 9.50 Tf 62.00 601.00 Td (- Update this document when you add a new runtime, file type, API endpoint, or release workflow.) Tj ET
+BT /F1 8 Tf 52.00 30 Td (Offline Document Summarizer Project Guide | Page 23 of 23) Tj ET
+BT /F1 8 Tf 438.00 30 Td (Generated 2026-05-21 20:53) Tj ET
+endstream
+endobj
+51 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 50 0 R >>
+endobj
 xref
-0 50
+0 52
 0000000000 65535 f 
 0000000015 00000 n 
 0000000064 00000 n 
-0000000268 00000 n 
-0000000338 00000 n 
-0000000413 00000 n 
-0000000481 00000 n 
-0000004416 00000 n 
-0000004562 00000 n 
-0000008210 00000 n 
-0000008356 00000 n 
-0000012453 00000 n 
-0000012601 00000 n 
-0000015656 00000 n 
-0000015804 00000 n 
-0000019329 00000 n 
-0000019477 00000 n 
-0000022982 00000 n 
-0000023130 00000 n 
-0000025818 00000 n 
-0000025966 00000 n 
-0000028495 00000 n 
-0000028643 00000 n 
-0000030999 00000 n 
-0000031147 00000 n 
-0000033858 00000 n 
-0000034006 00000 n 
-0000036920 00000 n 
-0000037068 00000 n 
-0000039814 00000 n 
-0000039962 00000 n 
-0000043019 00000 n 
-0000043167 00000 n 
-0000046079 00000 n 
-0000046227 00000 n 
-0000049000 00000 n 
-0000049148 00000 n 
-0000051812 00000 n 
-0000051960 00000 n 
-0000054371 00000 n 
-0000054519 00000 n 
-0000057036 00000 n 
-0000057184 00000 n 
-0000059828 00000 n 
-0000059976 00000 n 
-0000064295 00000 n 
-0000064443 00000 n 
-0000067583 00000 n 
-0000067731 00000 n 
-0000068721 00000 n 
+0000000275 00000 n 
+0000000345 00000 n 
+0000000420 00000 n 
+0000000488 00000 n 
+0000004423 00000 n 
+0000004569 00000 n 
+0000008381 00000 n 
+0000008527 00000 n 
+0000012700 00000 n 
+0000012848 00000 n 
+0000016201 00000 n 
+0000016349 00000 n 
+0000019992 00000 n 
+0000020140 00000 n 
+0000023236 00000 n 
+0000023384 00000 n 
+0000026296 00000 n 
+0000026444 00000 n 
+0000029108 00000 n 
+0000029256 00000 n 
+0000031670 00000 n 
+0000031818 00000 n 
+0000034140 00000 n 
+0000034288 00000 n 
+0000037162 00000 n 
+0000037310 00000 n 
+0000040297 00000 n 
+0000040445 00000 n 
+0000043111 00000 n 
+0000043259 00000 n 
+0000046364 00000 n 
+0000046512 00000 n 
+0000049290 00000 n 
+0000049438 00000 n 
+0000052272 00000 n 
+0000052420 00000 n 
+0000054889 00000 n 
+0000055037 00000 n 
+0000057609 00000 n 
+0000057757 00000 n 
+0000060265 00000 n 
+0000060413 00000 n 
+0000063178 00000 n 
+0000063326 00000 n 
+0000068038 00000 n 
+0000068186 00000 n 
+0000071317 00000 n 
+0000071465 00000 n 
+0000072518 00000 n 
 trailer
-<< /Size 50 /Root 1 0 R >>
+<< /Size 52 /Root 1 0 R >>
 startxref
-68869
+72666
 %%EOF

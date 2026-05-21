@@ -655,8 +655,88 @@ select {
   color: #0f766e;
 }
 
+.settings-section {
+  display: grid;
+  gap: 13px;
+  padding: 16px 0;
+  border-top: 1px solid #e0e6e9;
+}
+
+.settings-section:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.section-heading h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+}
+
+.section-heading span,
+.update-status {
+  color: #66737a;
+  font-size: 0.85rem;
+}
+
 .settings-grid .full-width {
   grid-column: 1 / -1;
+}
+
+.checkbox-row {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  justify-content: start;
+  font-weight: 600;
+}
+
+.checkbox-row input {
+  width: 17px;
+  min-height: 17px;
+  margin: 0;
+}
+
+.update-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.update-card {
+  display: grid;
+  gap: 5px;
+  padding: 12px;
+  border: 1px solid #d7dee2;
+  border-radius: 8px;
+  background: #f6f8f9;
+}
+
+.update-card.available {
+  border-color: #b6d8d2;
+  background: #f1faf8;
+}
+
+.update-card strong,
+.update-card span {
+  overflow-wrap: anywhere;
+}
+
+.update-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  color: #0f766e;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .settings-saved {

@@ -21,6 +21,8 @@ export interface AppSettings {
   ggufModelPath: string;
   contextWindow: number;
   chunkSize: number;
+  updateFeedUrl: string;
+  autoCheckUpdates: boolean;
 }
 
 export interface ExtractResponse {
@@ -57,6 +59,16 @@ export interface SavedDocumentSummary {
 export interface SavedDocumentDetail extends SavedDocumentSummary {
   text: string;
   summary: string;
+}
+
+export interface UpdateCheckResult {
+  currentVersion: string;
+  latestVersion: string;
+  isUpdateAvailable: boolean;
+  releaseName: string;
+  releaseUrl: string;
+  publishedAt: string;
+  downloadUrl: string;
 }
 
 export type SystemCheckStatus = "ready" | "warning" | "missing";

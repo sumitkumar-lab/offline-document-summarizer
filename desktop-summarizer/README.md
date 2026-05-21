@@ -28,13 +28,13 @@ Download the latest Windows installer from the project's GitHub Releases page.
 Recommended file:
 
 ```text
-Offline Document Summarizer_0.3.0_x64-setup.exe
+Offline Document Summarizer_0.4.0_x64-setup.exe
 ```
 
 Alternative MSI package:
 
 ```text
-Offline Document Summarizer_0.3.0_x64_en-US.msi
+Offline Document Summarizer_0.4.0_x64_en-US.msi
 ```
 
 After installing, launch **Offline Document Summarizer** from the Start Menu. The app opens with a local setup check so users can see whether OCR, Ollama, and the selected model are ready.
@@ -50,6 +50,29 @@ ollama pull gemma:2b
 ```
 
 Everything runs locally after setup.
+
+## Update Notifications
+
+The app can check GitHub Releases for newer versions from the Settings screen.
+This check reads release metadata only; it does not upload documents, extracted text,
+summaries, chat messages, or local metadata.
+
+In Settings, set the GitHub releases feed to:
+
+```text
+https://api.github.com/repos/sumitkumar-lab/offline-document-summarizer/releases/latest
+```
+
+For release builds, you can bake the feed URL into the app before building:
+
+```powershell
+$env:VITE_UPDATE_FEED_URL="https://api.github.com/repos/sumitkumar-lab/offline-document-summarizer/releases/latest"
+cd frontend
+npm run tauri:build
+```
+
+Users on versions before the update checker was added need to install a newer
+installer once before they can receive in-app update notifications.
 
 ## Project Structure
 
